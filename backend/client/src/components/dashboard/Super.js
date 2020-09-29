@@ -136,13 +136,13 @@ class Super extends Component {
                                                             <Typography variant="h4" gutterBottom color="primary" align="center"> Auditorías Activos</Typography>
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Este mes: </Typography> {activos_mes.length}
+                                                                    <Typography variant="h5">Este mes: </Typography> {activos_mes != null ? activos_mes.length : 0}
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Esta semana: </Typography> {activos_semana.length}
+                                                                    <Typography variant="h5">Esta semana: </Typography> {activos_semana != null ? activos_semana.length : 0}
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Hoy: </Typography> {activos_hoy.length}
+                                                                    <Typography variant="h5">Hoy: </Typography> {activos_hoy != null ? activos_hoy.length : 0}
                                                                 </Grid>
                                                             </Grid>
                                                         </CardContent>
@@ -154,13 +154,13 @@ class Super extends Component {
                                                             <Typography variant="h4" gutterBottom color="primary" align="center"> Auditorías Actividades</Typography>
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Este mes: </Typography> {tareas_mes.length}
+                                                                    <Typography variant="h5">Este mes: </Typography> {tareas_mes != null ? tareas_mes.length : 0}
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Esta semana: </Typography> {tareas_semana.length}
+                                                                    <Typography variant="h5">Esta semana: </Typography> {tareas_semana != null ? tareas_semana.length : 0}
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Hoy: </Typography> {tareas_hoy.length}
+                                                                    <Typography variant="h5">Hoy: </Typography> {tareas_hoy != null ? tareas_hoy.length : 0}
                                                                 </Grid>
                                                             </Grid>
                                                         </CardContent>
@@ -172,13 +172,13 @@ class Super extends Component {
                                                             <Typography variant="h4" gutterBottom color="primary" align="center"> Auditorías Usuarios</Typography>
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Este mes: </Typography> {usuarios_mes.length}
+                                                                    <Typography variant="h5">Este mes: </Typography> {usuarios_mes != null ? usuarios_mes.length :0 }
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Esta semana: </Typography> {usuarios_semana.length}
+                                                                    <Typography variant="h5">Esta semana: </Typography> {usuarios_semana != null ? usuarios_semana.length :0}
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Hoy: </Typography> {usuarios_hoy.length}
+                                                                    <Typography variant="h5">Hoy: </Typography> {usuarios_hoy != null ? usuarios_hoy.length :0}
                                                                 </Grid>
                                                             </Grid>
                                                         </CardContent>
