@@ -80,6 +80,11 @@ class Assets extends Component {
         this.setState({setOpen: false})
     };
 
+    clear = (e) => {
+        e.preventDefault();
+        this.props.clear();
+    }
+
     render() {
         const res = this.props.assets.assets;
         const assets = res.data;
@@ -187,80 +192,45 @@ class Assets extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
-            <Grid container>
+            <Grid container alignItems="center" direction="column" spacing={2}>
                 <Grid item xs={12}>
-                <MaterialTable
-                  title="Activos"
-                  columns={this.state.columns}
-                  data={assetItems}
-                  options={{
-                      exportButton:true,
-                      headerStyle: {
-                        color: '#00A9E0',
-                        fontSize: 16
-                    }
-                  }}
-                  actions={[
-                    {
-                        icon: 'search',
-                        tooltip: 'Detalle Activo',
-                        onClick: (event, rowData) => this.onDetailClick(rowData.id)
-                    },
-                    {
-                      icon: 'edit',
-                      tooltip: 'Editar Activo',
-                      onClick: (event, rowData) => this.onUpdateClick(rowData.id)
-                    },
-                    {
-                      icon: 'delete',
-                      tooltip: 'Eliminar Activo',
-                      onClick: (event, rowData) => this.onDeleteClick(rowData.id)
-                    },
-                    /* {
-                        icon: 'add',
-                        tooltip: 'Imágenes',
-                        onClick: ( event, rowData ) => this.onImageClick(rowData.id)
-                    } */
-                  ]}
-                  >
-                </MaterialTable>
-                {/* <div className="row s12 center-align">
-                    <div className="col s12 ">
-                        <h5>
-                            <b>Activos</b>
-                        </h5>
-                        <p className="grey-text text-darken-1">
-                            Agregar o modificar activos
-                        </p>
-                    </div>
-                </div>
-                <div className="row s12">
-                    <div className="col s12 ">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Fin Garantía</th>
-                                <th>Categoría</th>
-                                <th>Ubicación</th>
-                                <th>Frecuencia m/to</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                            <tr>
-                                <th><input type="text" placeholder="Buscar por palabra clave" onChange={(e)=>this.searchSpace(e)}/></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                            {assetItems}
-                        </tbody>
-                    </table>
-                    </div>
-                </div> */}
+                    <MaterialTable
+                    style={{width:"100%"}}
+                    title="Activos"
+                    columns={this.state.columns}
+                    data={assetItems}
+                    options={{
+                        exportButton:true,
+                        headerStyle: {
+                            color: '#00A9E0',
+                            fontSize: 16
+                        },
+                        rowStyle: {
+                            fontSize: 16,
+                          }
+                    }}
+                    actions={[
+                        {
+                            icon: 'search',
+                            tooltip: 'Detalle Activo',
+                            onClick: (event, rowData) => this.onDetailClick(rowData.id)
+                        },
+                        {
+                        icon: 'edit',
+                        tooltip: 'Editar Activo',
+                        onClick: (event, rowData) => this.onUpdateClick(rowData.id)
+                        },
+                        {
+                        icon: 'delete',
+                        tooltip: 'Eliminar Activo',
+                        onClick: (event, rowData) => this.onDeleteClick(rowData.id)
+                        },
+                    ]}
+                    >
+                    </MaterialTable>
+                </Grid>
+                <Grid item xs={12}>
+                  <Button variant="contained" color="primary" size="large" onClick={this.clear}>Limpiar</Button>
                 </Grid>
             </Grid>
             </div>

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getUsers } from "../../actions/userActions";
 
 import Users from "./Users";
+import { Button } from "@material-ui/core";
 
 class DashUsers extends Component {
   
@@ -30,9 +31,8 @@ class DashUsers extends Component {
           } else if (res.length> 0) {
             dashboardContent = <div>
                                   <Users users={res}/>
-                                  <Link to="/register" className="btn-flat waves-effect">
-                                    <i className="material-icons left">add</i> Nuevo usuario
-                                  </Link>
+                                  <Button style={{marginTop:10, justifySelf:"center"}} variant="contained" color="primary" href="/register"> + Nuevo Usuario</Button>
+
                                 </div>;
           } else {
             dashboardContent = <div> No hay usuarios </div>;
@@ -40,9 +40,7 @@ class DashUsers extends Component {
 
         return (
             <div className="container" style={{width:"900px"}}>
-              <Link to="/Dashboard" className="btn-flat waves-effect">
-                <i className="material-icons left">keyboard_backspace</i> Regresar
-              </Link>
+              <Button variant="text" color="primary" href="/dashboard"> &lt;&lt; Regresar</Button>
                 {dashboardContent}
             </div>
         )

@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { getVenues } from "../../actions/venueActions";
 
 import Venues from "./Venues";
+import { Card, CardContent } from "@material-ui/core";
 
 class DashVenues extends Component {
 
@@ -39,9 +40,11 @@ class DashVenues extends Component {
             }
 
         return (
-            <div>
+            <Card variant="elevation">
+              <CardContent>
                 {dashboardContent}
-            </div>
+              </CardContent>
+            </Card>
         )
     }
 }

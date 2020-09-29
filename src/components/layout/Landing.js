@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Divider from '@material-ui/core/Divider';
+import { Divider, Grid } from '@material-ui/core';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
 import IconButton from '@material-ui/core/IconButton';
@@ -27,7 +27,9 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
+import Typography from '@material-ui/core/Typography'
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+
 import { withStyles } from "@material-ui/core/styles";
 
 import { logoutUser } from "../../actions/authActions";
@@ -102,11 +104,11 @@ class Landing extends Component {
       <Divider />
       <List>
         <ListItem button key="Home" component={Link} to="/">
-              <ListItemIcon><HomeRoundedIcon/></ListItemIcon>
+              <ListItemIcon><HomeRoundedIcon color="secondary"/></ListItemIcon>
               <ListItemText primary="Inicio" />
         </ListItem>
         <ListItem button key="Login" component={Link} to="/login">
-              <ListItemIcon><VpnKeyIcon/></ListItemIcon>
+              <ListItemIcon><VpnKeyIcon color="secondary"/></ListItemIcon>
               <ListItemText primary="Iniciar Sesión" />
         </ListItem>
       </List>
@@ -121,42 +123,42 @@ class Landing extends Component {
       <Divider />
       <List>
         <ListItem button key="Home" component={Link} to="/dashboard">
-              <ListItemIcon><HomeRoundedIcon/></ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemIcon><HomeRoundedIcon color="secondary"/></ListItemIcon>
+              <ListItemText primary="Tablero" />
         </ListItem>
         <ListItem button key="Activos" component={Link} to="/assets">
-            <ListItemIcon><DevicesOtherRoundedIcon/></ListItemIcon>
+            <ListItemIcon><DevicesOtherRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Activos" />
         </ListItem>
         <ListItem button key="Actividades" component={Link} to="/tasks">
-            <ListItemIcon><BuildRoundedIcon/></ListItemIcon>
+            <ListItemIcon><BuildRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Actividades" />
         </ListItem>
         <ListItem button key="Rutinas" component={Link} to="/routines">
-            <ListItemIcon><ViewListRoundedIcon/></ListItemIcon>
+            <ListItemIcon><ViewListRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Rutinas" />
         </ListItem>
         <ListItem button key="Recintos" component={Link} to="/venues">
-            <ListItemIcon><BusinessRoundedIcon/></ListItemIcon>
+            <ListItemIcon><BusinessRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Recintos" />
         </ListItem>
         <ListItem button key="Usuarios" component={Link} to="/users">
-            <ListItemIcon><ContactsRoundedIcon/></ListItemIcon>
+            <ListItemIcon><ContactsRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Usuarios" />
         </ListItem>
         <ListItem button key="Auditorias" component={Link} to="/audits">
-            <ListItemIcon><UnarchiveRoundedIcon/></ListItemIcon>
+            <ListItemIcon><UnarchiveRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Auditorías" />
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem button key="Mi Perfil" component={Link} to="/profile">
-            <ListItemIcon><AccountCircleRoundedIcon/></ListItemIcon>
+            <ListItemIcon><AccountCircleRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Mi Perfil" />
         </ListItem>
         <ListItem button key="Cerrar Sesión" onClick={this.onLogoutClick}>
-            <ListItemIcon><ExitToAppRoundedIcon/></ListItemIcon>
+            <ListItemIcon><ExitToAppRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Cerrar Sesión" />
         </ListItem>
       </List>
@@ -171,30 +173,30 @@ class Landing extends Component {
       <Divider />
       <List>
       <ListItem button key="Home" component={Link} to="/dashboard">
-              <ListItemIcon><HomeRoundedIcon/></ListItemIcon>
-              <ListItemText primary="Dashboard" />
+              <ListItemIcon><HomeRoundedIcon color="secondary" /></ListItemIcon>
+              <ListItemText primary="Tablero" />
       </ListItem>
       <ListItem button key="Activos" component={Link} to="/assets">
-            <ListItemIcon><DevicesOtherRoundedIcon/></ListItemIcon>
+            <ListItemIcon><DevicesOtherRoundedIcon color="secondary" /></ListItemIcon>
             <ListItemText primary="Activos" />
         </ListItem>
         <ListItem button key="Actividades" component={Link} to="/tasks">
-            <ListItemIcon><BuildRoundedIcon/></ListItemIcon>
+            <ListItemIcon><BuildRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Actividades" />
         </ListItem>
         <ListItem button key="Rutinas" component={Link} to="/routines">
-            <ListItemIcon><ViewListRoundedIcon/></ListItemIcon>
+            <ListItemIcon><ViewListRoundedIcon color="secondary"/></ListItemIcon>
             <ListItemText primary="Rutinas" />
         </ListItem>
       </List>
       <Divider />
       <List>
         <ListItem button key="Mi Perfil" component={Link} to="/profile">
-            <ListItemIcon><AccountCircleRoundedIcon/></ListItemIcon>
+            <ListItemIcon><AccountCircleRoundedIcon color="secondary" /></ListItemIcon>
             <ListItemText primary="Mi Perfil" />
         </ListItem>
         <ListItem button key="Cerrar Sesión" onClick={this.onLogoutClick}>
-            <ListItemIcon><ExitToAppRoundedIcon/></ListItemIcon>
+            <ListItemIcon><ExitToAppRoundedIcon color="secondary" /></ListItemIcon>
             <ListItemText primary="Cerrar Sesión" />
         </ListItem>
       </List>
@@ -205,7 +207,7 @@ class Landing extends Component {
     <div className={classes.root}>
       <CssBaseline />
       <AppBar position="fixed" className={classes.appBar}>
-        <Toolbar >
+        <Toolbar>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -215,10 +217,38 @@ class Landing extends Component {
           >
             <MenuIcon />
           </IconButton>
-          <Typography variant="h3" color="textSecondary" align="right" noWrap>
-            CMMS
-          </Typography> 
-        </Toolbar>
+          <Grid container direction="row" justify="space-between" alignItems="center">
+            <Grid item>
+              <Typography variant="h2" color="textSecondary" align="right" noWrap>
+                SCM
+              </Typography>
+            </Grid>
+            <Grid item>
+              <Grid container direction="row" justify="flex-end" alignItems="center" spacing={1}>
+                <Grid item xs={6} style={{height:65}}>
+                  <Grid container direction="row" justify="flex-end" alignItems="stretch" spacing={2} style={{height:65}}>
+                    <Grid item xs={3}>
+                      <Divider orientation="vertical" variant="fullWidth" ></Divider>
+                    </Grid>
+                    <Grid item xs={3}>
+                          <AccountCircleIcon style={{marginTop:14, marginRight:0, marginLeft:-15, fontSize:26}} />
+                    </Grid>
+                  </Grid>
+                </Grid>
+                <Grid item xs={6}>
+                  <Grid container direction="column" justify="center" alignItems="flex-start" style={{width:200}}>
+                    <Grid item xs={12}>
+                      <Typography variant="h6" style={{fontSize:14}} > {user.name} </Typography>
+                    </Grid>
+                    <Grid item xs={12}>
+                      <Typography variant="h6" style={{fontSize:14}} > {user.role} </Typography>
+                    </Grid>
+                  </Grid>
+                </Grid>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Toolbar>{/**  <div style={{position: "fixed", right: "0"}}> */}
       </AppBar>
       <nav className={classes.drawer} aria-label="mailbox folders">
         <Hidden smUp implementation="css">

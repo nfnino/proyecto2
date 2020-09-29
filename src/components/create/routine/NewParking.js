@@ -15,11 +15,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 const useStyles = theme => ({
   root: {
-    maxWidth: 800,
+    width: 600,
+    minWidth: 300
   },
   pos: {
     left: "40%",
     width: 170,
+    marginBottom: 20
   },
 });
 
@@ -121,16 +123,17 @@ if( users.length !== 0) {
 } 
 
 return (
-  <div>
+  <Grid container direction="column" alignItems="center">
+    <Grid item xs={12}>
       <Card container className={classes.root} variant="outlined">
           <Link to="/parkings" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" color="primary" gutterBottom>Nueva rutina de parking :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Nueva rutina de parking :</Typography>
               <br/>
               <Grid container spacing={2}>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12}>
                       <Autocomplete
                       id="supervisor"
                       defaultValue={this.state.supervisor}
@@ -142,7 +145,7 @@ return (
                       />
                       <span className="red-text">{errors.supervisor}</span>
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12}>
                     <TextField
                         id="carros_n1"
                         label="Parq. Disponibles Carros N1"
@@ -159,7 +162,7 @@ return (
                     </TextField>
                     <span className="red-text">{errors.carros_n1}</span>
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12}>
                     <TextField
                         id="motos_n1"
                         label="Parq. Disponibles Motos N1"
@@ -176,7 +179,7 @@ return (
                     </TextField>
                     <span className="red-text">{errors.motos_n1}</span>
                   </Grid>
-                  <Grid item xs={12} md={6}>
+                  <Grid item xs={12}>
                     <TextField
                         id="carros_n2"
                         label="Parq. Disponibles Carros N2"
@@ -372,12 +375,13 @@ return (
                 </Grid>
           </CardContent>
           <br/>
-          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="primary" size="large">
+          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" style={{backgroundColor:"#F59C00"}} size="large">
             Crear
           </Button>
           <br/>
       </Card>
-  </div>
+    </Grid>
+  </Grid>
     );
   }
 }

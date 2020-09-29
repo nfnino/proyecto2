@@ -2,12 +2,13 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { Grid } from '@material-ui/core';
+import { Grid, MobileStepper, Button } from '@material-ui/core';
+import KeyboardArrowLeft from '@material-ui/icons/KeyboardArrowLeft';
+import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
 
 import { getAssetAudits } from "../../../actions/audits/assetAuditActions";
 import { getTaskAudits } from "../../../actions/audits/taskAuditActions";
@@ -37,11 +38,32 @@ const useStyles = theme => ({
 
 class DashAudits extends Component {
 
+    constructor() {
+        super();
+        this.state={
+          step:0
+        }
+    }
+
     componentDidMount() {
         this.props.getAssetAudits();
         this.props.getTaskAudits();
         this.props.getUserAudits();
     }
+
+    handleNext = () => {
+      const {step} = this.state;
+      this.setState({
+        step: step + 1
+      })
+    };
+  
+    handleBack = () => {
+      const {step} = this.state;
+      this.setState({
+        step: step - 1
+      })
+    };
 
     render() {
 
@@ -96,28 +118,44 @@ class DashAudits extends Component {
         return (
           <Grid container spacing={3}>
             <Grid item xs={12}>
-              <Grid container justify="center" spacing={2}>
+              <Grid container justify="center" spacing={1}>
                   <Grid item xs={12}>
-                    <Card variant="outlined" className={classes.root}>
+                    <Card variant="elevated" className={classes.root}>
                       <CardContent>
-                        {dashboardContent}
+                        <br/>
+                        {this.state.step === 0 
+                          ? dashboardContent
+                          : this.state.step === 1 
+                          ? dashboardContent1
+                          : dashboardContent2 }
                       </CardContent>
                     </Card> 
                   </Grid>
                   <Grid item xs={12}>
-                    <Card variant="outlined" className={classes.root}>
+                    <Card variant="elevated" className={classes.root}>
                       <CardContent>
-                        {dashboardContent1} 
+                        <MobileStepper
+                          variant="dots"
+                          steps={3}
+                          position="static"
+                          activeStep={this.state.step}
+                          className={classes.root}
+                          nextButton={
+                            <Button size="medium" onClick={this.handleNext} disabled={this.state.step === 2}>
+                              Siguiente
+                              <KeyboardArrowRight />
+                            </Button>
+                          }
+                          backButton={
+                            <Button size="medium" onClick={this.handleBack} disabled={this.state.step === 0}>
+                              <KeyboardArrowLeft />
+                              Atrás
+                            </Button>
+                          }
+                        />
                       </CardContent>
                     </Card>
                   </Grid>
-                  <Grid item xs={12}>
-                    <Card variant="outlined" className={classes.root}>
-                      <CardContent>
-                        {dashboardContent2} 
-                      </CardContent>
-                    </Card>
-                  </Grid> 
               </Grid> 
             </Grid>
         </Grid>

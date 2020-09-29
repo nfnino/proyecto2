@@ -15,11 +15,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 const useStyles = theme => ({
   root: {
-    maxWidth: 800,
+    width: 600,
+    minWidth: 350
   },
   pos: {
     left: "40%",
     width: 170,
+    marginBottom: 20
   },
 });
 
@@ -30,14 +32,6 @@ class NewBath extends Component {
         fecha: new Date(),
         ejecutor: "",
         supervisor: "",
-        /* sanitarios: 0,
-        orinales: 0,
-        lavamanos: 0,
-        secamanos: 0,
-        panaleras: 0,
-        duchas: 0,
-        luminarias: 0,
-        observacion:"",*/
         errors: {} 
     };
   }
@@ -97,13 +91,14 @@ if( users.length !== 0) {
 } 
 
 return (
-  <div>
-      <Card container className={classes.root} variant="outlined">
+  <Grid container direction="column" alignItems="center">
+    <Grid item xs={12}>
+      <Card container className={classes.root} variant="elevated">
           <Link to="/baths" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" color="primary" gutterBottom>Iniciar nueva rutina de baños :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Iniciar nueva rutina de baños :</Typography>
               <br/>
               <Grid container spacing={2}>
                   <Grid item xs={12}>
@@ -121,12 +116,13 @@ return (
                 </Grid>
           </CardContent>
           <br/>
-          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="primary" size="large">
+          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" style={{backgroundColor:"#F59C00"}} size="large">
             Crear
           </Button>
           <br/>
       </Card>
-  </div>
+    </Grid>
+  </Grid>
     );
   }
 }

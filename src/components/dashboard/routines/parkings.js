@@ -73,7 +73,14 @@ class Parkings extends Component {
                                 columns={this.state.columns}
                                 data={routineItems}
                                 options={{
-                                    exportButton:true
+                                    exportButton:true,
+                                    headerStyle: {
+                                        color: '#F59C00',
+                                        fontSize: 16
+                                    },
+                                    rowStyle: {
+                                        fontSize: 16,
+                                    }
                                 }}
                                 actions={[
                                     {

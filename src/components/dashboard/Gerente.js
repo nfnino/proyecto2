@@ -18,6 +18,10 @@ const useStyles = theme => ({
     control: {
       padding: theme.spacing(2),
     },
+    card: {
+        fullWidth: true,
+        background: '#E9EAE8'
+    }
   });
 
 class Gerente extends Component {
@@ -63,8 +67,14 @@ class Gerente extends Component {
                                             <TableCell align="right">{`${item.area}`}</TableCell>       
                                             <TableCell align="right">{`${item.estado}`}</TableCell>
                                             <TableCell align="right">
-                                                <Button href={`/assets/${item._id}`} variant="contained" color="secondary"> Detalles </Button>
-                                                <Button href={`/delete/${item._id}`} variant="contained" color="primary"> Eliminar </Button>
+                                                <Grid container spacing={3} justify="flex-end">
+                                                    <Grid item >
+                                                        <Button href={`/assets/${item._id}`} variant="contained" color="secondary"> Detalles </Button>
+                                                    </Grid>
+                                                    <Grid item>
+                                                        <Button href={`/delete/${item._id}`} variant="contained" color="primary"> Eliminar </Button>
+                                                    </Grid>
+                                                </Grid>
                                             </TableCell>                          
                                         </TableRow>
                                     ))}
@@ -74,23 +84,46 @@ class Gerente extends Component {
             dashboardContent = <p className="center-align"> No hay Activos por eliminar </p>;
         }
         return (
-            <div>
-                <Grid container className={classes.root} spacing={2}>
+            <Grid container className={classes.root} spacing={2}>
                     <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
-                            <Card variant="elevation">
+                        <Grid container justify="center">
+                            <Card variant="outlined" >
                                 <CardContent>
-                                    <Typography variant="h4" gutterBottom color="primary" align="center"> Activos por eliminar </Typography>
-                                    <Divider/>
-                                    <TableContainer>
-                                        {dashboardContent}
-                                    </TableContainer>
+                                    <Grid container spacing={3}>
+                                        <Grid item xs={12}>
+                                            <Card className={classes.card} variant="elevation">
+                                                <CardContent>
+                                                    <Typography variant="h4" gutterBottom color="primary" align="center"> ¡Bienvenido, {this.props.auth.user.name}! </Typography>
+                                                    <Typography noWrap={true} variant="h5" gutterBottom color="textPrimary" align="center"> Ha ingresado como: <Typography noWrap={true} variant="h5" style={{fontWeight:"bolder"}}>{this.props.auth.user.role}</Typography></Typography>
+                                                </CardContent>
+                                            </Card>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Grid container spacing={2}>
+                                                <Grid item xs={12}>
+                                                    <Card variant="elevation" style={{minWidth:360}}>
+                                                        <CardContent>
+                                                            <Grid container spacing={2}>
+                                                                <Grid item xs={12} >
+                                                                    <Typography variant="h4" gutterBottom color="primary" align="center"> Activos Por Eliminar</Typography>
+                                                                </Grid>
+                                                                <Grid item xs={12}>
+                                                                    <TableContainer>
+                                                                        {dashboardContent}
+                                                                    </TableContainer>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Card>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
                                 </CardContent>
                             </Card>
                         </Grid>
                     </Grid>
                 </Grid>
-            </div>
         );
     }
 }

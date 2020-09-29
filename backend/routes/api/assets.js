@@ -184,10 +184,12 @@ router.post("/newAsset", async (req, res) => {
 
 router.put("/updateAsset/:id", async (req, res, next) => {
   const id = req.params.id
+  console.log(id)
   const update = req.body
   const auditinfo = {user_id: req.body.user_id, user_name: req.body.user_name};
   let helper=null;
   Asset.findById(id).then(asset => {
+    console.log("asset:" + asset)
     helper=asset;
     if(!asset) {
       return res.status(404).json({assetnotfound: "Activo no existe"})
@@ -195,7 +197,7 @@ router.put("/updateAsset/:id", async (req, res, next) => {
   })
   try {
     delete update["user_id","use_name"]
-    console.log("update after delete:", update)
+    console.log("info after update:", update)
     let asset = await Asset.findByIdAndUpdate(id, update)
 
     const audit = { asset_id:id, asset_name:helper.nombre, action:"UPDATE", user_id: auditinfo.user_id, user_name: auditinfo.user_name, date: new Date()}

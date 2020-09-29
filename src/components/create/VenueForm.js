@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { addVenue } from "../../actions/venueActions";
 import classnames from "classnames";
+import { Card, CardContent } from "@material-ui/core";
 
 class VenueForm extends Component {
     constructor() {
@@ -51,6 +52,8 @@ class VenueForm extends Component {
         const { errors } = this.state;
 
         return (
+            <Card variant="elevation">
+                <CardContent>
             <div className="container">
                 <div className="row">
                     <div className="col s8 offset-s2">
@@ -179,6 +182,8 @@ class VenueForm extends Component {
                     </div>
                 </div>
             </div>
+            </CardContent>
+            </Card>
         );
     }
 }

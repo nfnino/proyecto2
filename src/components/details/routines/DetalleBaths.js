@@ -83,7 +83,7 @@ class DetalleBath extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Baños: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Baños: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem>
@@ -128,14 +128,14 @@ class DetalleBath extends Component {
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <th><Typography color="primary">Nombre</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Sanitarios</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Orinales</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Lavamanos</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Secamanos</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Panaleras</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Duchas</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Luminarias</Typography> </th>
+                                                    <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Sanitarios</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Orinales</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lavamanos</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Secamanos</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Panaleras</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Duchas</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Luminarias</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>

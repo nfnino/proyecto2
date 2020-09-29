@@ -120,7 +120,7 @@ class Routines extends Component {
                     columns={this.state.columns}
                     data={routineItems}
                     options={{
-                        exportButton:true
+                        exportButton:true,
                     }}
                     actions={[
                         {

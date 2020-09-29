@@ -75,15 +75,13 @@ class NewDetPantalla extends Component {
   render() {
     const { classes } = this.props;
     const { errors } = this.state;
-    console.log(errors)
-    console.log(this.props)
     const {brak1, brak2, brak3, brak4, brak5, brak6, brak7, brak8, brak9} = this.state;
 
 return (
   <div>
       <Card container className={classes.root} variant="outlined">
           <CardContent align="center">
-              <Typography variant="h4" color="primary" gutterBottom> Pantalla {this.props.id} :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom> Pantalla {this.props.id} :</Typography>
               <br/>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -233,7 +231,7 @@ return (
                 </Grid></div>
                }
               <Grid item xs={12}>
-                <Button variant="outlined" color="primary" onClick={this.onSubmit}> Agregar </Button>
+                <Button variant="outlined" style={{backgroundColor:"#F59C00"}} onClick={this.onSubmit}> Agregar </Button>
               </Grid>
             </Grid>
           </CardContent>

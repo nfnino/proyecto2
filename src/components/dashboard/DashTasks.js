@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 
-import { Grid, InputLabel, Button, OutlinedInput, Divider } from '@material-ui/core';
-import { FormControl } from '@material-ui/core';
+import { Grid, Button, TextField, Fab } from '@material-ui/core';
+import Autocomplete from '@material-ui/lab/Autocomplete';
+import AddIcon from '@material-ui/icons/Add';
+import SearchIcon from '@material-ui/icons/Search';
 
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -17,15 +18,15 @@ import Tasks from "./Tasks";
 
 const useStyles = theme => ({
   root: {
-    minWidth: 200,
+    minWidth: 250,
   },
   bullet: {
     display: 'inline-block',
     margin: '0 2px',
     transform: 'scale(0.8)',
   },
-  title: {
-    fontSize: 18,
+  input: {
+    fontSize: 15
   },
   pos: {
     marginBottom: 12,
@@ -43,6 +44,11 @@ class DashTasks extends Component {
           tipo_mant: "",
           descripcion:""
     };
+    this.clear = this.clear.bind(this);
+  }
+
+  clear() {
+    this.setState({search: false, activo:"", tipo_mant:"", descripcion:""})
   }
 
   onChange = e => {
@@ -63,6 +69,10 @@ class DashTasks extends Component {
         this.props.getTasks();
     }
 
+    listChange = input => (e, obj) => {
+      this.setState({[input]: obj.value});
+    }
+
     render() {
 
       const { classes } = this.props;
@@ -71,7 +81,10 @@ class DashTasks extends Component {
 
         const { tasks, tasksLoading } = this.props.tasks;
 
-        console.log(tasks)
+        let options = [
+          {value: "Correctivo", label: "Correctivo"},
+          {value: "Preventivo", label: "Preventivo"},
+        ]
 
         let dashboardContent;
         let botonAgregar;
@@ -80,42 +93,68 @@ class DashTasks extends Component {
         const res = Object.values(tasks);
 
         if(this.props.auth.user.role === "Jefe de área") {
-          botonAgregar = <Link to="/newTask" className="btn-flat waves-effect">
-                            <i className="material-icons left">add</i> Nueva
-                        </Link>
+          botonAgregar = <Fab color="secondary" variant="extended" aria-label="add" href="/newTask">
+                            <AddIcon />
+                            Nueva
+                          </Fab>
         } else {
           botonAgregar = <div></div>
         }
 
         busqueda=
         <Grid container>
-          <Grid item xs={8}>
+          <Grid item xs={12}>
             <Card className={classes.root} variant="outlined">
               <CardContent>
-                <Grid container alignItems="center" direction="column" spacing={2}>
+                <Grid container alignItems="center" direction="column" spacing={4}>
                   <Grid item xs={12}>
-                    <Typography className={classes.title} color="primary">Buscar actividades</Typography>
+                    <br/>
+                    <Typography variant="h5" color="secondary">BUSCAR ACTIVIDADES</Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    <FormControl variant="outlined">
-                      <InputLabel htmlFor="activ">Activo</InputLabel>
-                      <OutlinedInput id="activo" type="text" onChange={this.onChange} multiline/>
-                    </FormControl>
+                    <TextField
+                    id="activo"
+                    label="Nombre del activo"
+                    defaultValue={this.state.activo}
+                    onChange={this.onChange}
+                    variant="filled"
+                    size="small"
+                    multiline={true}
+                    style={{
+                      width: 300
+                    }}>
+                    </TextField>
                   </Grid>
                   <Grid item xs={12}>
-                    <FormControl variant="outlined">
-                      <InputLabel htmlFor="tipo">Tipo</InputLabel>
-                      <OutlinedInput id="tipo_mant" type="text" onChange={this.onChange} multiline/>
-                    </FormControl>
+                      <Autocomplete
+                        id="tipo"
+                        size="small"
+                        defaultValue={this.state.tipo}
+                        options={options}
+                        getOptionLabel={(options) => options.label}
+                        onChange={this.listChange('tipo_mant')}
+                        style={{ width: 300}}
+                        renderInput={(params) => <TextField {...params} label="Tipo de la actividad" variant="filled" multiline={true}/>}
+                        />
                   </Grid>
                   <Grid item xs={12}>
-                    <FormControl variant="outlined">
-                      <InputLabel htmlFor="descripcion">Descripción</InputLabel>
-                      <OutlinedInput id="descripcion" type="text" onChange={this.onChange} multiline/>
-                    </FormControl>
+                  <TextField
+                    id="descripcion"
+                    label="Descripción"
+                    defaultValue={this.state.descripcion}
+                    onChange={this.onChange}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    multiline={true}
+                    rows={3}
+                    style={{
+                      width: 300
+                    }}>
+                    </TextField>
                   </Grid>
                   <Grid item xs={12}>
-                    <Button variant="contained" color="primary" onClick={this.onSearch}> Buscar</Button>
+                    <Button variant="contained" className={classes.input} size="large" color="secondary" style={{width: 150}} onClick={this.onSearch}> Buscar</Button>
                   </Grid>
                 </Grid>
               </CardContent>
@@ -126,7 +165,7 @@ class DashTasks extends Component {
         if (res === null || tasksLoading) {
             dashboardContent = <p className="center-align">Loading...</p>;
           } else if (res.length > 0) {
-            dashboardContent = <Tasks tasks={res}/>;
+            dashboardContent = <Tasks tasks={res} clear={this.clear}/>;
           } else {
             dashboardContent = <p className="center-align"> No hay actividades de mantenimiento </p>;
           }
@@ -135,15 +174,25 @@ class DashTasks extends Component {
           <Grid container spacing={3} >
             <Grid item xs={12}>
               <Grid container justify="center" spacing={2}>
-                <Card>
-                  <CardContent>
-                    {this.state.search ? dashboardContent : busqueda} 
-                    <br/>
-                    <Grid item xs={12}>
-                     {botonAgregar}
-                    </Grid>
-                  </CardContent>
-                </Card>
+                <Grid item xs={12}>
+                  <Card>
+                    <CardContent>
+                      {this.state.search ? dashboardContent : busqueda} 
+                      <br/>
+                      <Grid container justify="flex-end" spacing={2}>
+                        <Grid item>
+                          {botonAgregar}
+                        </Grid>
+                        <Grid item>
+                          <Fab color="primary" variant="extended" aria-label="search" href="/report-Tasks">
+                            <SearchIcon />
+                            Reportes
+                          </Fab>
+                        </Grid>
+                      </Grid>
+                    </CardContent>
+                  </Card>
+                </Grid>
               </Grid>
             </Grid>
           </Grid>

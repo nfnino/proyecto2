@@ -96,7 +96,7 @@ class DetalleSilleteria extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Silletería: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Silletería: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem>
@@ -129,26 +129,26 @@ class DetalleSilleteria extends Component {
                                         <table width="100%">
                                             <tbody>
                                                 <tr>
-                                                    <th><Typography color="primary">Nombre</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 01</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 02</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 03</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 04</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 05</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 06</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 07</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 08</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 09</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 10</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 11</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 12</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 13</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 14</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 15</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 16</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 17</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 18</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Espacio 19</Typography> </th>
+                                                    <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 01</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 02</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 03</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 04</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 05</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 06</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 07</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 08</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 09</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 10</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 11</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 12</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 13</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 14</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 15</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 16</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 17</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 18</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 19</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>

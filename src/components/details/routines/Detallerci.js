@@ -83,7 +83,7 @@ class Detallerci extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Gabinetes RCI: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Gabinetes RCI: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem>
@@ -104,14 +104,14 @@ class Detallerci extends Component {
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <th><Typography color="primary">Nombre</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Estado Manguera</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Recarga Extintor</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Conexión Limpia y Seca</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Verificar Presión Agua</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Limpieza Gabinete</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Gabinete con Seguro</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Observaciones</Typography> </th>
+                                                    <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Estado Manguera</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Recarga Extintor</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Conexión Limpia y Seca</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Verificar Presión Agua</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Limpieza Gabinete</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Gabinete con Seguro</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Observaciones</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>

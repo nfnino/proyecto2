@@ -81,7 +81,7 @@ class Detallevip extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Baños: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina VIP: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem>
@@ -114,12 +114,12 @@ class Detallevip extends Component {
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <th><Typography color="primary">Nombre</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Sillas Disponibles</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Puertas Acceso Disp.</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Lava Platos Disp.</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Lamparas Disponibles</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Observaciones</Typography> </th>
+                                                    <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Sillas Disponibles</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Puertas Acceso Disp.</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lava Platos Disp.</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lamparas Disponibles</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Observaciones</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>

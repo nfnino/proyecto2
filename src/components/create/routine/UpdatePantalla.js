@@ -93,13 +93,13 @@ class UpdatePantalla extends Component {
     ];
 
 return (
-  <div> {terminada ? <Typography color="primary" variant="h4">Esta rutina ya no se puede modificar</Typography>
+  <div> {terminada ? <Typography style={{color:"#F59C00"}} variant="h4">Esta rutina ya no se puede modificar</Typography>
       :<Card container className={classes.root} variant="outlined">
           <Link to="/pantallas" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" color="primary" gutterBottom>Diligenciar formularios :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Diligenciar formularios :</Typography>
               <br/>
               <TableContainer component={Paper}>
                 <Table className={classes.table} size="small">
@@ -117,7 +117,7 @@ return (
                         {row.nombre}
                       </TableCell>
                       <TableCell align="right">{row.e}</TableCell>
-                      <TableCell align="right">{row.a ? <Button color="primary" size="small" variant="contained" onClick={this.onClick(`${row.nombre}`)}> Llenar </Button> 
+                      <TableCell align="right">{row.a ? <Button style={{backgroundColor:"#F59C00"}} size="small" variant="contained" onClick={this.onClick(`${row.nombre}`)}> Llenar </Button> 
                                                       : null }</TableCell>
                     </TableRow>
                   ))}
@@ -135,7 +135,7 @@ return (
                                 width: "100%"
                               }}>
                               </TextField>
-              <Button variant="contained" color="primary" onClick={this.onSubmit}> Terminar Rutina </Button>
+              <Button variant="contained" style={{backgroundColor:"#F59C00"}} onClick={this.onSubmit}> Terminar Rutina </Button>
           </CardContent>
           <br/>
       </Card>}

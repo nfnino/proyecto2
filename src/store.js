@@ -1,5 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { persistStore, persistReducer } from 'redux-persist'
+import { createFilter, createBlacklistFilter } from 'redux-persist-transform-filter';
 import storage from 'redux-persist/lib/storage'
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";
@@ -10,6 +11,11 @@ const middleware = [thunk];
 const persistConfig = {
     key: 'root',
     storage,
+    transforms: [
+        createBlacklistFilter('auth', []),
+        createBlacklistFilter('errors', ['recinto','ubicacion','categoria','nombre',
+        'valor','dias_garantia','dias_frec_mant_preventivo','observacion', 'area', 'supervisor']),
+    ]
 }
 
 const pReducer = persistReducer(persistConfig, rootReducer)

@@ -25,6 +25,7 @@ import MomentUtils from '@date-io/moment'; */
 const useStyles = theme => ({
   root: {
     maxWidth: 800,
+    minWidth: 300,
   },
   pos: {
     left: "40%",

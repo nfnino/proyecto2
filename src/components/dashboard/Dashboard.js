@@ -141,11 +141,11 @@ render() {
  */
   return (
       <div>
-        {role==="Operario" ? <Operario/> : 
-        role==="Contador" ? <Contador/> : 
-        role==="Superusuario" ? <Super/> : 
-        role==="Jefe de área"? <Jefe/> : 
-        role==="Gerente de área"?<Gerente/> : 
+        {role==="Operario" ? <Operario auth={this.props.auth}/> : 
+        role==="Contador" ? <Contador auth={this.props.auth}/> : 
+        role==="Superusuario" ? <Super auth={this.props.auth}/> : 
+        role==="Jefe de área"? <Jefe auth={this.props.auth}/> : 
+        role==="Gerente de área"?<Gerente auth={this.props.auth}/> : 
         null}
       </div>
     );

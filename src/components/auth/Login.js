@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { loginUser } from "../../actions/authActions";
 import classnames from "classnames";
+import { Card, CardContent, Typography } from "@material-ui/core";
 
 class Login extends Component {
   constructor() {
@@ -39,7 +40,7 @@ onChange = e => {
 onSubmit = e => {
     e.preventDefault();
 
-const userData = {
+    const userData = {
       email: this.state.email,
       password: this.state.password
     };
@@ -50,63 +51,66 @@ render() {
     const { errors } = this.state;
     return (
       <div className="container">
-        <div style={{ marginTop: "4rem" }} className="row">
-          <div className="col s8 offset-s2">
-            <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-              <h4>
-                <b>Iniciar</b> Sesión
-              </h4>
-            </div>
-            <form noValidate onSubmit={this.onSubmit}>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.email}
-                  error={errors.email}
-                  id="email"
-                  type="email"
-                  className={classnames("", {
-                    invalid: errors.email || errors.emailnotfound
-                  })}
-                />
-                <label htmlFor="email">Correo electrónico</label>
-                <span className="red-text">
-                  {errors.email}
-                  {errors.emailnotfound}
-                </span>
+        <div style={{ marginTop: "16rem", maxWidth:"450px", marginLeft:-15, marginBottom:-20 }} className="row">
+          <div className="col s12">
+            <Card variant="elevated" style={{opacity:"90%"}}>
+              <CardContent>
+              <div className="col s12" style={{ paddingLeft: "11.250px", minWidth: "280px", maxWidth: "400px" }}>
+              <Typography color="primary" variant="h4"><b>Iniciar</b> Sesión</Typography>
               </div>
-              <div className="input-field col s12">
-                <input
-                  onChange={this.onChange}
-                  value={this.state.password}
-                  error={errors.password}
-                  id="password"
-                  type="password"
-                  className={classnames("", {
-                    invalid: errors.password || errors.passwordincorrect
-                  })}
-                />
-                <label htmlFor="password">Contraseña</label>
-                <span className="red-text">
-                  {errors.password}
-                  {errors.passwordincorrect}
-                </span>
-              </div>
-              <div className="col s12" style={{ paddingLeft: "11.250px" }}>
-                <button
-                  style={{
-                    width: "150px",
-                    borderRadius: "3px",
-                    letterSpacing: "1.5px",
-                    marginTop: "1rem"
-                  }}
-                  type="submit"
-                  className="btn btn-large waves-effect waves-light hoverable blue accent-3"
-                >
-                  Iniciar
-                </button>
-              </div>
-            </form>
+              <form noValidate onSubmit={this.onSubmit}>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.email}
+                    error={errors.email}
+                    id="email"
+                    type="email"
+                    className={classnames("", {
+                      invalid: errors.email || errors.emailnotfound
+                    })}
+                  />
+                  <label htmlFor="email">Correo electrónico</label>
+                  <span className="red-text">
+                    {errors.email}
+                    {errors.emailnotfound}
+                  </span>
+                </div>
+                <div className="input-field col s12">
+                  <input
+                    onChange={this.onChange}
+                    value={this.state.password}
+                    error={errors.password}
+                    id="password"
+                    type="password"
+                    className={classnames("", {
+                      invalid: errors.password || errors.passwordincorrect
+                    })}
+                  />
+                  <label htmlFor="password">Contraseña</label>
+                  <span className="red-text">
+                    {errors.password}
+                    {errors.passwordincorrect}
+                  </span>
+                </div>
+                <div className="col s12" style={{ paddingLeft: "11.250px" }}>
+                  <button
+                    style={{
+                      width: "150px",
+                      borderRadius: "3px",
+                      letterSpacing: "1.5px",
+                      marginTop: "1rem",
+                      marginBottom: "1rem"
+                    }}
+                    type="submit"
+                    className="btn btn-large waves-effect waves-light hoverable blue accent-3"
+                  >
+                    Iniciar
+                  </button>
+                </div>
+              </form>
+              </CardContent>
+            </Card>
           </div>
         </div>
       </div>

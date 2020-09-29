@@ -19,12 +19,16 @@ import MomentUtils from '@date-io/moment';
 const useStyles = theme => ({
   root: {
     maxWidth: 800,
+    minWidth: 300
   },
   pos: {
     left: "40%",
     marginBottom: 12,
     width: 150,
   },
+  title: {
+    fontSize: 24
+  }
 });
 
 class Data extends Component {
@@ -105,39 +109,50 @@ render() {
 
 return (
   <div>
-      <Card container className={classes.root} variant="outlined">
+      <Card container className={classes.root} variant="elevation">
       <CardContent align="center">
-        <Typography variant="h4" color="primary" align="center" gutterBottom>Creación Activo </Typography>
-                            <Typography variant="h5" color="primary"> Paso 1:</Typography>
-                            <Typography variant="h6" color="textPrimary" gutterBottom>Ingresar Información Del Activo</Typography>
-                            <br/>
-          <br/>
-          <Grid container spacing={2}>
-            <Grid item xs={12} sm={6}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <Typography className={classes.title} variant="overline" color="primary" align="center" gutterBottom>Creación Activo </Typography>
+          </Grid>
+          <Grid item xs={12}>
+            <Typography variant="h6" color="textPrimary"> Paso 1:</Typography>
+            <Typography variant="subtitle1" color="textSecondary" gutterBottom>Ingresar Información Del Activo</Typography>
+          </Grid>
+        </Grid>
+          <br/> 
+          <Grid container spacing={3}>
+            <Grid item xs={12}>
               <Autocomplete
               id="recinto"
+              size="small"
               defaultValue={values.recinto}
               options={options_rec}
               getOptionLabel={(options_rec) => options_rec.label}
               onChange={listChange('recinto')}
-              style={{ width: 350}}
-              renderInput={(params) => <TextField {...params} label="Recinto" required="true" variant="standard" multiline={true}/>}
+              style={{ width: "50%"}}
+              renderInput={(params) => <TextField {...params} label="Recinto" required="true" variant="filled" multiline={true}/>}
               />
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.recinto}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <Autocomplete
               id="categoria"
+              size="small"
               defaultValue={values.categoria}
               options={options_cat}
               getOptionLabel={(options_cat) => options_cat.label}
               onChange={listChange('categoria')}
-              style={{ width: 350}}
-              renderInput={(params) => <TextField {...params} label="Categoría" required="true" variant="standard" multiline={true} />}
+              style={{ width: "50%"}}
+              renderInput={(params) => <TextField {...params} label="Categoría" required="true" variant="filled" multiline={true} />}
               />
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.categoria}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
               id="nombre"
               label="Nombre"
@@ -145,143 +160,168 @@ return (
               defaultValue={values.nombre}
               onChange={handleChange('nombre')}
               margin="normal"
-              variant="standard"
+              variant="filled"
               size="small"
               multiline={true}
               style={{
-                width: 350
+                width: "50%"
               }}>
               </TextField>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.nombre}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <Autocomplete
               id="area"
+              size="small"
               defaultValue={values.area}
               options={options_area}
               getOptionLabel={(options_area) => options_area.label}
               onChange={listChange('area')}
-              style={{ width: 350}}
-              renderInput={(params) => <TextField {...params} label="Área" required="true" variant="standard" multiline={true} />}
+              style={{ width: "50%"}}
+              renderInput={(params) => <TextField {...params} label="Área" required="true" variant="filled" multiline={true} />}
               />
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.area}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
               id="ubicacion"
+              required="true"
               label="Ubicación"
               defaultValue={values.ubicacion}
               onChange={handleChange('ubicacion')}
               margin="normal"
-              variant="standard"
+              variant="filled"
               size="small"
               multiline={true}
               style={{
-                width: 350
+                width: "50%"
               }}>
               </TextField>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.ubicacion}</span>
             </Grid>
-            <Grid item xs={12} sm={6}> 
+            <Grid item xs={12}> 
                <MuiPickersUtilsProvider utils={MomentUtils}>
                 <KeyboardDatePicker
                   variant="dialog"
-                  inputVariant="standard"
+                  inputVariant="filled"
                   format="DD/MM/yyyy"
                   margin="normal"
                   multiline={true}
                   style={{
-                    width: 350
+                    width: "50%"
                   }}
                   label="Fecha de compra"
                   value={values.fecha_compra}
                   onChange={dateChange('fecha_compra')}
                 />
               </MuiPickersUtilsProvider> 
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.fecha_compra}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
               id="valor"
               label="Valor"
+              required="true"
               type="number"
               defaultValue={values.valor}
               onChange={handleChange('valor')}
               margin="normal"
-              variant="standard"
+              variant="filled"
               size="small"
               multiline={true}
               style={{
-                width: 350
+                width: "50%"
               }}>
               </TextField>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.valor}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
               id="dias_garantia"
+              required="true"
               label="Dias de garantía"
               type="number"
               defaultValue={values.dias_garantia}
               onChange={handleChange('dias_garantia')}
               margin="normal"
-              variant="standard"
+              variant="filled"
               size="small"
               multiline={true}
               style={{
-                width: 350
+                width: "50%"
               }}>
               </TextField>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.dias_garantia}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <MuiPickersUtilsProvider utils={MomentUtils}>
                <KeyboardDatePicker
                 variant="dialog"
-                inputVariant="standard"
+                inputVariant="filled"
                 format="DD/MM/yyyy"
                 margin="normal"
                 multiline={true}
                 style={{
-                  width: 350
+                  width: "50%"
                 }}
                 label="Fin garantía"
                 value={values.fecha_fin_garantia}
                 onChange={dateChange('fecha_fin_garantia')}
               />
-              </MuiPickersUtilsProvider> 
+              </MuiPickersUtilsProvider>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.fecha_fin_garantia}</span>
             </Grid>
-            <Grid item xs={12} sm={6}>
+            <Grid item xs={12}>
               <TextField
                 id="dias_frec_mant_preventivo"
+                required="true"
                 label="Frecuencia mantenimiento"
                 defaultValue={values.dias_frec_mant_preventivo}
                 onChange={handleChange('dias_frec_mant_preventivo')}
                 margin="normal"
-                variant="standard"
+                variant="filled"
                 size="small"
                 multiline={true}
                 style={{
-                  width: 350
+                  width: "50%"
                 }}>
               </TextField>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.dias_frec_mant_preventivo}</span>
             </Grid>
             <Grid item xs={12}>
               <TextField
                 id="observacion"
+                required="true"
                 label="Observaciones"
                 defaultValue={values.observacion}
                 onChange={handleChange('observacion')}
                 margin="normal"
-                variant="standard"
-                size="small"
+                variant="filled"
+                size="medium"
+                rows={3}
                 multiline={true}
                 style={{
-                  width: 740
+                  width: "50%"
                 }}>
               </TextField>
+            </Grid>
+            <Grid item xs={12}>
               <span className="red-text">{errors.observacion}</span>
             </Grid>
             <Grid item xs={12}>
@@ -297,12 +337,13 @@ return (
               </li>
               <Autocomplete
               id="activo_reemp"
+              size="small"
               defaultValue={values.activo_reemp}
               options={options_activos}
               getOptionLabel={(options_activos) => options_activos.label}
               onChange={listChange('activo_reemp')}
-              style={{ width: 350}}
-              renderInput={(params) => <TextField {...params} label="Activo antiguo" variant="standard" multiline={true} />}
+              style={{ width: "50%"}}
+              renderInput={(params) => <TextField {...params} label="Activo antiguo" variant="filled" multiline={true} />}
               />
             </Grid>
           </Grid>

@@ -18,6 +18,10 @@ const useStyles = theme => ({
     control: {
       padding: theme.spacing(2),
     },
+    card: {
+        fullWidth: true,
+        background: '#E9EAE8'
+    }
   });
 
 class Operario extends Component {
@@ -75,26 +79,49 @@ class Operario extends Component {
                                     </TableBody>
                                 </Table>
         } else {
-            dashboardContent = <p className="center-align"> No hay actividades de mantenimiento </p>;
+            dashboardContent = <p className="center-align"> ¡Ha completado todas las actividades de mantenimiento! </p>;
         }
         return (
-            <div>
-                <Grid container className={classes.root} spacing={2}>
+            <Grid container className={classes.root} spacing={2}>
                     <Grid item xs={12}>
-                        <Grid container justify="center" spacing={2}>
-                            <Card variant="elevation">
+                        <Grid container justify="center">
+                            <Card variant="outlined" >
                                 <CardContent>
-                                    <Typography variant="h4" gutterBottom color="primary" align="center"> Tareas Disponbles</Typography>
-                                    <Divider/>
-                                    <TableContainer>
-                                        {dashboardContent}
-                                    </TableContainer>
+                                    <Grid container spacing={3}>
+                                        <Grid item xs={12}>
+                                            <Card className={classes.card} variant="elevation">
+                                                <CardContent>
+                                                    <Typography variant="h4" gutterBottom color="primary" align="center"> ¡Bienvenido, {this.props.auth.user.name}! </Typography>
+                                                    <Typography noWrap={true} variant="h5" gutterBottom color="textPrimary" align="center"> Ha ingresado como: <Typography noWrap={true} variant="h5" style={{fontWeight:"bolder"}}>{this.props.auth.user.role}</Typography></Typography>
+                                                </CardContent>
+                                            </Card>
+                                        </Grid>
+                                        <Grid item xs={12}>
+                                            <Grid container spacing={2}>
+                                                <Grid item xs={12}>
+                                                    <Card variant="elevation" style={{minWidth:360}}>
+                                                        <CardContent>
+                                                            <Grid container spacing={2}>
+                                                                <Grid item xs={12} >
+                                                                    <Typography variant="h4" gutterBottom color="primary" align="center"> Actividades Pendientes</Typography>
+                                                                </Grid>
+                                                                <Grid item xs={12}>
+                                                                    <TableContainer>
+                                                                        {dashboardContent}
+                                                                    </TableContainer>
+                                                                </Grid>
+                                                            </Grid>
+                                                        </CardContent>
+                                                    </Card>
+                                                </Grid>
+                                            </Grid>
+                                        </Grid>
+                                    </Grid>
                                 </CardContent>
                             </Card>
                         </Grid>
                     </Grid>
                 </Grid>
-            </div>
         );
     }
 }

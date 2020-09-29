@@ -33,7 +33,7 @@ class DetalleFachada extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Fachada: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Fachada: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem >

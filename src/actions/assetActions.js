@@ -8,13 +8,16 @@ import {
 
 export const getAssets = () => dispatch => {
     dispatch(setAssetsLoading());
+    console.log("actions")
     axios
     .get("api/assets/assets")
-    .then(res =>
+    .then(res => {
+        console.log(res.data)
         dispatch({
             type: GET_ASSETS,
             payload: res.data
         })
+        }
     )
     .catch(err =>
         dispatch({

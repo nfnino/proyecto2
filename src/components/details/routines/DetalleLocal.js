@@ -87,7 +87,7 @@ class DetalleLocal extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Locales: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Locales: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem>
@@ -108,16 +108,16 @@ class DetalleLocal extends Component {
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <th><Typography color="primary">Nombre</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Ubicación</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Puertas</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Agua</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Gas</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Electricidad</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Lámparas</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Ventaneria</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Pasillos</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Observaciónes</Typography> </th>
+                                                    <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Ubicación</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Puertas</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Agua</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Gas</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Electricidad</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lámparas</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Ventaneria</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Pasillos</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Observaciónes</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>

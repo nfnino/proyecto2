@@ -4,7 +4,7 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-//import movistar from "./movistar.jpg";
+import movistar from "./Movistar1.jpg";
 
 import { Provider } from "react-redux";
 import { store, persistor } from "./store";
@@ -76,6 +76,8 @@ import Updatevip from "./components/create/routine/Updatevip";
 import NewSuite from "./components/create/routine/NewSuite";
 import Detallevip from "./components/details/routines/Detallevip";
 import Auditorias from "./components/dashboard/audits/DashAudits";
+import ReporteAssets from "./components/reportes/ReporteAsset";
+import ReporteTasks from "./components/reportes/ReporteTask";
 
 // Check for token to keep user logged in
 if (localStorage.jwtToken) {
@@ -103,7 +105,7 @@ class App extends Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
-            {/* <div style={{backgroundImage: `url(${movistar})`, backgroundSize: "cover", color: "#f7f7f7", height: "100vh"}}> */}
+            <div style={{backgroundImage: `url(${movistar})`, backgroundRepeat:"repeat", backgroundPosition:"440px 60px", color: "#f7f7f7", minHeight: "100vh"}}>
               <Landing>
               <Switch>
                     <Route exact path="/" component={Home} />
@@ -166,9 +168,11 @@ class App extends Component {
                     <PrivateRoute exact path="/detallevip/:id" component={Detallevip} />
                     <SuperusuarioOnly exact path="/audits" component={Auditorias} />
                     <Route exact path="/task-flow/:id" component={TaskFlow} />
+                    <PrivateRoute exact path="/report-Assets" component={ReporteAssets} />
+                    <PrivateRoute exact path="/report-Tasks" component={ReporteTasks} />
               </Switch>
               </Landing>
-            {/* </div> */}
+            </div> 
           </Router>
         </PersistGate>
       </Provider>

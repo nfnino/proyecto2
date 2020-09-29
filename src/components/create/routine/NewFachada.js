@@ -15,11 +15,13 @@ import { withStyles } from '@material-ui/core/styles';
 
 const useStyles = theme => ({
   root: {
-    maxWidth: 800,
+    width: 800,
+    minWidth: 350
   },
   pos: {
     left: "40%",
     width: 170,
+    marginBottom: 20
   },
 });
 
@@ -174,13 +176,14 @@ const options = [
 ];
 
 return (
-  <div>
-      <Card container className={classes.root} variant="outlined">
+  <Grid container direction="column" alignItems="center">
+    <Grid item xs={12}>
+      <Card container className={classes.root} variant="elevated">
           <Link to="/fachadas" className="btn-flat waves-effect">
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" color="primary" gutterBottom>Nueva rutina de fachada :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Nueva rutina de fachada :</Typography>
               <br/>
               <Grid container spacing={2}>
                 <Grid item xs={12} md={6}>
@@ -393,12 +396,13 @@ return (
                 </Grid>
           </CardContent>
           <br/>
-          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="primary" size="large">
+          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" style={{backgroundColor:"#F59C00"}} size="large">
             Crear
           </Button>
           <br/>
       </Card>
-  </div>
+    </Grid>
+  </Grid>
     );
   }
 }

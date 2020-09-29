@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
@@ -9,6 +10,8 @@ import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import MaterialTable from 'material-table'
+import { Delete } from "@material-ui/icons";
 
 const useStyles = theme => ({
     root: {
@@ -27,6 +30,7 @@ class AssetDetails extends Component {
         this.state={
             setOpen: false,
             setOpen2: false,
+            setOpen3: false,
         };
     }
 
@@ -54,14 +58,38 @@ class AssetDetails extends Component {
         this.handleClickOpen2()
     }
 
-    render() {
-        const { classes } = this.props;
-        let asset = this.props.asset
+    handleClickOpen3 = () => {
+        this.setState({setOpen3: true})
+    };
+    
+    handleClose3 = () => {
+        this.setState({setOpen3: false})
+    };
 
-        let source = asset.imagen
-        let qr = asset.cod_qr
-        console.log(source)
-        console.log(qr)
+    onClick3 = () => {
+        this.handleClickOpen3()
+    }
+
+    render() {
+        const { classes, auth, tasks } = this.props;
+        let asset = this.props.asset;
+        let source = asset.imagen;
+        let qr = asset.cod_qr;
+        const cont = (auth.user.role==="Contador")
+
+        let tareas = [];
+
+        if (tasks.data!=null) {
+            const help = Object.values(tasks.data)
+            for (let i=0;i<help.length;i++) {
+                const aux = help[i];
+                if (aux.activo===asset.nombre && aux.estado === "Cerrada") {
+                    tareas.push(aux)
+                }
+            }
+        }
+
+        console.log(tareas)
 
         const bruh = 
                 <Grid container>
@@ -93,8 +121,47 @@ class AssetDetails extends Component {
                             </Button>
                         </DialogActions>
                     </Dialog>
+                    <Dialog
+                        fullWidth={true}
+                        maxWidth = {'lg'}
+                        open={this.state.setOpen3}
+                        onClose={this.handleClose3}
+                        >
+                        <DialogTitle>Historial Mantenimientos</DialogTitle>
+                        <DialogContent>
+                        <MaterialTable
+                            title={asset.nombre}
+                            columns={[
+                                {title:"Descripción", field:"desc_falla"},
+                                {title:"Tipo Mantenimiento", field:"tipo_mant"},
+                                {title:"Fecha Inicio", field:"fecha_inicial_real"},
+                                {title:"Fecha Fin", field:"fecha_final_real"},
+                                {title:"Email Compras", field:"email_compras"},
+                                {title:"Materiales Compras", field:"desc_materiales_compras"},
+                                {title:"Responsable", field:"responsable"},
+                                {title:"Ejecutor Interno", field:"ejecutor_interno"},
+                                {title:"Supervisor Interno", field:"supervisor"},
+                                {title:"NIT Empresa", field:"nit_empresa_externa"},
+                                {title:"Nombre Empresa", field:"nombre_empresa_externa"},
+                                {title:"Valor Externo", field:"valor_externo"},
+                            ]}
+                            data={tareas}
+                            options={{
+                                exportButton:true,
+                                headerStyle: {
+                                color: '#00A9E0',
+                                fontSize: 12
+                                }
+                            }}/>
+                        </DialogContent>
+                        <DialogActions>
+                            <Button onClick={this.handleClose3} color="primary">
+                                Cerrar
+                            </Button>
+                        </DialogActions>
+                    </Dialog>
                 <Grid item xs={12}>
-                    <Card ClassName={classes.root}>
+                    <Card className={classes.root}>
                         <CardContent>
                             <Link to="/assets" className="btn-flat waves-effect">
                                 <i className="material-icons left">keyboard_backspace</i>Regresar
@@ -102,7 +169,7 @@ class AssetDetails extends Component {
                             <br/>
                             <br/>
                             <Grid container justify="center" spacing={2}>
-                                <Typography variant="h3" color="primary">Detalles Del Activo: </Typography>
+                                <Typography variant="h4" color="primary">Detalles Del Activo: </Typography>
                                 <Grid item xs={12}>
                                     <List>
                                         <ListItem >
@@ -153,10 +220,15 @@ class AssetDetails extends Component {
                                                 </a>}/>
                                         </ListItem>
                                         <ListItem >
-                                            <Button color="primary" onClick={this.onClick} >Imagen</Button>
+                                            <ListItemText primary="Imágen" secondary={<Button color="primary" size="small" onClick={this.onClick} >Ver</Button>}></ListItemText>
                                         </ListItem>
                                         <ListItem >
-                                            <Button color="primary" onClick={this.onClick2} >Código QR</Button>
+                                            <ListItemText primary="Código QR" secondary={<Button color="primary" size="small" onClick={this.onClick2} >Ver</Button>}></ListItemText>
+                                        </ListItem>
+                                        <ListItem >
+                                            {cont ? 
+                                                <ListItemText primary="Historial" secondary={<Button color="primary" size="small" onClick={this.onClick3}>Ver</Button>}></ListItemText>
+                                                :null}
                                         </ListItem>
                                     </List>
                                 </Grid>
@@ -183,12 +255,15 @@ class AssetDetails extends Component {
 }
 
 AssetDetails.propTypes = {
+    auth: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state, ownProps) => {
     let id = ownProps.match.params.id;
     return {
-        asset: state.assets.assets.data.find(asset => asset._id === id)
+        asset: state.assets.assets.data.find(asset => asset._id === id),
+        auth: state.auth,
+        tasks: state.tasks.tasks
     }
 };
 

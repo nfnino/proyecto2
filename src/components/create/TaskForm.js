@@ -31,6 +31,7 @@ const useStyles = theme => ({
   pos: {
     left: "40%",
     width: 170,
+    marginBottom: 20
   },
 });
 
@@ -391,7 +392,7 @@ return (
                   <Grid item xs={12}>
                       <TextField
                       id="desc_falla"
-                      label="Descripción falla"
+                      label="Descripción Actividad"
                       defaultValue={this.state.desc_falla}
                       onChange={this.onChange}
                       margin="normal"
@@ -451,7 +452,7 @@ return (
               {this.state.responsable==='interno' ? resp_int : resp_ext}
           </CardContent>
           <br/>
-          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="primary" size="large">
+          <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="secondary" size="large">
             Crear
           </Button>
       </Card>

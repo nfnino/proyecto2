@@ -82,7 +82,7 @@ return (
   <div>
       <Card container className={classes.root} variant="outlined">
           <CardContent align="center">
-              <Typography variant="h4" color="primary" gutterBottom> Baño {this.props.id} :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom> Baño {this.props.id} :</Typography>
               <br/>
             <Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
@@ -198,7 +198,7 @@ return (
                 <span className="red-text">{errors.luminarias}</span>
               </Grid>  
               <Grid item xs={12}>
-                <Button variant="outlined" color="primary" onClick={this.onSubmit}> Agregar </Button>
+                <Button variant="outlined" style={{backgroundColor:"#F59C00"}} onClick={this.onSubmit}> Agregar </Button>
               </Grid>
             </Grid>
           </CardContent>

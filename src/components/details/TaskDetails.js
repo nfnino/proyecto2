@@ -73,7 +73,7 @@ class TaskDetails extends Component {
                 <img className={classes.media} src={source} alt="" width="500" height="600"/>
             </DialogContent>
             <DialogActions>
-                <Button onClick={this.handleClose} color="primary">
+                <Button onClick={this.handleClose} color="secondary">
                     Cerrar
                 </Button>
             </DialogActions>
@@ -87,7 +87,7 @@ class TaskDetails extends Component {
                 <img className={classes.media} src={source2} alt="" width="500" height="600"/>
             </DialogContent>
             <DialogActions>
-                <Button onClick={this.handleClose2} color="primary">
+                <Button onClick={this.handleClose2} color="secondary">
                     Cerrar
                 </Button>
             </DialogActions>
@@ -101,17 +101,17 @@ class TaskDetails extends Component {
                 <br/>
                 <br/>
                 <Grid container justify="center" spacing={2}>
-                    <Typography variant="h3" color="primary">Detalles Tarea: </Typography>
+                    <Typography variant="h4" color="secondary">Detalles Actividad: </Typography>
                     <Grid item xs={12}>
                         <List>
                             <ListItem >
                                 <ListItemText primary="Activo" secondary={task.activo} />
                             </ListItem>
                             <ListItem >
-                                <Button color="primary" onClick={this.onClick} >Imagen Antes</Button>
+                                <Button color="secondary" onClick={this.onClick} >Imagen Antes</Button>
                             </ListItem>
                             <ListItem >
-                                <Button color="primary" onClick={this.onClick2} >Imagen Despues</Button>
+                                <Button color="secondary" onClick={this.onClick2} >Imagen Despues</Button>
                             </ListItem>
                             <ListItem >
                                 <ListItemText primary="Tipo Mantenimiento" secondary={task.tipo_mant} />

@@ -34,6 +34,11 @@ class Tasks extends Component {
             setOpen: false
         };
     }
+
+    clear = (e) => {
+        e.preventDefault();
+        this.props.clear();
+    }
     
     componentDidMount () {
         this.props.getUsers()
@@ -133,7 +138,7 @@ class Tasks extends Component {
                         </Button>
                     </DialogActions>
                 </Dialog>
-                <Grid container>
+                <Grid container alignItems="center" direction="column" spacing={2}>
                     <Grid item xs={12}>
                         <MaterialTable
                         title="Actividades"
@@ -142,8 +147,11 @@ class Tasks extends Component {
                         options={{
                             exportButton:true,
                             headerStyle: {
-                                color: '#00A9E0',
+                                color: '#5BC500',
                                 fontSize: 16
+                            },
+                            rowStyle: {
+                                fontSize: 16,
                             }
                         }}
                         actions={[
@@ -165,6 +173,9 @@ class Tasks extends Component {
                         ]}
                         >
                         </MaterialTable>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Button variant="contained" color="secondary" size="large" onClick={this.clear}>Limpiar</Button>
                     </Grid>
                 </Grid>
             </div>

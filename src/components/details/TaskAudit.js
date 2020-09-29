@@ -1,10 +1,9 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-
-import TablePagination from '@material-ui/core/TablePagination';
+import { DataGrid } from "@material-ui/data-grid"
 import { withStyles } from '@material-ui/core/styles';
 
-import { Grid, TableBody, TableHead, TableRow, TableCell, Paper, Table, TableContainer, Typography } from "@material-ui/core";
+import { Grid, Paper,Typography } from "@material-ui/core";
 const useStyles = theme => ({
     root: {
       minWidth: 250,
@@ -14,7 +13,8 @@ const useStyles = theme => ({
         height: '100%'
     },
     paper: {
-        width: '95.5%',
+        height: 375,
+        minWidth: 600,
         marginTop: theme.spacing(1),
         marginLeft: theme.spacing(3),
         marginBottom: theme.spacing(2),
@@ -25,79 +25,37 @@ class TaskAudit extends Component {
 
     constructor(){
         super();
-        this.state=[{
-            rowsPerPage: 5,
-            page: 0,
-        }]
-    }
-
-    handleChangePage = (e, newpage) =>{
-        this.setState({
-            page: newpage
-        })
-    }
-
-    handleChangeRowsPerPage = (e) => {
-        this.setState({
-            rowsPerPage: parseInt(e.target.value, 10),
-            page: 0
-        })
-    }
-
-    createData(a, b, c, d, e) {
-        return {a, b, c, d, e}
     }
 
     render() {
         const { classes } = this.props;
         const { tasks } = this.props;
+        let rows= [];
         let bruh = null;
 
-            let items = tasks.map((row) => (
-                <TableRow key={row.task_asset}>
-                <TableCell component="th" scope="row">
-                    {row.task_asset}
-                </TableCell>
-                <TableCell align="right">{row.task_type}</TableCell>
-                <TableCell align="right">{row.action}</TableCell>
-                <TableCell align="right">{row.user_name}</TableCell>
-                <TableCell align="right">{new Date(row.date).toLocaleDateString()}</TableCell>
-                </TableRow>
-            ))
+        tasks.map((row) => (
+            rows.push({id:row._id, asset: row.task_asset, type: row.task_type, action: row.action, user: row.user_name, date: new Date(row.date).toLocaleDateString()})
+        ))
 
             bruh = 
-                                <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h4" color="primary">Auditoría Tareas: </Typography>
-                                    <Grid item xs={12}>
-                                    <Paper className={classes.paper}>
-                                        <TableContainer component={Paper}>
-                                            <Table className={classes.table} size="small" aria-label="a dense table">
-                                                <TableHead>
-                                                <TableRow>
-                                                    <TableCell><Typography color="primary">Activo</Typography></TableCell>
-                                                    <TableCell align="right"><Typography color="primary">Tipo</Typography></TableCell>
-                                                    <TableCell align="right"><Typography color="primary">Acción</Typography></TableCell>
-                                                    <TableCell align="right"><Typography color="primary">Usuario</Typography></TableCell>
-                                                    <TableCell align="right"><Typography color="primary">Fecha</Typography></TableCell>
-                                                </TableRow>
-                                                </TableHead>
-                                                <TableBody>
-                                                    {items}
-                                                </TableBody>
-                                            </Table>
-                                        </TableContainer>
-                                        <TablePagination
-                                            rowsPerPageOptions={[5, 10, 25]}
-                                            component="div"
-                                            count={tasks.length}
-                                            rowsPerPage={this.state.rowsPerPage}
-                                            page={this.state.page}
-                                            onChangePage={this.handleChangePage}
-                                            onChangeRowsPerPage={this.handleChangeRowsPerPage}
-                                            />
-                                        </Paper>
-                                    </Grid>
-                                </Grid>
+            <Grid container justify="center" spacing={2}>
+                        <Typography variant="h5" color="primary">Auditoría Actividades: </Typography>
+                        <Grid item xs={12}>
+                            <Paper className={classes.paper}>
+                                <DataGrid 
+                                rows={rows} 
+                                columns={[
+                                    { field: 'id', hide: true},
+                                    { field: 'asset', headerName: 'Activo', headerClassName: 'cell', width: 250},
+                                    { field: 'type', headerName: 'Tipo', headerClassName: 'cell', width: 250},
+                                    { field: 'action', headerName: 'Acción', headerClassName: 'cell', width: 200},
+                                    { field: 'user', headerName: 'Usuario', headerClassName: 'cell', width: 250},
+                                    { field: 'date', headerName: 'Fecha', headerClassName: 'cell', width: 250}
+                                ]}
+                                pageSize={5}/>
+                            </Paper>
+                        </Grid>
+                    </Grid>
 
         return (
             <Grid container>

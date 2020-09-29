@@ -87,7 +87,7 @@ class DetallePantalla extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h3" color="primary">Detalles Rutina Pantallas: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Pantallas: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem>
@@ -138,16 +138,16 @@ class DetallePantalla extends Component {
                                         <table>
                                             <tbody>
                                                 <tr>
-                                                    <th><Typography color="primary">Nombre</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 1 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 2 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 3 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 4 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 5 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 6 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 7 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 8 (AMP)</Typography> </th>
-                                                    <th align="right"><Typography color="primary">Brak 9 (AMP)</Typography> </th>
+                                                    <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 1 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 2 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 3 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 4 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 5 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 6 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 7 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 8 (AMP)</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Brak 9 (AMP)</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>
