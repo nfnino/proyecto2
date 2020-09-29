@@ -35,7 +35,7 @@ class Super extends Component {
     }
 
     total_mes (lista) {
-        if(lista!=null) {
+        if(lista.data!=null) {
             let res = [];
             const today_year = new Date().getFullYear();
             const today_month = new Date().getMonth();
@@ -53,7 +53,7 @@ class Super extends Component {
     }
 
     total_semana (lista) {
-        if(lista!=null) {
+        if(lista.data!=null) {
             let res = [];
             const today = new Date();
             let first = today.getDate() - today.getDay() + 1;
@@ -75,7 +75,7 @@ class Super extends Component {
     }
 
     total_hoy (lista) {
-        if( lista != null) {
+        if( lista.data != null) {
             let res = [];
             const today = new Date().toLocaleDateString();
             for (let i=0;i<lista.data.length;i++) {
