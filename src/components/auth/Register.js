@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { registerUser } from "../../actions/authActions";
 
-import { TextField, Typography, Grid, Button, Divider } from "@material-ui/core";
+import { TextField, Typography, Grid, Button } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Autocomplete from '@material-ui/lab/Autocomplete';

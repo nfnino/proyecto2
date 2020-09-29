@@ -26,10 +26,6 @@ const useStyles = theme => ({
 
 class AssetAudit extends Component {
 
-    constructor(){
-        super();
-    }
-
     render() {
         const { classes } = this.props;
         const { assets } = this.props;

@@ -75,8 +75,6 @@ class AssetDelete extends Component {
     }
 
     render() {
-        //const { errors } = this.state;
-        const { classes } = this.props;
         
         let paraBorrar = true;
 

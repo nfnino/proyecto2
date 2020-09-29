@@ -34,7 +34,6 @@ class Fachadas extends Component {
     }
 
     render() {
-        const { auth } = this.props;
         const res = this.props.fachadas.fachadas;
         console.log(this.props)
         console.log(res)

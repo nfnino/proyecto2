@@ -28,9 +28,6 @@ const useStyles = theme => ({
   });
 
 class Contador extends Component {
-    constructor(){
-        super();
-    }
 
     componentDidMount() {
         this.props.getAssetAudits();

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Grid, Card, CardContent, TableRow, TableCell, TableBody, TableContainer, Table, TableHead, Typography , Button, Divider} from "@material-ui/core";
+import { Grid, Card, CardContent, TableRow, TableCell, TableBody, TableContainer, Table, TableHead, Typography , Button} from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
 
 import { getAssets } from "../../actions/assetActions";
@@ -25,9 +25,6 @@ const useStyles = theme => ({
   });
 
 class Gerente extends Component {
-    constructor(){
-        super();
-    }
 
     componentWillMount() {
         this.props.getAssets();
@@ -35,7 +32,6 @@ class Gerente extends Component {
 
     render() {
         const { classes } = this.props;
-        const { auth } = this.props;
         const { assets, assetsLoading } = this.props.assets;
         const res = assets.data;
 

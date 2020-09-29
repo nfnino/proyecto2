@@ -23,11 +23,6 @@ const useStyles = theme => ({
 });
 
 class UserAudit extends Component {
-
-    constructor(){
-        super();
-    }
-
     render() {
         const { classes } = this.props;
         const { users } = this.props;

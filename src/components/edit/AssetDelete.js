@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 
 import { eliminarAsset } from "../../actions/assetActions";
 
-import { Card, CardContent, Typography, Grid, Button, CardMedia, CardActions, List, ListItem, ListItemText, 
+import { Card, CardContent, Typography, Grid, Button, CardActions, List, ListItem, ListItemText, 
         Dialog, DialogActions, DialogContent, DialogTitle} from "@material-ui/core";
 
 import { withStyles } from '@material-ui/core/styles';

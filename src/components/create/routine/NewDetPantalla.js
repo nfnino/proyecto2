@@ -196,7 +196,7 @@ return (
                 </TextField>
                 <span className="red-text">{errors.brak7}</span>
               </Grid>  
-              { this.props.id == "tablero_principal" ? null 
+              { this.props.id === "tablero_principal" ? null 
               : <div><Grid item xs={12} sm={6}>
                     <TextField
                     id="brak8"

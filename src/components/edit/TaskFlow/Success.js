@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 
-import { Card, CardContent, Typography, Button, Grid, Divider } from "@material-ui/core";
+import { Card, CardContent, Typography, Grid } from "@material-ui/core";
 
 class Success extends Component {
 

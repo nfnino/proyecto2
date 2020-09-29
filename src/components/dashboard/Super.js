@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Grid, Card, CardContent, Typography, Divider} from "@material-ui/core";
+import { Grid, Card, CardContent, Typography} from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
 
 import { getAssetAudits } from "../../actions/audits/assetAuditActions";
@@ -27,9 +27,6 @@ const useStyles = theme => ({
   });
 
 class Super extends Component {
-    constructor(){
-        super();
-    }
 
     componentDidMount() {
         this.props.getAssetAudits();
@@ -85,7 +82,7 @@ class Super extends Component {
                 console.log(i)
                 const aux = lista.data[i];
                 const date = new Date(aux.date).toLocaleDateString();
-                if (date==today) {
+                if (date===today) {
                     res.push(aux);
                 }
             }

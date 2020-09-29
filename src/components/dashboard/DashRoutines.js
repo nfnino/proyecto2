@@ -79,35 +79,35 @@ class DashRoutines extends Component {
                       <Grid container justify="center" spacing={2}>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity1')} 
-                            onMouseLeave={this.returnOpa('opacity1')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/vip.jpg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity1})` }} onClick={this.onClick("vips")} > VIP's </Button>
+                            onMouseLeave={this.returnOpa('opacity1')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/vip.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity1})` }} onClick={this.onClick("vips")} > VIP's </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity2')} 
-                          onMouseLeave={this.returnOpa('opacity2')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/crepes.jpg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity2})`}} onClick={this.onClick("locales")}> Locales </Button>
+                          onMouseLeave={this.returnOpa('opacity2')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/crepes.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity2})`}} onClick={this.onClick("locales")}> Locales </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity3')} 
-                          onMouseLeave={this.returnOpa('opacity3')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/banios.jpg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity3})`}} onClick={this.onClick("baths")}> Baños </Button>
+                          onMouseLeave={this.returnOpa('opacity3')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/banios.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity3})`}} onClick={this.onClick("baths")}> Baños </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity4')} 
-                          onMouseLeave={this.returnOpa('opacity4')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/parking.jpg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity4})`}} onClick={this.onClick("parkings")}> Parking </Button>
+                          onMouseLeave={this.returnOpa('opacity4')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/parking.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity4})`}} onClick={this.onClick("parkings")}> Parking </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity5')} 
-                          onMouseLeave={this.returnOpa('opacity5')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/silleteria.jpg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity5})`}} onClick={this.onClick("silleterias")}> Silletería </Button>
+                          onMouseLeave={this.returnOpa('opacity5')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/silleteria.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity5})`}} onClick={this.onClick("silleterias")}> Silletería </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity6')} 
-                          onMouseLeave={this.returnOpa('opacity6')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/fachada.jpeg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity6})`}} onClick={this.onClick("fachadas")}> Fachada </Button>
-                        </Grid>
+                          onMouseLeave={this.returnOpa('opacity6')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/fachada.jpeg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity6})`}} onClick={this.onClick("fachadas")}> Fachada </Button>
+                        </Grid> 
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity7')} 
-                          onMouseLeave={this.returnOpa('opacity7')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/pantalla.jpeg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity7})`}} onClick={this.onClick("pantallas")}> Pantalla </Button>
+                          onMouseLeave={this.returnOpa('opacity7')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/pantalla.jpeg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity7})`}} onClick={this.onClick("pantallas")}> Pantalla </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity8')} 
-                          onMouseLeave={this.returnOpa('opacity8')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/rci.jpg)", fontSize:22, color:"whitesmoke", fontWeight:"bolder", filter:`brightness(${this.state.opacity8})`}} onClick={this.onClick("rcis")}> Gabinetes RCI </Button>
+                          onMouseLeave={this.returnOpa('opacity8')} style={{height:150, backgroundSize: "cover", backgroundImage:"url(/uploads/misc/rci.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity8})`}} onClick={this.onClick("rcis")}> Gabinetes RCI </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
 

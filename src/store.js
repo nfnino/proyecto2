@@ -1,6 +1,6 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import { persistStore, persistReducer } from 'redux-persist'
-import { createFilter, createBlacklistFilter } from 'redux-persist-transform-filter';
+import { createBlacklistFilter } from 'redux-persist-transform-filter';
 import storage from 'redux-persist/lib/storage'
 import thunk from "redux-thunk";
 import rootReducer from "./reducers";

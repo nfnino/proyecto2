@@ -23,10 +23,6 @@ const useStyles = theme => ({
 
 class TaskAudit extends Component {
 
-    constructor(){
-        super();
-    }
-
     render() {
         const { classes } = this.props;
         const { tasks } = this.props;

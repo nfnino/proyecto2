@@ -11,7 +11,6 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import MaterialTable from 'material-table'
-import { Delete } from "@material-ui/icons";
 
 const useStyles = theme => ({
     root: {

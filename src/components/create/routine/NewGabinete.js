@@ -81,7 +81,7 @@ class NewGabinete extends Component {
     const { classes } = this.props;
     const { errors } = this.state;
     console.log(this.props)
-    const {manguera, extintor, conexion, presion, limpieza, seguro, observacion} = this.state;
+    const {manguera, conexion, presion, limpieza, seguro, observacion} = this.state;
 
 return (
   <div>

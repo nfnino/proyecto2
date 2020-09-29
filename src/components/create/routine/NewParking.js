@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import { getUsers } from "../../../actions/userActions";
 import { addParking } from "../../../actions/routines/parkingActions";
 
-import { TextField, Typography, Grid, Button, Divider } from "@material-ui/core";
+import { TextField, Typography, Grid, Button } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Autocomplete from '@material-ui/lab/Autocomplete';

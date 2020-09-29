@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { Grid, Card, CardContent, TableRow, TableCell, TableBody, TableContainer, Table, TableHead, Typography , Button, Divider} from "@material-ui/core";
+import { Grid, Card, CardContent, TableRow, TableCell, TableBody, TableContainer, Table, TableHead, Typography , Button} from "@material-ui/core";
 import { withStyles } from '@material-ui/core/styles';
 
 import { getTasks } from "../../actions/taskActions";
@@ -25,9 +25,6 @@ const useStyles = theme => ({
   });
 
 class Jefe extends Component {
-    constructor(){
-        super();
-    }
 
     componentWillMount() {
         this.props.getTasks();

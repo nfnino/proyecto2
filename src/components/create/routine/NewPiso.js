@@ -226,7 +226,7 @@ return (
                 </TextField>
                 <span className="red-text">{errors.p_09}</span>
               </Grid>  
-              {this.props.id != "piso_1" 
+              {this.props.id !== "piso_1" 
               ?<Grid container spacing={2}>
               <Grid item xs={12} sm={6}>
                 <TextField
