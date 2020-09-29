@@ -8,8 +8,8 @@ module.exports = {
                 dark: '#000',
                 light: '#FFF'
             },
-            scale: 6,
-            margin: 6 
+            scale: 4,
+            margin: 4 
         }, function(err) {
             if (err) throw err
             console.log("done")

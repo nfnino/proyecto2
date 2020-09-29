@@ -138,7 +138,7 @@ router.post("/newAsset", async (req, res) => {
         nom = nom.replace(/[áéíóúÁÉÍÓÚ]+/g,'o')
         nom = nom.replace(/[ñÑ]+/g,'n')
 
-        let path = `../public/uploads/qr/${nom}.PNG`;
+        let path = `../backend/client/public/uploads/qr/${nom}.PNG`;
         let path2 = `/uploads/qr/${nom}.PNG`;
 
         qr.functionSave(path, nuevo)
@@ -149,13 +149,13 @@ router.post("/newAsset", async (req, res) => {
         const file = req.files.file;
         const manual = req.files.manual;
       
-        file.mv(`../public/uploads/${file.name}`, err => {
+        file.mv(`../backend/client/public/uploads/${file.name}`, err => {
           if(err) {
             console.log("file err: ",err);
             return res.status(500).send(err);
           }
         })
-        manual.mv(`../public/uploads/documents/${manual.name}`, err => {
+        manual.mv(`../backend/client/public/uploads/documents/${manual.name}`, err => {
           if(err) {
             console.log("manu err: ",err);
             return res.status(500).send(err);
