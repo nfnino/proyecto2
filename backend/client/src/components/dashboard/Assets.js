@@ -12,7 +12,7 @@ import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
 import MaterialTable from 'material-table';
-import { Grid } from "@material-ui/core";
+import { Grid, Typography } from "@material-ui/core";
 
 class Assets extends Component {
     
@@ -127,6 +127,8 @@ class Assets extends Component {
                 </Dialog>
             <Grid container alignItems="center" direction="column" spacing={2}>
                 <Grid item xs={12}>
+                    <Typography color="primary" variant="h4" align="center">Lista de Activos</Typography>
+                    <br/>
                     <MaterialTable
                     style={{width:"100%"}}
                     title="Activos"

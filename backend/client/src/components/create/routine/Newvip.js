@@ -98,7 +98,7 @@ return (
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Iniciar nueva rutina de baños :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Iniciar nueva rutina de VIPs :</Typography>
               <br/>
               <Grid container spacing={2}>
                   <Grid item xs={12}>

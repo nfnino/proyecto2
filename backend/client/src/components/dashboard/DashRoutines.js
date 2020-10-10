@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import { Grid, Button } from '@material-ui/core';
+import { Grid, Button, Divider } from '@material-ui/core';
 
 import { withStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
@@ -69,12 +69,13 @@ class DashRoutines extends Component {
           <div style={{fullWidth:true}}>
             <Card variant="elevation">
               <CardContent>
-              <Grid container direction="columns" alignItems="felx-end" justify="center">
+              <Grid container direction="columns" alignItems="flex-end" justify="center">
                 <Grid item >
                   <Card className={classes.root} variant="outlined">
                     <CardContent align="center">
                       <br/>
                       <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>RUTINAS</Typography>
+                      <Divider></Divider>
                       <br/>
                       <Grid container justify="center" spacing={2}>
                         <Grid item xs={4} className={classes.pos}>

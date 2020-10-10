@@ -77,13 +77,13 @@ class DashAudits extends Component {
 
         let res = null, res1 = null, res2 = null;
 
-        if (assetaudits.data != null) {
+        if (assetaudits != null && assetaudits.data != null) {
           res = assetaudits.data
         }
-        if (taskaudits.data != null) {
+        if (taskaudits != null && taskaudits.data != null) {
           res1 = taskaudits.data
         }
-        if (useraudits.data != null) {
+        if (useraudits != null && useraudits.data != null) {
           res2 = useraudits.data
         }
 

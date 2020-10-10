@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import { Link, withRouter } from "react-router-dom";
 
 import MaterialTable from 'material-table';
-import { Grid, Card, CardContent } from "@material-ui/core";
+import { Grid, Card, CardContent, Typography } from "@material-ui/core";
 
 class ReportTask extends Component {
     
@@ -64,31 +64,39 @@ class ReportTask extends Component {
         });
 
         return (
-            <div style={{maxWidth:"1000px"}}>
             <Grid container>
                 <Grid item xs={12}>
-                    <Card>
+                    <Card style={{maxWidth:"1200px", overflow:"auto"}}>
                         <CardContent>
-                            <MaterialTable
-                            title="Tareas"
-                            columns={this.state.columns}
-                            data={taskItems}
-                            options={{
-                                exportButton:true,
-                                headerStyle: {
-                                    color: '#00A9E0',
-                                    fontSize: 14
-                                },
-                                pageSize:5,
-                                exportAllData: true
-                            }}
-                            >
-                            </MaterialTable>
+                            <Link to="/tasks" className="btn-flat waves-effect">
+                                <i className="material-icons left">keyboard_backspace</i> Regresar
+                            </Link>
+                            <Grid container alignItems="center" direction="column" spacing={1}>
+                                <Grid item>
+                                    <Typography color="primary" variant="h4" align="center"> Reporte Tareas </Typography>
+                                </Grid>
+                                <Grid item>
+                                    <MaterialTable
+                                    title="Tareas"
+                                    columns={this.state.columns}
+                                    data={taskItems}
+                                    options={{
+                                        exportButton:true,
+                                        headerStyle: {
+                                            color: '#00A9E0',
+                                            fontSize: 14
+                                        },
+                                        pageSize:5,
+                                        exportAllData: true
+                                    }}
+                                    >
+                                    </MaterialTable>
+                                </Grid>
+                            </Grid>
                         </CardContent>
                     </Card>
                 </Grid>
             </Grid>
-            </div>
         );
             }
 }

@@ -90,7 +90,11 @@ class DashTasks extends Component {
         let botonAgregar;
         let busqueda;
 
-        const res = Object.values(tasks);
+        
+        let res = null;
+        if(tasks!=null) {
+          res = Object.values(tasks);
+        }
 
         if(this.props.auth.user.role === "Jefe de área") {
           botonAgregar = <Fab color="secondary" variant="extended" aria-label="add" href="/newTask">
