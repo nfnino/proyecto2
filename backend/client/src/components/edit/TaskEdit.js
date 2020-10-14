@@ -123,6 +123,107 @@ if( users.length !== 0) {
     isClosed = true
   }
 
+  let esExterna = false;
+  if (this.state.responsable === "externo") {
+    esExterna = true;
+  }
+
+  let abierta_ext = 
+            <Card container className={classes.root} variant="outlined">
+            <Link to="/tasks" className="btn-flat waves-effect">
+                <i className="material-icons left">keyboard_backspace</i> Tareas
+            </Link>
+            <CardContent align="center">
+                <Typography variant="h4" gutterBottom>Editar tarea :</Typography>
+                <br/>
+                <Grid container spacing={2}>
+                    <Grid item xs={12} md={6}>
+                        <MuiPickersUtilsProvider utils={MomentUtils}>
+                            <KeyboardDatePicker
+                            variant="dialog"
+                            inputVariant="standard"
+                            format="DD/MM/yyyy"
+                            margin="normal"
+                            multiline={true}
+                            style={{
+                                width: 350
+                            }}
+                            label="Fecha Inicio (Tentativa)"
+                            value={this.state.fecha_inicial_tent}
+                            onChange={this.handleIniDateChange}
+                            />
+                        </MuiPickersUtilsProvider> 
+                        <span className="red-text">{errors.fecha_inicial_tent}</span>
+                    </Grid>
+                    <Grid item xs={12} md={6}> 
+                        <MuiPickersUtilsProvider utils={MomentUtils}>
+                            <KeyboardDatePicker
+                            variant="dialog"
+                            inputVariant="standard"
+                            format="DD/MM/yyyy"
+                            margin="normal"
+                            multiline={true}
+                            style={{
+                                width: 350
+                            }}
+                            label="Fecha Fin (Tentativa)"
+                            value={this.state.fecha_final_tent}
+                            onChange={this.handleEndDateChange}
+                            />
+                        </MuiPickersUtilsProvider> 
+                        <span className="red-text">{errors.fecha_final_tent}</span>
+                    </Grid>
+                    <Grid item xs={12}>
+                        <Autocomplete
+                        id="ejecutor_interno"
+                        defaultValue={this.state.ejecutor_interno}
+                        options={options_ejecutor}
+                        getOptionLabel={(options_ejecutor) => options_ejecutor.label}
+                        onChange={this.ejecutorChange}
+                        style={{ width: 740}} 
+                        renderInput={(params) => <TextField {...params} label="Supervisor interno:" variant="standard" multiline={true}/>}
+                        />
+                        <span className="red-text">{errors.ejecutor_interno}</span>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                        id="nit_empresa_externa"
+                        label="Nit Empresa"
+                        defaultValue={this.state.nit_empresa_externa}
+                        onChange={this.onChange}
+                        margin="normal"
+                        variant="standard"
+                        size="small"
+                        multiline={true}
+                        style={{
+                            width: 350
+                        }}>
+                        </TextField>
+                        <span className="red-text">{errors.nit_empresa_externa}</span>
+                    </Grid>
+                    <Grid item xs={12} sm={6}>
+                        <TextField
+                        id="nombre_empresa_externa"
+                        label="Nombre Empresa"
+                        defaultValue={this.state.nombre_empresa_externa}
+                        onChange={this.onChange}
+                        margin="normal"
+                        variant="standard"
+                        size="small"
+                        multiline={true}
+                        style={{
+                            width: 350
+                        }}>
+                        </TextField>
+                        <span className="red-text">{errors.nombre_empresa_externa}</span>
+                    </Grid>
+                </Grid>
+            </CardContent>
+            <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="primary" size="large">
+                Actualizar
+            </Button>
+          </Card>
+
   let abierta =
             <Card container className={classes.root} variant="outlined">
                 <Link to="/tasks" className="btn-flat waves-effect">
@@ -180,38 +281,6 @@ if( users.length !== 0) {
                             />
                             <span className="red-text">{errors.ejecutor_interno}</span>
                         </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                            id="nit_empresa_externa"
-                            label="Nit Empresa"
-                            defaultValue={this.state.nit_empresa_externa}
-                            onChange={this.onChange}
-                            margin="normal"
-                            variant="standard"
-                            size="small"
-                            multiline={true}
-                            style={{
-                                width: 350
-                            }}>
-                            </TextField>
-                            <span className="red-text">{errors.nit_empresa_externa}</span>
-                        </Grid>
-                        <Grid item xs={12} sm={6}>
-                            <TextField
-                            id="nombre_empresa_externa"
-                            label="Nombre Empresa"
-                            defaultValue={this.state.nombre_empresa_externa}
-                            onChange={this.onChange}
-                            margin="normal"
-                            variant="standard"
-                            size="small"
-                            multiline={true}
-                            style={{
-                                width: 350
-                            }}>
-                            </TextField>
-                            <span className="red-text">{errors.nombre_empresa_externa}</span>
-                        </Grid>
                     </Grid>
                 </CardContent>
                 <Button className={classes.pos} onClick={this.onSubmit} variant="contained" color="primary" size="large">
@@ -232,7 +301,7 @@ if( users.length !== 0) {
 
     return (
       <div>
-        {autorizado ? (isClosed ? cerrada : abierta) : <div><h2 color="primary">No autorizado</h2></div>}
+        {autorizado ? (isClosed ? cerrada : esExterna ? abierta_ext : abierta) : <div><h2 color="primary">No autorizado</h2></div>}
       </div>
       );
     }

@@ -177,7 +177,7 @@ if( assets.length !== 0) {
 let options_ejecutor = []
 let options_supervisor = []
 
-if( users.length !== 0) {
+if( users!=null && users.length !== 0) {
 
   let usuarios = Object.values(users.data)
 

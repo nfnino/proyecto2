@@ -92,10 +92,9 @@ export const updateImage = (id, date, taskData) => dispatch => {
 
 export const editTask = (taskData, history) => dispatch => {
     const id = taskData.id;
-    axios.put(`/api/tasks/update/${id}`, taskData, {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
+    axios.put(`/api/tasks/update/${id}`, taskData)
+    .then(res => {
+        history.push("/tasks")
     })
     .catch(err =>
         dispatch({

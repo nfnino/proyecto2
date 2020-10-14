@@ -183,7 +183,8 @@ router.put('/update/:id', async (req, res, next) => {
   try {
     const update = req.body
     let task = await Task.findByIdAndUpdate(id, update)
-
+    console.log(req.body.user_id)
+    console.log(req.body.user_name)
     const audit = { task_id: id, task_asset: task.activo, task_type: task.tipo_mant, action:"UPDATE", user_id: req.body.user_id, user_name: req.body.user_name, date: new Date()}
     const newaudit = new TaskAudit(audit);
     newaudit

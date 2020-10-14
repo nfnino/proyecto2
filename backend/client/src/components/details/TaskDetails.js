@@ -150,7 +150,7 @@ class TaskDetails extends Component {
                                 <ListItemText primary="NIT Empresa" secondary={task.nit_empresa_externa} />
                             </ListItem>
                             <ListItem >
-                                <ListItemText primary="Nombre Empresa" secondary={task.nom_empresa_externa} />
+                                <ListItemText primary="Nombre Empresa" secondary={task.nombre_empresa_externa} />
                             </ListItem>
                             <ListItem>
                                 <ListItemText primary="Orden de Compra" secondary={<a href={task.doc_orden_compra} download> 
