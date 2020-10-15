@@ -44,11 +44,14 @@ router.get("/tasks/:id", async (req, res, next) => {
 router.post("/newTask", async (req, res) => {
 
   const { errors, isValid } = validateTaskInput(req.body);
-  console.log(isValid)
-  console.log(errors)
   if (!isValid) {
     return res.status(400).json(errors);
   }
+  if(req.body.responsable == "externo" && req.files == null){
+    return res.status(400).json({ file: 'No se cargó ninguna imagen o manual'})
+  }
+
+  console.log("usuario logs: ",req.body.usuario)
   
   Asset.findOne({nombre: req.body.activo}).then(asset => {
 
@@ -58,7 +61,7 @@ router.post("/newTask", async (req, res) => {
     if (!isv) {
         return res.status(400).json(errors);
     } else {
-            const newTask = new Task({
+            const nueva = {
                 activo: req.body.activo,
                 tipo_mant: req.body.tipo_mant,
                 fecha_inicial_tent: req.body.fecha_inicial_tent,
@@ -71,13 +74,26 @@ router.post("/newTask", async (req, res) => {
                 supervisor: req.body.supervisor,
                 nit_empresa_externa: req.body.nit_empresa_externa,
                 nombre_empresa_externa: req.body.nombre_empresa_externa,
-                doc_orden_compra: req.body.doc_orden_compra,
                 valor_externo: req.body.valor_externo,
                 fecha_inicial_real: req.body.fecha_inicial_real,
                 fecha_final_real: req.body.fecha_final_real,
                 responsable: req.body.responsable,
-                estado: req.body.estado,
-              });
+                estado: "Creada",
+              }
+        
+        if(req.files != null) {
+          const file = req.files.file;
+          file.mv(`../backend/client/public/uploads/tareas/${file.name}`, err => {
+            if(err) {
+              console.log("file err: ",err);
+              return res.status(500).send(err);
+            }
+          })
+  
+          nueva.doc_orden_compra = `/uploads/tareas/${file.name}`  
+        }
+        const newTask = new Task(nueva);
+
         const id_activo = asset._id;
         const nuevastareas = asset.tareas_activas+1;
         try {
@@ -94,14 +110,14 @@ router.post("/newTask", async (req, res) => {
 
         if(newTask.email_compras !== "" && newTask.desc_materiales_compras !== "") {
           try{
-            sendEmail.enviarEmailCompras(req.body.usuario, newTask.activo, newTask.email_compras, newTask.desc_materiales_compras);
+            sendEmail.enviarEmailCompras(req.body.user_name, newTask.activo, newTask.email_compras, newTask.desc_materiales_compras);
           } catch(e) {
             return res.status(400);
           }
         }
         console.log(newTask)
 
-        const audit = { task_id:newTask._id, task_asset:newTask.activo, task_type: newTask.tipo_mant, action:"CREATE", user_id: req.body.user_id, user_name: req.body.usuario, date: new Date()}
+        const audit = { task_id:newTask._id, task_asset:newTask.activo, task_type: newTask.tipo_mant, action:"CREATE", user_id: req.body.user_id, user_name: req.body.user_name, date: new Date()}
         const newaudit = new TaskAudit(audit);
 
         newTask
@@ -154,7 +170,7 @@ router.put('/taskImage/:id/:date', async (req, res, next) => {
     }
   })
   console.log(file2)
-  file.mv(`../backend/client/public/uploads/${file2.name}`, err => {
+  file2.mv(`../backend/client/public/uploads/${file2.name}`, err => {
     if(err) {
       console.log(err);
       return res.status(500).send(err);
@@ -173,6 +189,29 @@ router.put('/taskImage/:id/:date', async (req, res, next) => {
       data: task,
       message: "Ha actualizado la tarea"
     }) 
+    console.log("nombre activo:", task.activo)
+    Asset.findOne({nombre: task.activo}).then(asset => {
+      if(!asset){
+        console.log("No se encontró el activo")
+      }
+      else {
+        console.log("activo:", asset.nombre)
+        console.log(asset.tareas_activas)
+        let nuevastareas = asset.tareas_activas - 1
+        console.log(nuevastareas)
+        try {
+          Asset.findByIdAndUpdate(asset._id, {tareas_activas: nuevastareas}, function(err,r) {
+            if(err) {
+              console.log("err: ", err)
+            } else {
+              console.log("result: ", r)
+            }
+          })
+        } catch {
+          error: console.log(error)
+        }
+      }
+    })
   } catch (error) {
     console.log(error)
   }

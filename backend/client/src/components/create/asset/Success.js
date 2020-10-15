@@ -20,7 +20,7 @@ class Success extends Component {
                                 <CardContent>
                                     <Grid container alignItems="center">
                                         <Grid item xs={12}>
-                                            <Typography variant="h4" color="primary" align="center"> Revise los datos </Typography>
+                                            <Typography variant="h4" color="primary" align="center"> Si no es redirigido en unos segundos: Revise los datos </Typography>
                                             <br/>
                                         </Grid>
                                         <Grid item xs={4} alignContent="flex-end"></Grid>

@@ -14,7 +14,7 @@ const persistConfig = {
     transforms: [
         createBlacklistFilter('auth', []),
         createBlacklistFilter('errors', ['recinto','ubicacion','categoria','nombre',
-        'valor','dias_garantia','dias_frec_mant_preventivo','observacion', 'area', 'supervisor']),
+        'valor','dias_garantia','dias_frec_mant_preventivo','observacion', 'area', 'supervisor', 'activo']),
     ]
 }
 

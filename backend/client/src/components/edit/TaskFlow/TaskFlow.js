@@ -10,6 +10,7 @@ export class TaskFlow extends Component {
 
     constructor(ownProps){
         super(ownProps);
+        console.log(ownProps)
         this.state = {
             id: this.props.match.params.id,
             inicio: new Date(),
@@ -46,8 +47,8 @@ export class TaskFlow extends Component {
 
     render() {
         const { step } = this.state;
-        const { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2} = this.state;
-        const values = { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2};
+        const { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2, } = this.state;
+        const values = { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2, };
 
         switch(step) {
             case 1:
@@ -82,12 +83,11 @@ export class TaskFlow extends Component {
 }
 
 TaskFlow.propTypes = {
-
 };
 
 const mapStateToProps = (state) => {
     return{
-        id: state.id
+        id: state.id,
     }
 };
 

@@ -54,9 +54,17 @@ export const nameTasks = (taskData, history) => dispatch => {
 };
 
 export const addTask = (taskData, history) => dispatch => {
-    axios
-    .post("/api/tasks/newTask", taskData)
-    .then(res => history.push("/tasks"))
+    axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
+    axios({
+        url: "api/tasks/newTask",
+        method: 'POST',
+        data: taskData,
+        headers: {
+            Accept: 'application/JSON',
+            'Content-Type': 'multipart/form-data'
+        }
+    })
+    .then(res => history.push("/dashboard"))
     .catch(err =>
         dispatch({
           type: GET_ERRORS,
@@ -76,7 +84,7 @@ export const darBajaTask = (taskData => dispatch => {
 });
 
 export const updateImage = (id, date, taskData) => dispatch => {
-    console.log("--Entra a actions")
+    axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
     axios.put(`/api/tasks/taskImage/${id}/${date}`, taskData, {
         headers: {
             'content-type': 'multipart/form-data'

@@ -10,6 +10,7 @@ class TaskImage2 extends Component {
     continue = (e) => {
         e.preventDefault();
         const formData = new FormData();
+        formData.append('activo', this.props.values.activo)
         formData.append('file', this.props.values.file)
         formData.append('file2', this.props.values.file2)
         this.props.updateImage(this.props.values.id, this.props.values.date, formData) 
@@ -23,8 +24,6 @@ class TaskImage2 extends Component {
 
     render () {
         const { values, handleChange } = this.props;
-        console.log(this.props)
-        console.log(values)
 
         let filled = false;
         if(values.file2!==""){
@@ -72,7 +71,6 @@ TaskImage2.propTypes = {
 
 const mapStateToProps = (state) => {
     return{
-        /* id: state.id */
     }
 };
 

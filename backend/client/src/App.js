@@ -30,7 +30,7 @@ import newVenue from "./components/create/VenueForm";
 import AssetDash from "./components/dashboard/DashAssets";
 import Profile from "./components/auth/Profile";
 import TaskDash from "./components/dashboard/DashTasks";
-import newTask from "./components/create/TaskForm";
+import newTask from "./components/create/task/TaskForm";
 import RoutineDash from "./components/dashboard/DashRoutines";
 import newRoutine from "./components/create/RoutineForm";
 import assetDetails from "./components/details/AssetDetails";

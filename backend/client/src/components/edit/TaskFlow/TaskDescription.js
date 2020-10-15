@@ -55,7 +55,6 @@ class TaskDescription extends Component {
                                     </Grid>
                                 </Grid>
                             </CardContent>
-                            
                         </Card>
         }
 
@@ -74,8 +73,7 @@ TaskDescription.propTypes = {
 
 const mapStateToProps = (state) => {
     return{
-        tasks: state.tasks,
-        /* id: state.id */
+        tasks: state.tasks
     }
 };
 
