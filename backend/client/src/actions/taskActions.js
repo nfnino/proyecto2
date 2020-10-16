@@ -85,11 +85,7 @@ export const darBajaTask = (taskData => dispatch => {
 
 export const updateImage = (id, date, taskData) => dispatch => {
     axios.defaults.headers.common['Content-Type'] = 'multipart/form-data';
-    axios.put(`/api/tasks/taskImage/${id}/${date}`, taskData, {
-        headers: {
-            'content-type': 'multipart/form-data'
-        }
-    })
+    axios.put(`/api/tasks/taskImage/${id}/${date}`, taskData)
     .catch(err =>
         dispatch({
           type: GET_ERRORS,

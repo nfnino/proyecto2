@@ -59,8 +59,8 @@ class TaskDetails extends Component {
         const { classes } = this.props;
         let task = this.props.task
 
-        let source = task.imagen_antes_mant
-        let source2 = task.imagen_despu_mant
+        let source = task.imagen_antes_mant;
+        let source2 = task.imagen_despu_mant;
 
         const bruh = 
         <Grid container>

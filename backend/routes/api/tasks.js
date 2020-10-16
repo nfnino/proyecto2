@@ -162,14 +162,14 @@ router.put('/taskImage/:id/:date', async (req, res, next) => {
   }
   const file = req.files.file;
   const file2 = req.files.file2;
-  console.log(file)
+  console.log("file", file.name)
+  console.log("file2", file2.name)
   file.mv(`../backend/client/public/uploads/${file.name}`, err => {
     if(err) {
       console.log(err);
       return res.status(500).send(err);
     }
   })
-  console.log(file2)
   file2.mv(`../backend/client/public/uploads/${file2.name}`, err => {
     if(err) {
       console.log(err);
