@@ -32,13 +32,12 @@ router.post("/newParking", async (req, res) => {
     if (!isValid) {
         return res.status(400).json(errors);
     }
-    const total_carros = parseInt(req.body.carros_n1) + parseInt(req.body.carros_n2) + parseInt(req.body.carros_n3) + parseInt(req.body.carros_n4);
-    const total_motos = parseInt(req.body.motos_n1) + parseInt(req.body.motos_n2) + parseInt(req.body.motos_n3) + parseInt(req.body.motos_n4);
-    const total_camaras = parseInt(req.body.camaras_n1) + parseInt(req.body.camaras_n2) + parseInt(req.body.camaras_n3) + parseInt(req.body.camaras_n4) + parseInt(req.body.camaras_ptz);
+    const total_carros = ((314-(parseInt(req.body.carros_n1) + parseInt(req.body.carros_n2) + parseInt(req.body.carros_n3) + parseInt(req.body.carros_n4)))/314)*100;
+    const total_motos = ((18-(parseInt(req.body.motos_n1) + parseInt(req.body.motos_n2) + parseInt(req.body.motos_n3) + parseInt(req.body.motos_n4)))/18)*100;
+    const total_camaras = ((71-(parseInt(req.body.camaras_n1) + parseInt(req.body.camaras_n2) + parseInt(req.body.camaras_n3) + parseInt(req.body.camaras_n4) + parseInt(req.body.camaras_ptz)))/71)*100;
     const newRoutine = new Parking({
         fecha: req.body.fecha,
         ejecutor: req.body.ejecutor,
-        supervisor: req.body.supervisor,
         carros_n1: req.body.carros_n1, 
         carros_n2: req.body.carros_n2, 
         carros_n3: req.body.carros_n3, 

@@ -41,34 +41,34 @@ class Detallerci extends Component {
         const { classes } = this.props;
         let rci = this.props.rci
         let detalles = this.props.rcis.details
-        let bruh =null;
+        let bruh = null;
 
-        if(detalles.data != null) {
+        if(detalles != null && detalles.data != null) {
             const d = Object.values(detalles.data)
             console.log(d)
-
             let userItems = d.map(user => (
                 <tr key={user._id} style={{ marginTop: "1rem" }}>
                 <td> {user.nombre} </td>
                 <td align="right"> {user.manguera}</td>
-                <td align="right"> {new Date(user.extintor).toLocaleDateString()} </td>
+                <td align="right"> {new Date(user.extintor).getMonth()+1+"/"+new Date(user.extintor).getFullYear()} </td>
                 <td align="right"> {user.conexion} </td>
                 <td align="right"> {user.presion} </td>
-                <td align="right"> {user.limpieza} </td>
+                <td align="right"> {user.limpieza ? "Hecho" : "No hecho"} </td>
                 <td align="right"> {user.seguro} </td>
                 <td align="right"> {user.observacion} </td>
                 </tr>
             ));
-
+            console.log(rci.fecha_fin)
             const f1 = new Date(rci.fecha).toLocaleDateString()
             const f2 = new Date(rci.fecha_fin).toLocaleDateString()
+            console.log("fechafin: ",f2)
             const h1 = new Date(rci.fecha).getHours()
             const h2 = new Date(rci.fecha_fin).getHours()
             const m1 = new Date(rci.fecha).getMinutes()
             const m2 = new Date(rci.fecha_fin).getMinutes()
             const date1 = f1+" - "+h1+":"+m1;
             let date2 = "Aún no ha sido finalizada";
-            if(rci.fecha_fin!=null){
+            if(rci.fecha_fin!==null){
                 date2 = f2+" - "+h2+":"+m2
             }
 
@@ -94,9 +94,6 @@ class Detallerci extends Component {
                                             </ListItem>
                                             <ListItem>
                                                 <ListItemText primary="Ejecutor" secondary={rci.ejecutor} />
-                                            </ListItem>
-                                            <ListItem>
-                                                <ListItemText primary="Supervisor" secondary={rci.supervisor} />
                                             </ListItem>
                                         </List>
                                     </Grid>

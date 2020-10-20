@@ -32,10 +32,11 @@ class UpdateSilleteria extends Component {
     console.log(ownProps)
     this.state = {
       own: ownProps.silleterias.silleterias.data.find(silleteria => silleteria._id === ownProps.id),
-      tribuna_norte: null,
-      tribuna_sur: null,
-      suites_vip: null,
-      boxes: null,
+      tribuna_norte: 0,
+      tribuna_sur: 0,
+      suites_vip: 0,
+      boxes: 0,
+      platea: 0,
     };
   }
 
@@ -63,6 +64,7 @@ class UpdateSilleteria extends Component {
         tribuna_sur: this.state.tribuna_sur,
         suites_vip: this.state.suites_vip,
         boxes: this.state.boxes,
+        platea: this.state.platea,
         estado: "Terminada"
     }
     this.props.updateSilleteria(this.props.id, data, this.props.history);
@@ -88,7 +90,6 @@ class UpdateSilleteria extends Component {
     }
     
     const rows = [
-      createData('piso_1', silleteria.piso_1),
       createData('piso_2', silleteria.piso_2),
       createData('piso_3', silleteria.piso_3),
     ];
@@ -126,8 +127,57 @@ return (
                 </Table>
               </TableContainer>
               <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <TextField id="tribuna_norte" label="Tribunas Fan Norte"
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Silletería Platea"
+                      defaultValue={2278}
+                      margin="normal"
+                      variant="filled"
+                      size="small"
+                      contentEditable="false"
+                      inputProps={{
+                        readOnly: true,
+                        disabled: true,
+                      }}
+                      multiline={true}
+                      style={{
+                        width: "100%"
+                      }}
+                    />
+                  </Grid> 
+                  <Grid item xs={6}>
+                    <TextField id="platea" label="Sillas No Disponibles en Platea"
+                        defaultValue={this.state.platea}
+                        onChange={this.handleChange('platea')}
+                        margin="normal"
+                        variant="standard"
+                        size="medium"
+                        multiline={true}
+                        style={{
+                        width: "100%"
+                        }}>
+                    </TextField>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Silletería Tribuna Norte"
+                      defaultValue={118}
+                      margin="normal"
+                      variant="filled"
+                      size="small"
+                      contentEditable="false"
+                      inputProps={{
+                        readOnly: true,
+                        disabled: true,
+                      }}
+                      multiline={true}
+                      style={{
+                        width: "100%"
+                      }}
+                    />
+                  </Grid> 
+                  <Grid item xs={6}>
+                    <TextField id="tribuna_norte" label="No Disponibles Tribunas Fan Norte"
                         defaultValue={this.state.tribuna_norte}
                         onChange={this.handleChange('tribuna_norte')}
                         margin="normal"
@@ -139,8 +189,26 @@ return (
                         }}>
                     </TextField>
                   </Grid>
-                  <Grid item xs={12}>
-                    <TextField id="tribuna_sur" label="Tribunas Fan Sur"
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Silletería Tribuna Sur"
+                      defaultValue={124}
+                      margin="normal"
+                      variant="filled"
+                      size="small"
+                      contentEditable="false"
+                      inputProps={{
+                        readOnly: true,
+                        disabled: true,
+                      }}
+                      multiline={true}
+                      style={{
+                        width: "100%"
+                      }}
+                    />
+                  </Grid> 
+                  <Grid item xs={6}>
+                    <TextField id="tribuna_sur" label="No Disponibles Tribunas Fan Sur"
                         defaultValue={this.state.tribuna_sur}
                         onChange={this.handleChange('tribuna_sur')}
                         margin="normal"
@@ -152,8 +220,26 @@ return (
                         }}>
                     </TextField>
                   </Grid>
-                  <Grid item xs={12}>
-                    <TextField id="suites_vip" label="Suites V.I.P"
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Silletería Suites VIP"
+                      defaultValue={417}
+                      margin="normal"
+                      variant="filled"
+                      size="small"
+                      contentEditable="false"
+                      inputProps={{
+                        readOnly: true,
+                        disabled: true,
+                      }}
+                      multiline={true}
+                      style={{
+                        width: "100%"
+                      }}
+                    />
+                  </Grid> 
+                  <Grid item xs={6}>
+                    <TextField id="suites_vip" label="No Disponibles Suites V.I.P"
                         defaultValue={this.state.suites_vip}
                         onChange={this.handleChange('suites_vip')}
                         margin="normal"
@@ -165,8 +251,26 @@ return (
                         }}>
                     </TextField>
                   </Grid>
-                  <Grid item xs={12}>
-                    <TextField id="boxes" label="Boxes"
+                  <Grid item xs={6}>
+                    <TextField
+                      label="Silletería Boxes"
+                      defaultValue={207}
+                      margin="normal"
+                      variant="filled"
+                      size="small"
+                      contentEditable="false"
+                      inputProps={{
+                        readOnly: true,
+                        disabled: true,
+                      }}
+                      multiline={true}
+                      style={{
+                        width: "100%"
+                      }}
+                    />
+                  </Grid> 
+                  <Grid item xs={6}>
+                    <TextField id="boxes" label="No disponibles Boxes"
                         defaultValue={this.state.boxes}
                         onChange={this.handleChange('boxes')}
                         margin="normal"

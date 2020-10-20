@@ -35,7 +35,6 @@ router.post("/newLocal", async (req, res) => {
     const newRoutine = new RutinaLocal({
         fecha: req.body.fecha,
         ejecutor: req.body.ejecutor,
-        supervisor: req.body.supervisor,
         observacion: req.body.observacion
         });
     console.log(newRoutine)

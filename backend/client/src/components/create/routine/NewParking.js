@@ -9,7 +9,6 @@ import { addParking } from "../../../actions/routines/parkingActions";
 import { TextField, Typography, Grid, Button } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { withStyles } from '@material-ui/core/styles';
 
@@ -31,20 +30,19 @@ class NewParking extends Component {
     this.state = {
         fecha: new Date(),
         ejecutor: "",
-        supervisor: "",
-        carros_n1: "",
-        carros_n2: "",
-        carros_n3: "",
-        carros_n4: "",
-        motos_n1: "",
-        motos_n2: "",
-        motos_n3: "",
-        motos_n4: "",
-        camaras_n1: "",
-        camaras_n2: "",
-        camaras_n3: "",
-        camaras_n4: "",
-        camaras_ptz: "",
+        carros_n1: 0,
+        carros_n2: 0,
+        carros_n3: 0,
+        carros_n4: 0,
+        motos_n1: 0,
+        motos_n2: 0,
+        motos_n3: 0,
+        motos_n4: 0,
+        camaras_n1: 0,
+        camaras_n2: 0,
+        camaras_n3: 0,
+        camaras_n4: 0,
+        camaras_ptz: 0,
         observacion: "",
         errors: {} 
     };
@@ -66,18 +64,11 @@ class NewParking extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  supervisorChange(supervisor) {
-    this.setState({
-      supervisor: supervisor.value
-    })
-  }
-
   onSubmit = e => {
     e.preventDefault();
     const nueva = {
         fecha: this.state.fecha,
         ejecutor: this.props.auth.user.name,
-        supervisor: this.state.supervisor,
         carros_n1: this.state.carros_n1,
         carros_n2: this.state.carros_n2,
         carros_n3: this.state.carros_n3,
@@ -101,27 +92,6 @@ render() {
   const { errors } = this.state;
   const { users } = this.props.users;
 
-//------------------------------ Supervisor dropdown ---------------------------------------
-let options_supervisor = []
-
-if( users.length !== 0) {
-
-  let usuarios = Object.values(users.data)
-
-  let nuevo = usuarios.map(user => ({
-        value: user.name,
-        label: user.name,
-        type: user.role
-  }))
-
-  for (let i = 0; i < nuevo.length; i++) {
-    let temp = nuevo[i]
-    if (temp.type === "Jefe de área") {
-      options_supervisor.push(temp)
-    }
-  }
-} 
-
 return (
   <Grid container direction="column" alignItems="center">
     <Grid item xs={12}>
@@ -130,25 +100,31 @@ return (
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Nueva rutina de parking :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Nueva rutina de parking & CCTV :</Typography>
               <br/>
               <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                      <Autocomplete
-                      id="supervisor"
-                      defaultValue={this.state.supervisor}
-                      options={options_supervisor}
-                      getOptionLabel={(options_supervisor) => options_supervisor.label}
-                      onChange={(event, value) => this.supervisorChange(value)}
-                      style={{ width: "100%"}}
-                      renderInput={(params) => <TextField {...params} label="Supervisor" variant="standard" multiline={true}/>}
-                      />
-                      <span className="red-text">{errors.supervisor}</span>
-                  </Grid>
-                  <Grid item xs={12}>
+                <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Carros N1"
+                    defaultValue={62}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid> 
+                  <Grid item xs={6}>
                     <TextField
                         id="carros_n1"
-                        label="Parq. Disponibles Carros N1"
+                        label="Parqueaderos No Disponibles Carros N1"
                         defaultValue={this.state.carros_n1}
                         onChange={this.onChange}
                         margin="normal"
@@ -162,10 +138,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.carros_n1}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Motos N1"
+                    defaultValue={6}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="motos_n1"
-                        label="Parq. Disponibles Motos N1"
+                        label="Parqueaderos No Disponibles Motos N1"
                         defaultValue={this.state.motos_n1}
                         onChange={this.onChange}
                         margin="normal"
@@ -179,10 +173,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.motos_n1}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Carros N2"
+                    defaultValue={85}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="carros_n2"
-                        label="Parq. Disponibles Carros N2"
+                        label="Parqueaderos No Disponibles Carros N2"
                         defaultValue={this.state.carros_n2}
                         onChange={this.onChange}
                         margin="normal"
@@ -196,10 +208,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.carros_n2}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Motos N2"
+                    defaultValue={6}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="motos_n2"
-                        label="Parq. Disponibles Motos N2"
+                        label="Parqueaderos No Disponibles Motos N2"
                         defaultValue={this.state.motos_n2}
                         onChange={this.onChange}
                         margin="normal"
@@ -212,10 +242,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.motos_n2}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Carros N3"
+                    defaultValue={85}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="carros_n3"
-                        label="Parq. Disponibles Carros N3"
+                        label="Parqueaderos No Disponibles Carros N3"
                         defaultValue={this.state.carros_n3}
                         onChange={this.onChange}
                         margin="normal"
@@ -228,10 +276,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.carros_n3}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Motos N3"
+                    defaultValue={6}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="motos_n3"
-                        label="Parq. Disponibles Motos N3"
+                        label="Parqueaderos No Disponibles Motos N3"
                         defaultValue={this.state.motos_n3}
                         onChange={this.onChange}
                         margin="normal"
@@ -244,10 +310,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.motos_n3}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Carros N4"
+                    defaultValue={82}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="carros_n4"
-                        label="Parq. Disponibles Carros N4"
+                        label="Parqueaderos No Disponibles Carros N4"
                         defaultValue={this.state.carros_n4}
                         onChange={this.onChange}
                         margin="normal"
@@ -260,10 +344,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.carros_n4}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Parqueaderos Motos N4"
+                    defaultValue={0}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="motos_n4"
-                        label="Parq. Disponibles Motos N4"
+                        label="Parqueaderos No Disponibles Motos N4"
                         defaultValue={this.state.motos_n4}
                         onChange={this.onChange}
                         margin="normal"
@@ -276,10 +378,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.motos_n4}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Cámaras Nivel 1"
+                    defaultValue={19}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="camaras_n1"
-                        label="Cámaras en servicio N1"
+                        label="Cámaras sin servicio N1"
                         defaultValue={this.state.camaras_n1}
                         onChange={this.onChange}
                         margin="normal"
@@ -292,10 +412,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.camaras_n1}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Cámaras Nivel 2"
+                    defaultValue={11}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="camaras_n2"
-                        label="Cámaras en servicio N2"
+                        label="Cámaras sin servicio N2"
                         defaultValue={this.state.camaras_n2}
                         onChange={this.onChange}
                         margin="normal"
@@ -308,10 +446,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.camaras_n2}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Cámaras Nivel 3"
+                    defaultValue={15}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="camaras_n3"
-                        label="Cámaras en servicio N3"
+                        label="Cámaras sin servicio N3"
                         defaultValue={this.state.camaras_n3}
                         onChange={this.onChange}
                         margin="normal"
@@ -324,10 +480,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.camaras_n3}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Cámaras Nivel 4"
+                    defaultValue={19}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="camaras_n4"
-                        label="Cámaras en servicio N4"
+                        label="Cámaras sin servicio N4"
                         defaultValue={this.state.camaras_n4}
                         onChange={this.onChange}
                         margin="normal"
@@ -340,10 +514,28 @@ return (
                     </TextField>
                     <span className="red-text">{errors.camaras_n4}</span>
                   </Grid>
-                  <Grid item xs={12}>
+                  <Grid item xs={6}>
+                  <TextField
+                    label="Cámaras PTZ"
+                    defaultValue={9}
+                    margin="normal"
+                    variant="filled"
+                    size="small"
+                    contentEditable="false"
+                    inputProps={{
+                      readOnly: true,
+                      disabled: true,
+                    }}
+                    multiline={true}
+                    style={{
+                      width: "100%"
+                    }}
+                  />
+                </Grid>
+                  <Grid item xs={6}>
                     <TextField
                         id="camaras_ptz"
-                        label="Cámaras en servicio PTZ"
+                        label="Cámaras sin servicio PTZ"
                         defaultValue={this.state.camaras_ptz}
                         onChange={this.onChange}
                         margin="normal"

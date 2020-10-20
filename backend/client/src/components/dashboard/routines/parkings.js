@@ -19,7 +19,6 @@ class Parkings extends Component {
             columns: [
                 {title: 'Fecha', field: 'fecha'},
                 {title: 'Ejecutor', field: 'ejecutor'},
-                {title: 'Supervisor', field: 'supervisor'}
             ]
         };
     }
@@ -42,10 +41,9 @@ class Parkings extends Component {
 
         const routineItems = [];
         
-        function createData(id, fecha, ejecutor, supervisor) {
+        function createData(id, fecha, ejecutor) {
             let array = {"fecha": new Date(fecha).toLocaleDateString(),
                         "ejecutor": ejecutor, 
-                        "supervisor": supervisor,
                         "id": id
                     }
             routineItems.push(array)
@@ -54,7 +52,7 @@ class Parkings extends Component {
         if(parkings!=null) {
             if(parkings.length > 0) {
             parkings.forEach(element => {
-                createData(element._id, element.fecha, element.ejecutor, element.supervisor)
+                createData(element._id, element.fecha, element.ejecutor)
             });
             }
         }

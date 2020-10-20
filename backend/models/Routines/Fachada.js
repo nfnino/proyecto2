@@ -11,13 +11,47 @@ const FachadaSchema = new Schema({
         type: String,
         required: true
     },
-    supervisor: {
+    blower1: {
+        type: String,
+        default: ""
+    },
+    blower2: {
+        type: String,
+        default: ""
+    },
+    blower3: {
+        type: String,
+        default: ""
+    },
+    blower4: {
+        type: String,
+        default: ""
+    },
+    observacion: {
         type: String,
         required: false
     },
-    blower: {
+    estado: {
+        type: String,
+        default: "Creada"
+    },
+    fecha_fin: {
+        type: Date,
+    },
+    recinto: {
+        type: String,
+        required: false
+    }
+});
+
+const DetFachadaSchema = new Schema({
+    nombre: {
         type: String,
         required: true
+    },
+    rutina: {
+        type: String,
+        required: false
     },
     fuga_espirotubo: {
         type: String,
@@ -62,17 +96,10 @@ const FachadaSchema = new Schema({
     tablero_electrico: {
         type: String,
         required: true
-    },
-    observacion: {
-        type: String,
-        required: false
-    },
-    recinto: {
-        type: String,
-        required: false
     }
 });
 
 const Fachada = mongoose.model('fachada', FachadaSchema);
+const DetalleFachada = mongoose.model('detalleFachada', DetFachadaSchema);
 
-module.exports = Fachada;
+module.exports = { Fachada, DetalleFachada };

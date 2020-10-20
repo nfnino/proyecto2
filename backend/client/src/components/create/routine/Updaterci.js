@@ -55,7 +55,8 @@ class Updaterci extends Component {
   onSubmit = e => {
     e.preventDefault();
     const data = {
-      estado: "Terminada"
+      estado: "Terminada",
+      fecha_fin: new Date()
     }
     this.props.updaterci(this.props.id, data, this.props.history);
   }

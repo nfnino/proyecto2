@@ -6,8 +6,7 @@ module.exports = function validateBanio(data) {
     // Convert empty fields to an empty string so we can use validator functions
     data.fecha = !isEmpty(data.fecha) ? data.fecha : "";
     data.ejecutor = !isEmpty(data.ejecutor) ? data.ejecutor : "";
-    data.supervisor = !isEmpty(data.supervisor) ? data.supervisor : "";
-    data.blower = !isEmpty(data.blower) ? data.blower : "";
+    /* data.blower = !isEmpty(data.blower) ? data.blower : "";
     data.fuga_espirotubo = !isEmpty(data.fuga_espirotubo) ? data.fuga_espirotubo : "";
     data.presion_sensor = !isEmpty(data.presion_sensor) ? data.presion_sensor : "";
     data.presion_alta = !isEmpty(data.presion_alta) ? data.presion_alta : "";
@@ -19,17 +18,14 @@ module.exports = function validateBanio(data) {
     data.defecto_lamparas = !isEmpty(data.defecto_lamparas) ? data.defecto_lamparas : "";
     data.control = !isEmpty(data.control) ? data.control : "";
     data.tablero_electrico = !isEmpty(data.tablero_electrico) ? data.tablero_electrico : "";
-
+ */
     if (Validator.isEmpty(data.fecha)) {
         errors.fecha = "Campo requerido";
     }
     if (Validator.isEmpty(data.ejecutor)) {
         errors.ejecutor = "Campo requerido";
     }
-    if (Validator.isEmpty(data.supervisor)) {
-        errors.supervisor = "Campo requerido";
-    }
-    if (Validator.isEmpty(data.blower)) {
+    /* if (Validator.isEmpty(data.blower)) {
         errors.blower = "Campo requerido";
     }
     if (Validator.isEmpty(data.fuga_espirotubo)) {
@@ -69,7 +65,7 @@ module.exports = function validateBanio(data) {
     }
     if (!Validator.isNumeric(data.presion_baja)) {
         errors.presion_baja = "Sólo valores numéricos";
-    }
+    } */
     return {
         errors,
         isValid: isEmpty(errors)

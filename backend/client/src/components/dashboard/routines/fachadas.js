@@ -19,7 +19,7 @@ class Fachadas extends Component {
             columns: [
                 {title: 'Fecha', field: 'fecha'},
                 {title: 'Ejecutor', field: 'ejecutor'},
-                {title: 'Supervisor', field: 'supervisor'}
+                {title: 'Estado', field: 'estado'}
             ]
         };
     }
@@ -33,19 +33,27 @@ class Fachadas extends Component {
         this.props.history.push(`detalleFachada/${id}`)
     }
 
+    onUpdateClick = id => {
+        const { history } = this.props;
+        history.push(`/updateFachada/${id}`);
+    }
+
     render() {
         const res = this.props.fachadas.fachadas;
         console.log(this.props)
         console.log(res)
-        const fachadas = res.data;
+        let fachadas = null;
+        if(res!=null) {
+        fachadas = res.data;
+        }
         console.log(fachadas)
 
         const routineItems = [];
         
-        function createData(id, fecha, ejecutor, supervisor) {
+        function createData(id, fecha, ejecutor, estado) {
             let array = {"fecha": new Date(fecha).toLocaleDateString(),
-                        "ejecutor": ejecutor, 
-                        "supervisor": supervisor,
+                        "ejecutor": ejecutor,
+                        "estado": estado,
                         "id": id
                     }
             routineItems.push(array)
@@ -54,7 +62,7 @@ class Fachadas extends Component {
         if(fachadas!=null) {
             if(fachadas.length > 0) {
             fachadas.forEach(element => {
-                createData(element._id, element.fecha, element.ejecutor, element.supervisor)
+                createData(element._id, element.fecha, element.ejecutor, element.estado)
             });
             }
         }
@@ -83,6 +91,11 @@ class Fachadas extends Component {
                                     }
                                 }}
                                 actions={[
+                                    {
+                                        icon: 'edit',
+                                        tooltip: 'Diligenciar rutina',
+                                        onClick: (event, rowData) => this.onUpdateClick(rowData.id)
+                                    },
                                     {
                                         icon: 'search',
                                         tooltip: 'Detalle Rutina',

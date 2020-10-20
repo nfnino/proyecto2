@@ -108,20 +108,20 @@ class DetalleSilleteria extends Component {
                                             <ListItem>
                                                 <ListItemText primary="Ejecutor" secondary={silleteria.ejecutor} />
                                             </ListItem>
-                                            <ListItem>
-                                                <ListItemText primary="Supervisor" secondary={silleteria.supervisor} />
+                                            <ListItem >
+                                                <ListItemText primary="No Disponibles en Platea" secondary={silleteria.platea} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Tribunas Fan Norte" secondary={silleteria.tribuna_norte} />
+                                                <ListItemText primary="No Disponibles en Tribunas Fan Norte" secondary={silleteria.tribuna_norte} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Tribunas Fan Sur" secondary={silleteria.tribuna_sur} />
+                                                <ListItemText primary="No Disponibles en Tribunas Fan Sur" secondary={silleteria.tribuna_sur} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Suites V.I.P." secondary={silleteria.suites_vip} />
+                                                <ListItemText primary="No Disponibles en Suites V.I.P." secondary={silleteria.suites_vip} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Boxes" secondary={silleteria.boxes} />
+                                                <ListItemText primary="No Disponibles en Boxes" secondary={silleteria.boxes} />
                                             </ListItem>
                                         </List>
                                     </Grid>
@@ -130,25 +130,26 @@ class DetalleSilleteria extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 01</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 02</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 03</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 04</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 05</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 06</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 07</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 08</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 09</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 10</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 11</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 12</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 13</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 14</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 15</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 16</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 17</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 18</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Espacio 19</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 01</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 02</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 03</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 04</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 05</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 06</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 07</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 08</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 09</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 10</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 11</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 12</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 13</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 14</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 15</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 16</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 17</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 18</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. en 19</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>No Disp. Total</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>

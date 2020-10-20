@@ -11,10 +11,6 @@ const ParkingSchema = new Schema({
         type: String,
         required: true
     },
-    supervisor: {
-        type: String,
-        required: false
-    },
     carros_n1: {
         type: Number,
         required: true

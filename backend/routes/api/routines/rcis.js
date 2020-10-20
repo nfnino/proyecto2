@@ -62,9 +62,8 @@ router.post("/newrci", async (req, res) => {
 router.put("/updaterci/:id", async (req, res, next) => {
     const id = req.params.id;
     const update = req.body;
-    update['fecha_fin'] = new Date();
     console.log(id)
-    console.log(update)
+    console.log("update:",update)
 
     RCI.findById(id).then(test => {
         if(!test) {

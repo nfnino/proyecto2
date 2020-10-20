@@ -33,7 +33,7 @@ class DetalleParking extends Component {
                                 <br/>
                                 <br/>
                                 <Grid container justify="center" spacing={2}>
-                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Parking: </Typography>
+                                    <Typography variant="h4" style={{color:"#F59C00"}}>Detalles Rutina Parking & CCTV: </Typography>
                                     <Grid item xs={12}>
                                         <List>
                                             <ListItem >
@@ -41,57 +41,54 @@ class DetalleParking extends Component {
                                             </ListItem>
                                             <ListItem >
                                                 <ListItemText primary="Ejecutor" secondary={parking.ejecutor} />
-                                                </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="Supervisor" secondary={parking.supervisor} />
-                                                </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="Parq. Disponible Carros N1" secondary={parking.carros_n1} />
-                                                </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="Parq. Disponible Carros N2" secondary={parking.carros_n2} />
-                                                </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="Parq. Disponible Carros N3" secondary={parking.carros_n3} />
-                                                </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="Parq. Disponible Carros N4" secondary={parking.carros_n4} />
-                                                </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="Parq. Disponible Carros" secondary={parking.carros} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Parq. Disponible Motos N1" secondary={parking.motos_n1} />
+                                                <ListItemText primary="Número No disponibles Carros N1" secondary={parking.carros_n1} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Parq. Disponible Motos N2" secondary={parking.motos_n2} />
+                                                <ListItemText primary="Número No disponibles Carros N2" secondary={parking.carros_n2} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Parq. Disponible Motos N3" secondary={parking.motos_n3} />
+                                                <ListItemText primary="Número No disponibles Carros N3" secondary={parking.carros_n3} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Parq. Disponible Motos N4" secondary={parking.motos_n4} />
+                                                <ListItemText primary="Número No disponibles Carros N4" secondary={parking.carros_n4} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Parq. Disponible Motos" secondary={parking.motos} />
+                                                <ListItemText primary="Porcentaje disponibilidad Carros" secondary={`${parking.carros}%`} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Cámaras Disponibles N1" secondary={parking.camaras_n1} />
+                                                <ListItemText primary="Número No disponibles Motos N1" secondary={parking.motos_n1} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Cámaras Disponibles N2" secondary={parking.camaras_n2} />
+                                                <ListItemText primary="Número No disponibles Motos N2" secondary={parking.motos_n2} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Cámaras Disponibles N3" secondary={parking.camaras_n3} />
+                                                <ListItemText primary="Número No disponibles Motos N3" secondary={parking.motos_n3} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Cámaras Disponibles N4" secondary={parking.camaras_n4} />
+                                                <ListItemText primary="Número No disponibles Motos N4" secondary={parking.motos_n4} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Cámaras Disponibles PTZ" secondary={parking.camaras_ptz} />
+                                                <ListItemText primary="Porcentaje disponibilidad Motos" secondary={`${parking.motos}%`} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Cámaras Disponibles" secondary={parking.camaras} />
+                                                <ListItemText primary="Cámaras No disponibles N1" secondary={parking.camaras_n1} />
+                                            </ListItem>
+                                            <ListItem >
+                                                <ListItemText primary="Cámaras No disponibles N2" secondary={parking.camaras_n2} />
+                                            </ListItem>
+                                            <ListItem >
+                                                <ListItemText primary="Cámaras No disponibles N3" secondary={parking.camaras_n3} />
+                                            </ListItem>
+                                            <ListItem >
+                                                <ListItemText primary="Cámaras No disponibles N4" secondary={parking.camaras_n4} />
+                                            </ListItem>
+                                            <ListItem >
+                                                <ListItemText primary="Cámaras No disponibles PTZ" secondary={parking.camaras_ptz} />
+                                            </ListItem>
+                                            <ListItem >
+                                                <ListItemText primary="Porcentaje disponibilidad Cámaras" secondary={`${parking.camaras}%`} />
                                             </ListItem>
                                             <ListItem >
                                                 <ListItemText primary="Observaciones" secondary={parking.observacion} />

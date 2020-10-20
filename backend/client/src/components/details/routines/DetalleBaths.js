@@ -102,25 +102,25 @@ class DetalleBath extends Component {
                                                 <ListItemText primary="Observaciones" secondary={bath.observacion} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Sanitarios Total" secondary={bath.total_sanitarios} />
+                                                <ListItemText primary="Sanitarios Faltantes Total" secondary={bath.total_sanitarios} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Orinales Total" secondary={bath.total_orinales} />
+                                                <ListItemText primary="Orinales Faltantes Total" secondary={bath.total_orinales} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Lavamanos Total" secondary={bath.total_lavamanos} />
+                                                <ListItemText primary="Lavamanos Faltantes Total" secondary={bath.total_lavamanos} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Secamanos Total" secondary={bath.total_secamanos} />
+                                                <ListItemText primary="Secamanos Faltantes Total" secondary={bath.total_secamanos} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Pañaleras Total" secondary={bath.total_panaleras} />
+                                                <ListItemText primary="Pañaleras Faltantes Total" secondary={bath.total_panaleras} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Duchas Total" secondary={bath.total_duchas} />
+                                                <ListItemText primary="Duchas Faltantes Total" secondary={bath.total_duchas} />
                                             </ListItem>
                                             <ListItem >
-                                                <ListItemText primary="Luminarias Total" secondary={bath.total_luminarias} />
+                                                <ListItemText primary="Luminarias Faltantes Total" secondary={bath.total_luminarias} />
                                             </ListItem>
                                         </List>
                                     </Grid>
@@ -129,13 +129,13 @@ class DetalleBath extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Sanitarios</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Orinales</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lavamanos</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Secamanos</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Panaleras</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Duchas</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Luminarias</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Sanitarios Faltantes</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Orinales Faltantes</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lavamanos Faltantes</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Secamanos Faltantes</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Panaleras Faltantes</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Duchas Faltantes</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Luminarias Faltantes</Typography> </th>
                                                 </tr>
                                                 {userItems}
                                             </tbody>
@@ -163,95 +163,6 @@ class DetalleBath extends Component {
         )
     }
 }
-/*
-<ListItem>
-                                                <ListItemText primary="N1_P1_E13" onClick={this.onClick('N1_P1_E13')} secondary={bath.N1_P1_E13} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N2_P1_E12" onClick={this.onClick('N2_P1_E12')} secondary={bath.N2_P1_E12} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="ENF_P1_E10" onClick={this.onClick('ENF_P1_E10')} secondary={bath.ENF_P1_E10} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N3_P1_E10" onClick={this.onClick('N3_P1_E10')} secondary={bath.N3_P1_E10} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N4_P1_E10" onClick={this.onClick('N4_P1_E10')} secondary={bath.N4_P1_E10} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N5_P1_E9" onClick={this.onClick('N5_P1_E9')} secondary={bath.N5_P1_E9} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N6_P1_E6" onClick={this.onClick('N6_P1_E6')} secondary={bath.N6_P1_E6} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N7_P1_E6" onClick={this.onClick('N7_P1_E6')} secondary={bath.N7_P1_E6} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N8_P1_E3" onClick={this.onClick('N8_P1_E3')} secondary={bath.N8_P1_E3} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N9_P1_E3" onClick={this.onClick('N9_P1_E3')} secondary={bath.N9_P1_E3} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N10_P1_E4" onClick={this.onClick('N10_P1_E4')} secondary={bath.N10_P1_E4} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N11_P1_E23" onClick={this.onClick('N11_P1_E23')} secondary={bath.N11_P1_E23} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N12_P1_E21" onClick={this.onClick('N12_P1_E21')} secondary={bath.N12_P1_E21} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N13_P1_E21" onClick={this.onClick('N13_P1_E21')} secondary={bath.N13_P1_E21} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N14_P1_E19" onClick={this.onClick('N14_P1_E19')} secondary={bath.N14_P1_E19} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N15_P1_E17" onClick={this.onClick('N15_P1_E17')} secondary={bath.N15_P1_E17} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N16_P1_E17" onClick={this.onClick('N16_P1_E17')} secondary={bath.N16_P1_E17} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N17_P1_E17" onClick={this.onClick('N17_P1_E17')} secondary={bath.N17_P1_E17} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N18_P1_E17" onClick={this.onClick('N18_P1_E17')} secondary={bath.N18_P1_E17} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N19_P2_E15" onClick={this.onClick('N19_P2_E15')} secondary={bath.N19_P2_E15} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="CAM1_P2_E16" onClick={this.onClick('CAM1_P2_E16')} secondary={bath.CAM1_P2_E16} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="CAM2_P2_E15" onClick={this.onClick('CAM2_P2_E15')} secondary={bath.CAM2_P2_E15} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N20_P2_E15" onClick={this.onClick('N20_P2_E15')} secondary={bath.N20_P2_E15} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N21_P2_E14" onClick={this.onClick('N21_P2_E14')} secondary={bath.N21_P2_E14} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N22_P2_E13" onClick={this.onClick('N22_P2_E13')} secondary={bath.N22_P2_E13} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N23_P2_E14" onClick={this.onClick('N23_P2_E14')} secondary={bath.N23_P2_E14} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N24_P2_E11" onClick={this.onClick('N24_P2_E11')} secondary={bath.N24_P2_E11} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N25_P2_E10" onClick={this.onClick('N25_P2_E10')} secondary={bath.N25_P2_E10} />
-                                            </ListItem>
-                                            <ListItem >
-                                                <ListItemText primary="N26_P2_E9" onClick={this.onClick('N26_P2_E9')} secondary={bath.N26_P2_E9} />
-                                            </ListItem>
-*/
 
 DetalleBath.propTypes = {
     getBaths: PropTypes.func.isRequired,

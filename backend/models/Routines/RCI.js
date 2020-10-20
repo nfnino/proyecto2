@@ -45,13 +45,13 @@ const RCISchema = new Schema({
         type: Date,
         required: true
     },
+    fecha_fin: {
+        type : Date,
+        required: false
+    },
     ejecutor: {
         type: String,
         required: true
-    },
-    supervisor: {
-        type: String,
-        required: false
     },
     estado: {
         type: String,

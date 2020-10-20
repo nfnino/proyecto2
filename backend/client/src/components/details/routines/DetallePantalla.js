@@ -100,9 +100,6 @@ class DetallePantalla extends Component {
                                                 <ListItemText primary="Ejecutor" secondary={pantalla.ejecutor} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Supervisor" secondary={pantalla.supervisor} />
-                                            </ListItem>
-                                            <ListItem>
                                                 <ListItemText primary="Falla en paneles" secondary={pantalla.falla} />
                                             </ListItem>
                                             <ListItem>

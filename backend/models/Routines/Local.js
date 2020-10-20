@@ -35,7 +35,7 @@ const LocalSchema = new Schema({
         required: true
     },
     pasillos: {
-        type: Number,
+        type: String,
         required: true
     },
     observacion: {
@@ -56,10 +56,6 @@ const RutinaLocalSchema = new Schema({
     ejecutor: {
         type: String,
         required: true
-    },
-    supervisor: {
-        type: String,
-        required: false
     },
     estado: {
         type: String,

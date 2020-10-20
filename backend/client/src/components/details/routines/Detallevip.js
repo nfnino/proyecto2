@@ -94,19 +94,16 @@ class Detallevip extends Component {
                                                 <ListItemText primary="Ejecutor" secondary={vip.ejecutor} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Supervisor" secondary={vip.supervisor} />
+                                                <ListItemText primary="Total sillas No disponibles" secondary={vip.total_sillas} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Total sillas" secondary={vip.total_sillas} />
+                                                <ListItemText primary="Total puertas No disponibles" secondary={vip.total_puertas} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Total puertas" secondary={vip.total_puertas} />
+                                                <ListItemText primary="Total lava platos No disponibles" secondary={vip.total_lava_platos} />
                                             </ListItem>
                                             <ListItem>
-                                                <ListItemText primary="Total lava platos" secondary={vip.total_lava_platos} />
-                                            </ListItem>
-                                            <ListItem>
-                                                <ListItemText primary="Total lámparas" secondary={vip.total_lamparas} />
+                                                <ListItemText primary="Total lámparas No disponibles" secondary={vip.total_lamparas} />
                                             </ListItem>
                                         </List>
                                     </Grid>
@@ -115,10 +112,10 @@ class Detallevip extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Sillas Disponibles</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Puertas Acceso Disp.</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lava Platos Disp.</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lamparas Disponibles</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Sillas No Disponibles</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Puertas No Disponibles</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lava Platos No Disponibles</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lamparas  No Disponibles</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Observaciones</Typography> </th>
                                                 </tr>
                                                 {userItems}

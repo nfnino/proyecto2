@@ -6,10 +6,10 @@ module.exports = function validateTablero(data) {
     // Convert empty fields to an empty string so we can use validator functions
     data.nombre = !isEmpty(data.nombre) ? data.nombre : "";
     data.rutina = !isEmpty(data.rutina) ? data.rutina : "";
-    data.sillas = !isEmpty(data.sillas) ? data.sillas : "";
-    data.puertas = !isEmpty(data.puertas) ? data.puertas : "";
-    data.lava_platos = !isEmpty(data.lava_platos) ? data.lava_platos : "";
-    data.lamparas = !isEmpty(data.lamparas) ? data.lamparas : "";
+    data.sillas = (data.sillas.toString().length > 0) ? data.sillas.toString() : "";
+    data.puertas = (data.puertas.toString().length > 0) ? data.puertas.toString() : "";
+    data.lava_platos = (data.lava_platos.toString().length > 0) ? data.lava_platos.toString() : "";
+    data.lamparas = (data.lamparas.toString().length > 0) ? data.lamparas.toString() : "";
 
     if (Validator.isEmpty(data.rutina)) {
         errors.rutina = "Campo requerido";

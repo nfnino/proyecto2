@@ -92,7 +92,7 @@ class DashRoutines extends Component {
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity4')} 
-                          onMouseLeave={this.returnOpa('opacity4')} style={{height:150, backgroundSize: "cover", color: "whitesmoke", backgroundImage:"url(/uploads/misc/parking.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity4})`}} onClick={this.onClick("parkings")}> Parking </Button>
+                          onMouseLeave={this.returnOpa('opacity4')} style={{height:150, backgroundSize: "cover", color: "whitesmoke", backgroundImage:"url(/uploads/misc/parking.jpg)", fontSize:22, fontWeight:"bolder", filter:`brightness(${this.state.opacity4})`}} onClick={this.onClick("parkings")}> Parking & CCTV </Button>
                         </Grid>
                         <Grid item xs={4} className={classes.pos}>
                           <Button variant="outlined" style={{color:"#F59C00"}} fullWidth={true} onMouseOver={this.changeOpa('opacity5')} 

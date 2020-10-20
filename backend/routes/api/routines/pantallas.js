@@ -35,7 +35,6 @@ router.post("/newPantalla", async (req, res) => {
     const newRoutine = new Pantalla({
         fecha: req.body.fecha,
         ejecutor: req.body.ejecutor,
-        supervisor: req.body.supervisor,
         falla: req.body.falla, 
         paneles: req.body.paneles,
         tipo_falla: req.body.tipo_falla,

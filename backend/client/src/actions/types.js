@@ -32,6 +32,7 @@ export const BATHS_LOADING = "BATHS_LOADING";
 
 export const GET_FACHADAS = "GET_FACHADAS";
 export const ADD_FACHADA = "ADD_FACHADA";
+export const UPDATE_FACHADA = "UPDATE_FACHADA";
 export const FACHADAS_LOADING = "FACHADAS_LOADING";
 
 export const GET_RUTINAS = "GET_RUTINAS";

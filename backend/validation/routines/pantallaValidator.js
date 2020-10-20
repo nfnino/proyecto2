@@ -6,7 +6,6 @@ module.exports = function validatePantalla(data) {
     // Convert empty fields to an empty string so we can use validator functions
     data.fecha = !isEmpty(data.fecha) ? data.fecha : "";
     data.ejecutor = !isEmpty(data.ejecutor) ? data.ejecutor : "";
-    data.supervisor = !isEmpty(data.supervisor) ? data.supervisor : "";
     data.falla = !isEmpty(data.falla) ? data.falla : "";
     data.tipo_falla = !isEmpty(data.tipo_falla) ? data.tipo_falla : "";
     data.cpu = !isEmpty(data.cpu) ? data.cpu : "";
@@ -22,15 +21,6 @@ module.exports = function validatePantalla(data) {
     }
     if (Validator.isEmpty(data.ejecutor)) {
         errors.ejecutor = "Campo requerido";
-    }
-    if (Validator.isEmpty(data.supervisor)) {
-        errors.supervisor = "Campo requerido";
-    }
-    if (Validator.isEmpty(data.falla)) {
-        errors.falla = "Campo requerido";
-    }
-    if (Validator.isEmpty(data.tipo_falla)) {
-        errors.tipo_falla = "Campo requerido";
     }
     if (Validator.isEmpty(data.cpu)) {
         errors.cpu = "Campo requerido";

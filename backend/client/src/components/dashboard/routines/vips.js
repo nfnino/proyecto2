@@ -19,7 +19,6 @@ class vips extends Component {
             columns: [
                 {title: 'Fecha', field: 'fecha'},
                 {title: 'Ejecutor', field: 'ejecutor'},
-                {title: 'Supervisor', field: 'supervisor'},
                 {title: 'Estado', field: 'estado'}
             ]
         };
@@ -49,10 +48,9 @@ class vips extends Component {
 
         const routineItems = [];
         
-        function createData(id, fecha, ejecutor, supervisor, estado) {
+        function createData(id, fecha, ejecutor, estado) {
             let array = {"fecha": new Date(fecha).toLocaleDateString(),
                         "ejecutor": ejecutor, 
-                        "supervisor": supervisor,
                         "estado": estado,
                         "id": id
                     }
@@ -62,7 +60,7 @@ class vips extends Component {
         if(vips!=null) {
             if(vips.length > 0) {
             vips.forEach(element => {
-                createData(element._id, element.fecha, element.ejecutor, element.supervisor, element.estado)
+                createData(element._id, element.fecha, element.ejecutor, element.estado)
             });
             }
         }
@@ -92,7 +90,7 @@ class vips extends Component {
                                 }}
                                 actions={[
                                     {
-                                        icon: 'save',
+                                        icon: 'edit',
                                         tooltip: 'Diligenciar rutina',
                                         onClick: (event, rowData) => this.onUpdateClick(rowData.id)
                                     },

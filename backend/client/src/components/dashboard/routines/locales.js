@@ -19,7 +19,6 @@ class Locales extends Component {
             columns: [
                 {title: 'Fecha', field: 'fecha'},
                 {title: 'Ejecutor', field: 'ejecutor'},
-                {title: 'Supervisor', field: 'supervisor'},
                 {title: 'Estado', field: 'estado'}
             ]
         };
@@ -51,8 +50,7 @@ class Locales extends Component {
         
         function createData(id, fecha, ejecutor, supervisor, estado) {
             let array = {"fecha": new Date(fecha).toLocaleDateString(),
-                        "ejecutor": ejecutor, 
-                        "supervisor": supervisor,
+                        "ejecutor": ejecutor,
                         "estado": estado,
                         "id": id
                     }
@@ -92,7 +90,7 @@ class Locales extends Component {
                                 }}
                                 actions={[
                                     {
-                                        icon: 'save',
+                                        icon: 'edit',
                                         tooltip: 'Diligenciar rutina',
                                         onClick: (event, rowData) => this.onUpdateClick(rowData.id)
                                     },

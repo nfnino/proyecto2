@@ -10,10 +10,6 @@ const BathSchema = new Schema({
         type: String,
         required: true
     },
-    supervisor: {
-        type: String,
-        required: false
-    },
     estado: {
         type: String,
         default: "Creada"

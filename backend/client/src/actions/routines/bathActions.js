@@ -29,7 +29,6 @@ export const getBaths = () => dispatch => {
     axios
     .get(`/api/routines/baths/${id}`)
     .then(res =>  {
-        console.log(res.data)
         dispatch({
         type: GET_DETAILS,
         payload: res.data

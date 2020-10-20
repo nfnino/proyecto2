@@ -34,8 +34,7 @@ router.post("/newvip", async (req, res) => {
 
     const newRoutine = new VIP({
         fecha: req.body.fecha,
-        ejecutor: req.body.ejecutor,
-        supervisor: req.body.supervisor,
+        ejecutor: req.body.ejecutor
         });
     console.log(newRoutine)
     newRoutine

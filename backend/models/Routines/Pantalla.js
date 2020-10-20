@@ -64,13 +64,9 @@ const PantallaSchema = new Schema({
         type: String,
         required: true
     },
-    supervisor: {
-        type: String,
-        required: false
-    },
     falla: {
         type: String,
-        required: true
+        required: false
     },
     paneles: {
         type: String,
@@ -78,7 +74,7 @@ const PantallaSchema = new Schema({
     },
     tipo_falla: {
         type: String,
-        required: true
+        required: false
     },
     cpu: {
         type: String,

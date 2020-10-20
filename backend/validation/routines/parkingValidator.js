@@ -6,23 +6,19 @@ module.exports = function validateBath(data) {
     // Convert empty fields to an empty string so we can use validator functions
     data.fecha = !isEmpty(data.fecha) ? data.fecha : "";
     data.ejecutor = !isEmpty(data.ejecutor) ? data.ejecutor : "";
-    data.supervisor = !isEmpty(data.supervisor) ? data.supervisor : "";
-    data.carros_n1 = !isEmpty(data.carros_n1) ? data.carros_n1 : "";
-    data.carros_n2 = !isEmpty(data.carros_n2) ? data.carros_n2 : "";
-    data.carros_n3 = !isEmpty(data.carros_n3) ? data.carros_n3 : "";
-    data.carros_n4 = !isEmpty(data.carros_n4) ? data.carros_n4 : "";
-    data.carros = !isEmpty(data.carros) ? data.carros : "";
-    data.motos_n1 = !isEmpty(data.motos_n1) ? data.motos_n1 : "";
-    data.motos_n2 = !isEmpty(data.motos_n2) ? data.motos_n2 : "";
-    data.motos_n3 = !isEmpty(data.motos_n3) ? data.motos_n3 : "";
-    data.motos_n4 = !isEmpty(data.motos_n4) ? data.motos_n4 : "";
-    data.motos = !isEmpty(data.motos) ? data.motos : "";
-    data.camaras_n1 = !isEmpty(data.camaras_n1) ? data.camaras_n2 : "";
-    data.camaras_n2 = !isEmpty(data.camaras_n2) ? data.camaras_n2 : "";
-    data.camaras_n3 = !isEmpty(data.camaras_n3) ? data.camaras_n3 : "";
-    data.camaras_n4 = !isEmpty(data.camaras_n4) ? data.camaras_n4 : "";
-    data.camaras_ptz = !isEmpty(data.camaras_ptz) ? data.camaras_ptz : "";
-    data.camaras = !isEmpty(data.camaras) ? data.camaras : "";
+    data.carros_n1 = (data.carros_n1.toString().length > 0) ? data.carros_n1.toString() : "";
+    data.carros_n2 = (data.carros_n2.toString().length > 0) ? data.carros_n2.toString() : "";
+    data.carros_n3 = (data.carros_n3.toString().length > 0) ? data.carros_n3.toString() : "";
+    data.carros_n4 = (data.carros_n4.toString().length > 0) ? data.carros_n4.toString() : "";
+    data.motos_n1 = (data.motos_n1.toString().length > 0) ? data.motos_n1.toString() : "";
+    data.motos_n2 = (data.motos_n2.toString().length > 0) ? data.motos_n2.toString() : "";
+    data.motos_n3 = (data.motos_n3.toString().length > 0) ? data.motos_n3.toString() : "";
+    data.motos_n4 = (data.motos_n4.toString().length > 0) ? data.motos_n4.toString() : "";
+    data.camaras_n1 = (data.camaras_n1.toString().length > 0) ? data.camaras_n2.toString() : "";
+    data.camaras_n2 = (data.camaras_n2.toString().length > 0) ? data.camaras_n2.toString() : "";
+    data.camaras_n3 = (data.camaras_n3.toString().length > 0) ? data.camaras_n3.toString() : "";
+    data.camaras_n4 = (data.camaras_n4.toString().length > 0) ? data.camaras_n4.toString() : "";
+    data.camaras_ptz = (data.camaras_ptz.toString().length > 0) ? data.camaras_ptz.toString() : "";
 
     if (Validator.isEmpty(data.camaras_n1)) {
         errors.camaras_n1 = "Campo requerido";
@@ -65,9 +61,6 @@ module.exports = function validateBath(data) {
     }
     if (Validator.isEmpty(data.ejecutor)) {
         errors.ejecutor = "Campo requerido";
-    }
-    if (Validator.isEmpty(data.supervisor)) {
-        errors.supervisor = "Campo requerido";
     }
 
     //tipos de dato

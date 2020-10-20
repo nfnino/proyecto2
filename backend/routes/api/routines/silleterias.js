@@ -34,8 +34,7 @@ router.post("/newSilleteria", async (req, res) => {
 
     const newRoutine = new Silleteria({
         fecha: req.body.fecha,
-        ejecutor: req.body.ejecutor,
-        supervisor: req.body.supervisor
+        ejecutor: req.body.ejecutor
         });
     console.log(newRoutine)
     newRoutine

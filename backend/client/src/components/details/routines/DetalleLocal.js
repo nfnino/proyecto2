@@ -52,7 +52,6 @@ class DetalleLocal extends Component {
                     let userItems = d.map(user => (
                         <tr key={user._id} style={{ marginTop: "1rem" }}>
                         <td> {user.nombre} </td>
-                        <td align="right"> {user.ubicacion}</td>
                         <td align="right"> {user.puertas} </td>
                         <td align="right"> {user.agua} </td>
                         <td align="right"> {user.gas} </td>
@@ -99,9 +98,6 @@ class DetalleLocal extends Component {
                                             <ListItem>
                                                 <ListItemText primary="Ejecutor" secondary={local.ejecutor} />
                                             </ListItem>
-                                            <ListItem>
-                                                <ListItemText primary="Supervisor" secondary={local.supervisor} />
-                                            </ListItem>
                                         </List>
                                     </Grid>
                                     <Grid item>
@@ -109,12 +105,11 @@ class DetalleLocal extends Component {
                                             <tbody>
                                                 <tr>
                                                     <th><Typography style={{color:"#F59C00"}}>Nombre</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Ubicación</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Puertas</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Puertas Faltantes</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Agua</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Gas</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Electricidad</Typography> </th>
-                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lámparas</Typography> </th>
+                                                    <th align="right"><Typography style={{color:"#F59C00"}}>Lámparas Faltantes</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Ventaneria</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Pasillos</Typography> </th>
                                                     <th align="right"><Typography style={{color:"#F59C00"}}>Observaciónes</Typography> </th>

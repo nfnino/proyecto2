@@ -48,10 +48,6 @@ const VIPSchema = new Schema({
         type: String,
         required: true
     },
-    supervisor: {
-        type: String,
-        required: false
-    },
     s101: { type: String, default: "" },
     s102: { type: String, default: "" },
     s103: { type: String, default: "" },

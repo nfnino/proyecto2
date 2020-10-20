@@ -42,7 +42,9 @@ import { TaskFlow } from "./components/edit/TaskFlow/TaskFlow";
 import baths from "./components/dashboard/routines/baths";
 import newBath from "./components/create/routine/NewBath";
 import UpdateBath from "./components/create/routine/UpdateBath";
+import UpdateFachada from "./components/create/routine/UpdateFachada";
 import NewDetBath from "./components/create/routine/NewDetBath";
+import NewDetFachada from "./components/create/routine/NewDetFachada";
 import DetalleBath from "./components/details/routines/DetalleBaths";
 import fachadas from "./components/dashboard/routines/fachadas";
 import newFachada from "./components/create/routine/NewFachada";
@@ -133,11 +135,13 @@ class App extends Component {
                     <PrivateRoute exact path="/baths" component={baths} />
                     <PrivateRoute exact path="/newBath" component={newBath} />
                     <PrivateRoute exact path="/updateBath/:id" component={UpdateBath} />
+                    <PrivateRoute exact path="/updateFachada/:id" component={UpdateFachada} />
                     <PrivateRoute exact path="/newDetBath/:rutina/:id" component={NewDetBath} />
                     <PrivateRoute exact path="/detalleBath/:id" component={DetalleBath} />
                     <PrivateRoute exact path="/fachadas" component={fachadas} />
                     <PrivateRoute exact path="/newFachada" component={newFachada} />
                     <PrivateRoute exact path="/detalleFachada/:id" component={detalleFachada} />
+                    <PrivateRoute exact path="/newDetFachada/:rutina/:id" component={NewDetFachada} />
                     <PrivateRoute exact path="/locales" component={locales} />
                     <PrivateRoute exact path="/newLocal" component={newLocal} />
                     <PrivateRoute exact path="/updateLocal/:id" component={UpdateLocal} />

@@ -47,7 +47,6 @@ router.post("/newBath", async (req, res) => {
     const newRoutine = new Bath({
         fecha: req.body.fecha,
         ejecutor: req.body.ejecutor,
-        supervisor: req.body.supervisor,
         observacion: req.body.observacion
         });
     console.log(newRoutine)
@@ -81,6 +80,7 @@ router.put("/updateBath/:id", async (req, res, next) => {
 })
 
 router.put("/newdetbath", async (req, res) => {
+    console.log(req.body.sanitarios)
     const { errors, isValid } = validateDetBath(req.body);
     console.log("errors ",errors)
     if (!isValid) {
@@ -92,7 +92,6 @@ router.put("/newdetbath", async (req, res) => {
     if(prueba) {
         return res.status(400).json({msg:"Ya existe el detalle de la rutina"});
     }
-
     try {
         const newdetalle = new DetBath({
             rutina: req.body.rutina,

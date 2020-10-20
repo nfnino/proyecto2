@@ -10,7 +10,6 @@ module.exports = function validateGabinete(data) {
     data.extintor = !isEmpty(data.extintor) ? data.extintor : "";
     data.conexion = !isEmpty(data.conexion) ? data.conexion : "";
     data.presion = !isEmpty(data.presion) ? data.presion : "";
-    data.limpieza = !isEmpty(data.limpieza) ? data.limpieza : "";
     data.seguro = !isEmpty(data.seguro) ? data.seguro : "";
 
 
@@ -32,8 +31,8 @@ module.exports = function validateGabinete(data) {
     if (Validator.isEmpty(data.presion)) {
         errors.presion = "Campo requerido";
     }
-    if (Validator.isEmpty(data.limpieza)) {
-        errors.limpieza = "Campo requerido";
+    if (data.limpieza===false) {
+        errors.limpieza = "Tiene que verificar el estado de la limpieza del gabinete y/o realizar la limpieza";
     }
     if (Validator.isEmpty(data.seguro)) {
         errors.seguro = "Campo requerido";

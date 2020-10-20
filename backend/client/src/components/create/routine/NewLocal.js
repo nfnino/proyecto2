@@ -31,7 +31,6 @@ class NewLocal extends Component {
     this.state = {
         fecha: new Date(),
         ejecutor: "",
-        supervisor: "",
         errors: {} 
     };
   }
@@ -52,18 +51,12 @@ class NewLocal extends Component {
     this.setState({ [e.target.id]: e.target.value });
   };
 
-  supervisorChange(supervisor) {
-    this.setState({
-      supervisor: supervisor.value
-    })
-  }
 
   onSubmit = e => {
     e.preventDefault();
     const nueva = {
         fecha: this.state.fecha,
         ejecutor: this.props.auth.user.name,
-        supervisor: this.state.supervisor,
     };
     this.props.addLocal(nueva, this.props.history)
   };
@@ -71,28 +64,6 @@ class NewLocal extends Component {
 render() {
   const { classes } = this.props;
   const { errors } = this.state;
-  const { users } = this.props.users;
-
-//------------------------------ Ejecutor y supervisor dropdown ---------------------------------------
-let options_supervisor = []
-
-if( users.length !== 0) {
-
-  let usuarios = Object.values(users.data)
-
-  let nuevo = usuarios.map(user => ({
-        value: user.name,
-        label: user.name,
-        type: user.role
-  }))
-
-  for (let i = 0; i < nuevo.length; i++) {
-    let temp = nuevo[i]
-    if (temp.type === "Jefe de área") {
-      options_supervisor.push(temp)
-    }
-  }
-} 
 
 return (
   <Grid container direction="column" alignItems="center">
@@ -103,21 +74,6 @@ return (
           </Link>
           <CardContent align="center">
               <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Iniciar nueva rutina locales :</Typography>
-              <br/>
-              <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                      <Autocomplete
-                      id="supervisor"
-                      defaultValue={this.state.supervisor}
-                      options={options_supervisor}
-                      getOptionLabel={(options_supervisor) => options_supervisor.label}
-                      onChange={(event, value) => this.supervisorChange(value)}
-                      style={{ width: 350}}
-                      renderInput={(params) => <TextField {...params} label="Supervisor" variant="standard" multiline={true}/>}
-                      />
-                      <span className="red-text">{errors.supervisor}</span>
-                  </Grid>
-                </Grid>
           </CardContent>
           <br/>
           <Button className={classes.pos} onClick={this.onSubmit} variant="contained" style={{backgroundColor:"#F59C00"}} size="large">
