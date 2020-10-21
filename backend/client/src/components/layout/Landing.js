@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom'
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import Media from 'react-media';
 
 import logo02 from "../../logo2.png";
 
@@ -221,7 +222,11 @@ class Landing extends Component {
           </IconButton>
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item>
-                <img src={logo02} alt="logo" style={{left:"285%", top:"0px", position:"relative"}}></img>
+              <Media query="(min-width: 600px)" render={() =>
+                (
+                  <img src={logo02} alt="logo" style={{left:"2px", top:"2px", position:"absolute"}}></img>
+                )}
+              />
             </Grid>
             <Grid item>
               <Grid container direction="row" justify="flex-end" alignItems="center" spacing={1}>
