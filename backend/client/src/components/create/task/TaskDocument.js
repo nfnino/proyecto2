@@ -35,8 +35,7 @@ class TaskDocument extends Component {
             nombre_empresa_externa: this.props.data.nombre_empresa_externa,
             valor_externo: this.props.data.valor_externo,
             responsable: this.props.data.responsable,
-            estado: this.props.data.estado,
-
+            estado: this.props.data.estado
         } 
         //adjuntar foto y manual
         try{

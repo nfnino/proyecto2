@@ -34,7 +34,10 @@ class Operario extends Component {
         const { classes } = this.props;
         const { auth } = this.props;
         const { tasks, tasksLoading } = this.props.tasks;
-        const res = tasks.data;
+        let res = null;
+        if (tasks != null && tasks.data != null) {
+            res = tasks.data;
+        }
 
         let dashboardContent;
 

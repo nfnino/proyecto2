@@ -4,7 +4,9 @@ import jwt_decode from "jwt-decode";
 import setAuthToken from "./utils/setAuthToken";
 import { setCurrentUser, logoutUser } from "./actions/authActions";
 
-import movistar from "./Movistar1.jpg";
+import movistar1 from "./001a.jpg";
+import movistardia from "./FachadaDiìa_001b.jpg";
+import movistarcorazon from "./ARENAEXTERNACORAZON.jpg";
 
 import { Provider } from "react-redux";
 import { store, persistor } from "./store";
@@ -107,7 +109,7 @@ class App extends Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
-            <div style={{backgroundImage: `url(${movistar})`, backgroundRepeat:"repeat", backgroundPosition:"440px 60px", color: "#f7f7f7", minHeight: "100vh"}}>
+            <div style={{backgroundImage: `url(${movistarcorazon})`, backgroundRepeat:"round",  backgroundPosition:"200px 0px", color: "#f7f7f7", minHeight: "100vh"}}>
               <Landing>
               <Switch>
                     <Route exact path="/" component={Home} />

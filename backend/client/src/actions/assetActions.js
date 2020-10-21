@@ -30,15 +30,15 @@ export const getAssets = () => dispatch => {
 export const nameAssets = (assetData, history) => dispatch => {
     dispatch(setAssetsLoading());
     let c = assetData.categoria
-    let a = assetData.area
+    let n = assetData.nombre
     if(c===""||c===null) {
         c = "[a-zA-Z0-9]"
     }
-    if(a===""||a===null) {
-        a = "[a-zA-Z0-9]"
+    if(n===""||n===null) {
+        n = "[ a-zA-Z0-9]"
     }
     axios
-    .get(`api/assets/assets/${c}/${a}`)
+    .get(`api/assets/assets/${c}/${n}`)
     .then(res =>
         dispatch({
             type: GET_ASSETS,

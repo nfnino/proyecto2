@@ -32,7 +32,6 @@ class TaskForm extends Component {
       desc_materiales_compras: "",
       ejecutor_interno: "",
       supervisor: "",
-      nit_empresa_externa: "",
       nombre_empresa_externa: "",
       doc_orden_compra: "",
       valor_externo: "",
@@ -79,9 +78,9 @@ class TaskForm extends Component {
   }
 
   listChange = input => (e, obj) => {
-    console.log("[IN] : ",input)
-    console.log("[VAL] : ", obj.value)
-    this.setState({[input]: obj.value});
+    if(obj !== null && obj.value !== ""){
+      this.setState({[input]: obj.value});
+    }
   }
 
   dateChange = input => e => {
@@ -97,13 +96,12 @@ class TaskForm extends Component {
   }
   
 render() {
-
     const { step } = this.state;
     const {activo, tipo_mant, fecha_inicial_tent, fecha_final_tent, desc_falla, email_compras, desc_materiales_compras, ejecutor_interno,
-    supervisor, nit_empresa_externa, nombre_empresa_externa, valor_externo, responsable} = this.state;
+    supervisor, nombre_empresa_externa, valor_externo, responsable} = this.state;
     
     const values = {activo, tipo_mant, fecha_inicial_tent, fecha_final_tent, desc_falla, email_compras, desc_materiales_compras, ejecutor_interno,
-      supervisor, nit_empresa_externa, nombre_empresa_externa, valor_externo, responsable}
+      supervisor, nombre_empresa_externa, valor_externo, responsable}
 
     const {file, filename, uploadedFile} = this.state;
     const values2 = {file, filename, uploadedFile}; 
@@ -125,6 +123,7 @@ render() {
           <TaskDocument
             nextStep={this.nextStep}
             prevStep={this.prevStep}
+            history={this.props.history}
             fileChange={this.fileChange}
             data={values}
             values={values2}

@@ -80,10 +80,10 @@ router.get("/assets", async (req,res) => {
     });
 })
 
-router.get("/assets/:categoria/:area", async (req,res) => {
+router.get("/assets/:categoria/:nombre", async (req,res) => {
   const categoria = req.params.categoria
-  const area = req.params.area
-  const assets = await Asset.find({categoria: RegExp(categoria, "i"), area: RegExp(area, "i")});
+  const nombre = req.params.nombre
+  const assets = await Asset.find({categoria: RegExp(categoria, "i"), nombre: RegExp(nombre, "i")});
   res.status(200).json({
     data: assets
   });

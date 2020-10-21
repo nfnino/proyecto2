@@ -51,13 +51,13 @@ router.post("/newTask", async (req, res) => {
     return res.status(400).json({ file: 'No se cargó ninguna imagen o manual'})
   }
 
-  console.log("usuario logs: ",req.body.usuario)
+  console.log("usuario logs: ",req.body.user_name)
   
   Asset.findOne({nombre: req.body.activo}).then(asset => {
 
     const { errors, isv} = roomForAct(asset)
-    console.log(isv)
-    console.log(errors)
+    console.log("valid?: ",isv)
+    console.log("errores: ",errors)
     if (!isv) {
         return res.status(400).json(errors);
     } else {
@@ -81,7 +81,7 @@ router.post("/newTask", async (req, res) => {
                 estado: "Creada",
               }
         
-        if(req.files != null) {
+        if(req.files !== null) {
           const file = req.files.file;
           file.mv(`../backend/client/public/uploads/tareas/${file.name}`, err => {
             if(err) {
@@ -89,7 +89,6 @@ router.post("/newTask", async (req, res) => {
               return res.status(500).send(err);
             }
           })
-  
           nueva.doc_orden_compra = `/uploads/tareas/${file.name}`  
         }
         const newTask = new Task(nueva);
@@ -119,7 +118,7 @@ router.post("/newTask", async (req, res) => {
 
         const audit = { task_id:newTask._id, task_asset:newTask.activo, task_type: newTask.tipo_mant, action:"CREATE", user_id: req.body.user_id, user_name: req.body.user_name, date: new Date()}
         const newaudit = new TaskAudit(audit);
-
+        console.log(newaudit)
         newTask
         .save()
         .then(newaudit.save())
@@ -177,11 +176,15 @@ router.put('/taskImage/:id/:date', async (req, res, next) => {
     }
   })
   try {
+    console.log("req en la ruta: ", req)
+    console.log("req.body en ruta: ", req.body)
+    console.log("observacion en la ruta: ",req.body.observacion)
     const update = {
       imagen_antes_mant : `/uploads/${file.name}`,
       imagen_despu_mant : `/uploads/${file2.name}`,
       fecha_inicial_real: date,
       fecha_final_real : new Date(),
+      observacion : req.body.observacion, 
       estado: "Cerrada"
     }
     let task = await Task.findByIdAndUpdate(id, update)

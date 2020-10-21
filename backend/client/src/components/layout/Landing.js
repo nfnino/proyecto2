@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
+import logo02 from "../../logo2.png";
+
 import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import { Divider, Grid } from '@material-ui/core';
@@ -219,9 +221,7 @@ class Landing extends Component {
           </IconButton>
           <Grid container direction="row" justify="space-between" alignItems="center">
             <Grid item>
-              <Typography variant="h2" color="textSecondary" align="right" noWrap>
-                SCM
-              </Typography>
+                <img src={logo02} alt="logo" style={{left:"2px", top:"2px", position:"absolute"}}></img>
             </Grid>
             <Grid item>
               <Grid container direction="row" justify="flex-end" alignItems="center" spacing={1}>

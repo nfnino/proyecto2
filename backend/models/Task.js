@@ -78,6 +78,9 @@ const TaskSchema = new Schema({
         required: false,
         default: ""
     },
+    observacion: {
+        type: String,
+    },
     estado: {
         type: String,
         required: true,

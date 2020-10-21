@@ -64,13 +64,23 @@ export const addTask = (taskData, history) => dispatch => {
             'Content-Type': 'multipart/form-data'
         }
     })
-    .then(res => history.push("/dashboard"))
-    .catch(err =>
-        dispatch({
-          type: GET_ERRORS,
-          payload: err.response.data
-        })
-    );
+    .then(history.push("/dashboard"))
+    .catch((err) => {
+        if(err.response == null){
+            console.log("err:",err)
+            dispatch({
+                type: GET_ERRORS,
+                payload: err
+            })
+        } else {
+            const response = err.response;
+            dispatch({
+                type: GET_ERRORS,
+                payload: response.data.errors
+            })
+        }
+        
+    });
 }
 
 export const darBajaTask = (taskData => dispatch => {

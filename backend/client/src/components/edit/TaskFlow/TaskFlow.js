@@ -14,6 +14,7 @@ export class TaskFlow extends Component {
         this.state = {
             id: this.props.match.params.id,
             inicio: new Date(),
+            observacion: "",
             step: 1,
             file: '',
             file2:'',
@@ -38,6 +39,11 @@ export class TaskFlow extends Component {
         })
     }
 
+    onChange = (param) => {
+        console.log(this.state)
+        this.setState({observacion: param})
+    }
+
     handleChange = input => e => {
         const filef = 'file' + input
         const filenamef = 'filename'+ input
@@ -47,9 +53,8 @@ export class TaskFlow extends Component {
 
     render() {
         const { step } = this.state;
-        const { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2, } = this.state;
-        const values = { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2, };
-
+        const { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2, observacion } = this.state;
+        const values = { id, inicio, file, file2, filename, filename2, uploadedFile, uploadedFile2, observacion};
         switch(step) {
             case 1:
                 return (
@@ -64,7 +69,9 @@ export class TaskFlow extends Component {
                     <TaskDescription
                         nextStep={this.nextStep}
                         prevStep={this.prevStep}
+                        handleChange={this.onChange}
                         values={id}
+                        observacion={observacion}
                     />
                 )
             case 3:

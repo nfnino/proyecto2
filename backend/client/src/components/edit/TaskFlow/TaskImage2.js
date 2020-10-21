@@ -9,13 +9,15 @@ class TaskImage2 extends Component {
 
     continue = (e) => {
         e.preventDefault();
+        console.log("Observación en el componente:",this.props.values.observacion)
         const formData = new FormData();
         formData.append('activo', this.props.values.activo)
+        formData.append('observacion', this.props.values.observacion)
         formData.append('file', this.props.values.file)
         formData.append('file2', this.props.values.file2)
         this.props.updateImage(this.props.values.id, this.props.values.date, formData) 
         this.props.nextStep();
-        this.props.history("/dashboard")
+        this.props.history.push("/dashboard")
     }
 
     back = (e) => {
@@ -24,6 +26,7 @@ class TaskImage2 extends Component {
 
     render () {
         const { values, handleChange } = this.props;
+        console.log(values)
 
         let filled = false;
         if(values.file2!==""){

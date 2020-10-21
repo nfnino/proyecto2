@@ -124,61 +124,85 @@ class Super extends Component {
                                                     <Typography noWrap={true} variant="h5" gutterBottom color="textPrimary" align="center"> Ha ingresado como: <Typography noWrap={true} variant="h5" style={{fontWeight:"bolder"}}>{this.props.auth.user.role}</Typography></Typography>
                                                 </CardContent>
                                             </Card>
-                                        </Grid>{/* 
-                                        <Grid item xs={12}>
-                                            <Typography variant="h4" gutterBottom color="primary" align="center"> Estadísiticas:</Typography>
-                                        </Grid> */}
+                                        </Grid>
                                         <Grid item xs={12}>
                                             <Grid container spacing={2}>
                                                 <Grid item xs={12} sm={4}>
-                                                    <Card variant="elevation" style={{minWidth:360, height:300, backgroundColor:"#E9EAE8"}}>
+                                                    <Card variant="elevation" style={{minWidth:300, height:360, backgroundColor:"#E9EAE8"}}>
                                                         <CardContent>
                                                             <Typography variant="h4" gutterBottom color="primary" align="center"> Auditorías Activos</Typography>
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Este mes: </Typography> {activos_mes != null ? activos_mes.length : 0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Este mes: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"48%", position:"relative"}}>
+                                                                        {activos_mes != null ? activos_mes.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Esta semana: </Typography> {activos_semana != null ? activos_semana.length : 0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Esta semana: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"36%", position:"relative"}}>
+                                                                        {activos_semana != null ? activos_semana.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Hoy: </Typography> {activos_hoy != null ? activos_hoy.length : 0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Hoy: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"65%", position:"relative"}}>
+                                                                        {activos_hoy != null ? activos_hoy.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                             </Grid>
                                                         </CardContent>
                                                     </Card>
                                                 </Grid>
                                                 <Grid item xs={12} sm={4}> 
-                                                    <Card variant="elevation" style={{minWidth:360, height:300, backgroundColor:"#E9EAE8"}}>
+                                                    <Card variant="elevation" style={{minWidth:300, height:360, backgroundColor:"#E9EAE8"}}>
                                                         <CardContent>
-                                                            <Typography variant="h4" gutterBottom color="primary" align="center"> Auditorías Actividades</Typography>
+                                                            <Typography variant="h4" gutterBottom color="primary" align="center"> Audit. Actividades</Typography>
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Este mes: </Typography> {tareas_mes != null ? tareas_mes.length : 0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Este mes: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"48%", position:"relative"}}>
+                                                                        {tareas_mes != null ? tareas_mes.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Esta semana: </Typography> {tareas_semana != null ? tareas_semana.length : 0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Esta semana: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"36%", position:"relative"}}>
+                                                                        {tareas_semana != null ? tareas_semana.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Hoy: </Typography> {tareas_hoy != null ? tareas_hoy.length : 0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Hoy: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"65%", position:"relative"}}>
+                                                                        {tareas_hoy != null ? tareas_hoy.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                             </Grid>
                                                         </CardContent>
                                                     </Card>
                                                 </Grid>
                                                 <Grid item xs={12} sm={4}>
-                                                    <Card variant="elevation" style={{minWidth:360, height:300, backgroundColor:"#E9EAE8"}}>
+                                                    <Card variant="elevation" style={{minWidth:300, height:360, backgroundColor:"#E9EAE8"}}>
                                                         <CardContent>
                                                             <Typography variant="h4" gutterBottom color="primary" align="center"> Auditorías Usuarios</Typography>
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Este mes: </Typography> {usuarios_mes != null ? usuarios_mes.length :0 }
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Este mes: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"48%", position:"relative"}}>
+                                                                        {usuarios_mes != null ? usuarios_mes.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Esta semana: </Typography> {usuarios_semana != null ? usuarios_semana.length :0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Esta semana: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"36%", position:"relative"}}>
+                                                                        {usuarios_semana != null ? usuarios_semana.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                                 <Grid item>
-                                                                    <Typography variant="h5">Hoy: </Typography> {usuarios_hoy != null ? usuarios_hoy.length :0}
+                                                                    <Typography variant="h5" style={{display: 'inline-block'}}>Hoy: </Typography> 
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"65%", position:"relative"}}>
+                                                                        {usuarios_hoy != null ? usuarios_hoy.length : 0}
+                                                                    </Typography>
                                                                 </Grid>
                                                             </Grid>
                                                         </CardContent>

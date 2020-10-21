@@ -167,22 +167,6 @@ let resp_ext =
               </Grid>
               <Grid item xs={12} sm={6}>
                   <TextField
-                  id="nit_empresa_externa"
-                  label="Nit Empresa"
-                  defaultValue={values.nit_empresa_externa}
-                  onChange={handleChange('nit_empresa_externa')}
-                  margin="normal"
-                  variant="standard"
-                  size="small"
-                  multiline={true}
-                  style={{
-                    width: 350
-                  }}>
-                  </TextField>
-                  <span className="red-text">{errors.nit_empresa_externa}</span>
-              </Grid>
-              <Grid item xs={12} sm={6}>
-                  <TextField
                   id="nombre_empresa_externa"
                   label="Nombre Empresa"
                   defaultValue={values.nombre_empresa_externa}

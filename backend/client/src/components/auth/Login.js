@@ -51,7 +51,7 @@ render() {
     const { errors } = this.state;
     return (
       <div className="container">
-        <div style={{ marginTop: "16rem", maxWidth:"450px", marginLeft:-15, marginBottom:-20 }} className="row">
+        <div style={{ marginTop: "12rem", maxWidth:"450px", marginLeft:-60, marginBottom:-20 }} className="row">
           <div className="col s12">
             <Card variant="elevated" style={{opacity:"90%"}}>
               <CardContent>

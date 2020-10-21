@@ -130,24 +130,24 @@ class TaskDetails extends Component {
                             </ListItem>
                             <ListItem >
                                 <ListItemText primary="Descripción" secondary={task.desc_falla} />
-                                </ListItem>
+                            </ListItem>
+                            <ListItem >
+                                <ListItemText primary="Observación del operario" secondary={task.observacion} />
+                            </ListItem>
                             <ListItem >
                                 <ListItemText primary="Estado" secondary={task.estado} />
-                                </ListItem>
+                            </ListItem>
                             <ListItem >
                                 <ListItemText primary="Email Compras" secondary={task.email_compras} />
-                                </ListItem>
+                            </ListItem>
                             <ListItem >
                                 <ListItemText primary="Descripción Compras" secondary={task.desc_materiales_compras} />
-                                </ListItem>
+                            </ListItem>
                             <ListItem >
                                 <ListItemText primary="Ejecutor" secondary={task.ejecutor_interno} />
                             </ListItem>
                             <ListItem >
                                 <ListItemText primary="Supervisor" secondary={task.supervisor} />
-                            </ListItem>
-                            <ListItem >
-                                <ListItemText primary="NIT Empresa" secondary={task.nit_empresa_externa} />
                             </ListItem>
                             <ListItem >
                                 <ListItemText primary="Nombre Empresa" secondary={task.nombre_empresa_externa} />

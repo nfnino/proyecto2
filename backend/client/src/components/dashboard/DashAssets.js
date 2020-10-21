@@ -44,13 +44,13 @@ class DashAssets extends Component {
       this.state={
           search: false,
           categoria: "",
-          area: ""
+          nombre: ""
       };
       this.clear = this.clear.bind(this);
     }
 
     clear() {
-      this.setState({search: false, categoria:"", area:""})
+      this.setState({search: false, categoria:"", nombre:""})
     }
 
     componentDidMount() {
@@ -60,7 +60,7 @@ class DashAssets extends Component {
     onSearch = e => {
       const searchInfo = {
         categoria: this.state.categoria,
-        area: this.state.area
+        nombre: this.state.nombre
       };
       this.setState({search: true});
       this.props.nameAssets(searchInfo, this.props.history)
@@ -108,12 +108,6 @@ class DashAssets extends Component {
           {value: "Voz", label: "Voz"},
           {value: "Datos y telecomunicaciones", label: "Datos y telecomunicaciones"}]
 
-          let options_area = [
-            {value: "Operaciones", label: "Operaciones"},
-            {value: "Área 2", label: "Área 2"},
-            {value: "Área 3", label: "Área 3"},
-          ]
-
         let botonAgregar;
         let dashboardContent;
         let busqueda;
@@ -145,9 +139,6 @@ class DashAssets extends Component {
                     <Typography className={classes.title} variant="h5" color="primary">BUSCAR ACTIVOS</Typography>
                   </Grid>
                   <Grid item xs={12}>
-                    {/* 
-                      <InputLabel htmlFor="categ">Categoría</InputLabel>
-                      <OutlinedInput id="categoria" type="text" onChange={this.onChange} multiline/> */}
                       <Autocomplete
                         id="categoria"
                         defaultValue={this.state.categoria}
@@ -159,17 +150,19 @@ class DashAssets extends Component {
                         />
                   </Grid>
                   <Grid item xs={12}>
-                      {/* <InputLabel htmlFor="area">Área</InputLabel>
-                      <OutlinedInput id="area" type="text" onChange={this.onChange} multiline/> */}
-                      <Autocomplete
-                        id="area"
-                        defaultValue={this.state.area}
-                        options={options_area}
-                        getOptionLabel={(options_area) => options_area.label}
-                        onChange={this.listChange('area')}
-                        style={{ width: 300}}
-                        renderInput={(params) => <TextField {...params} label="Área del activo" inputLabelProps={{classes:{input: classes.input}}} variant="filled" multiline={true}/>}
-                        />
+                      <TextField
+                        id="nombre"
+                        label="Nombre Activo"
+                        defaultValue={this.state.nombre}
+                        onChange={this.onChange}
+                        margin="normal"
+                        variant="filled"
+                        size="small"
+                        multiline={true}
+                        style={{
+                          width: 300
+                        }}>
+                      </TextField>
                   </Grid>
                   <Grid item xs={12}>
                     <Button className={classes.input} variant="contained" size="large" style={{width: 150}} color="primary" onClick={this.onSearch}> Buscar</Button>
@@ -210,39 +203,11 @@ class DashAssets extends Component {
                           </Fab>
                         </Grid>
                       </Grid>
-                      {/* <Card className={classes.root} variant="outlined">
-                        <CardContent>
-                          <Grid container alignItems="center" direction="column" spacing={3}>
-                            <Grid item xs={12}>
-                              <Typography className={classes.title} variant="overline" color="primary"> Otras Acciones</Typography>
-                            </Grid>
-                            <Grid item xs={12}>
-                              <Grid container alignItems="flex-start" spacing={2}>
-                                <Grid item >
-                                  {botonAgregar}
-                                </Grid>
-                                <Grid item >
-                                  <Link to="/report-Assets" color="primary"> 
-                                    <Button variant="outlined" color="primary" size="medium"> Reportes </Button> 
-                                  </Link>
-                                </Grid>
-                              </Grid>
-                            </Grid>
-                          </Grid>
-                        </CardContent>
-                      </Card> */}
                     </CardContent>
                   </Card>
                 </Grid>
               </Grid> 
             </Grid>
-            {/* <div className="container">
-          <Link to="/Dashboard" className="btn-flat waves-effect">
-            <i className="material-icons left">keyboard_backspace</i> Regresar
-          </Link>
-            {dashboardContent}
-            {botonAgregar}
-        </div> */}
         </Grid>
         )
     }
