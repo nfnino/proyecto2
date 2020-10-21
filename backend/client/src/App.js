@@ -109,7 +109,7 @@ class App extends Component {
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <Router>
-            <div style={{backgroundImage: `url(${movistarcorazon})`, backgroundRepeat:"round",  backgroundPosition:"200px 0px", color: "#f7f7f7", minHeight: "100vh"}}>
+            <div style={{backgroundImage: `url(${movistarcorazon})`, backgroundRepeat:"round", backgroundSize:"cover", backgroundPosition:"200px 0px", color: "#f7f7f7", minHeight: "100vh"}}>
               <Landing>
               <Switch>
                     <Route exact path="/" component={Home} />
