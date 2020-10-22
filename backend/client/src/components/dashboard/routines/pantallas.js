@@ -8,7 +8,7 @@ import { getUsers } from "../../../actions/userActions";
 import { getPantallas } from "../../../actions/routines/pantallaActions";
 
 import MaterialTable from 'material-table';
-import { CardContent, Grid, Card } from "@material-ui/core";
+import { CardContent, Grid, Card, Button } from "@material-ui/core";
 
 class Pantallas extends Component {
 
@@ -66,6 +66,19 @@ class Pantallas extends Component {
         }
 
         return (
+            <Grid container spacing={1}>
+            <Grid item xs={12}>
+            <Card style={{marginTop:-20}}>
+              <Button 
+                variant="outlined" 
+                fullWidth={true}
+                style={{height: 170,backgroundSize: "cover", color: "#F59C00", backgroundImage:"url(/fachdia.jpg)", fontSize:48, fontWeight:"bolder"}} 
+              > 
+                RUTINAS
+              </Button>
+            </Card>
+            </Grid>
+            <Grid item xs={12}>
                 <Card>
                     <br/>
                     <Link to="/routines" className="btn-flat waves-effect">
@@ -110,6 +123,8 @@ class Pantallas extends Component {
                         </Link>
                     </CardContent>
                 </Card>
+                </Grid>
+                </Grid>
         );
     }
 }

@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { deleteVenue } from "../../actions/venueActions";
+import { Typography } from "@material-ui/core";
 
 
 class Venues extends Component {
@@ -42,11 +43,8 @@ class Venues extends Component {
             <div className="row">
                 <div className="col s12 center-align">
                     <h5>
-                        <b>Recintos</b>
+                        <Typography variant="h3" color="primary">RECINTOS </Typography>
                     </h5>
-                    <p className="grey-text text-darken-1">
-                        Agregar o eliminar usuarios
-                    </p>
                 </div>
             </div>
             <div className="row">

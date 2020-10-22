@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { deleteUser } from "../../actions/userActions";
 import { withRouter } from "react-router-dom";
 import MaterialTable from 'material-table';
-import { CardContent, Grid, Card } from "@material-ui/core";
+import { CardContent, Grid, Card, Typography, Divider } from "@material-ui/core";
 import DeleteOutline from '@material-ui/icons/DeleteOutline';
 
 
@@ -80,28 +80,13 @@ class Users extends Component {
             createData(element._id, element.name, element.role, element.area, element.documento, element.email, element.active)
         });
 
-        /* let userItems = users.map(user => (
-            <tr key={user._id} style={{ marginTop: "1rem" }}>
-               <td> {user.name} </td>
-               <td> {user.email} </td>
-               <td> {user.role} </td>
-               <td> {this.actividad(user.active)} </td>
-               <td>
-                <button
-                    style={{ marginRight: "1rem" }}
-                    onClick={this.onDeleteClick.bind(this, user._id)}
-                    className="btn btn-small btn-floating waves-effect waves-light hoverable red accent-3">
-                    <i className="material-icons">delete</i>
-                </button>
-                </td>
-            </tr>
-        )); */
-
         return (
             <Grid container>
                 <Grid item xs={12}>
                     <Card>
                         <CardContent>
+                            <Typography variant="h3" color="primary" align="center">USUARIOS</Typography>
+                            <br/>
                             <MaterialTable
                             title="Usuarios"
                             icons={tableIcons}
@@ -127,34 +112,6 @@ class Users extends Component {
                     </Card>
                 </Grid>
             </Grid>
-            /* <div>
-            <div className="row">
-                <div className="col s12 center-align">
-                    <h5>
-                        <b>Usuarios</b>
-                    </h5>
-                    <p className="grey-text text-darken-1">
-                        Agregar o eliminar usuarios
-                    </p>
-                </div>
-            </div>
-            <div className="row">
-                <div className="col s12 board">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Nombre</th>
-                                <th>Email</th>
-                                <th>Rol</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                            {userItems}
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            </div> */
         );
     }
 }

@@ -175,7 +175,18 @@ class DashTasks extends Component {
           }
 
         return (
-          <Grid container spacing={3} >
+          <Grid container spacing={1}>
+             <Grid item xs={12}>
+              <Card style={{marginTop:-20}}>
+                <Button 
+                  variant="outlined" 
+                  fullWidth={true}
+                  style={{height: 170,backgroundSize: "cover", color: "#5BC500", backgroundImage:"url(/009.jpeg)", fontSize:48, fontWeight:"bolder"}} 
+                > 
+                  ACTIVIDADES
+                </Button>
+              </Card>
+            </Grid>
             <Grid item xs={12}>
               <Grid container justify="center" spacing={2}>
                 <Grid item xs={12}>

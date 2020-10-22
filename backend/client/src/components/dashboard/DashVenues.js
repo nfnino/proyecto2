@@ -19,10 +19,11 @@ class DashVenues extends Component {
         const { venues } = this.props.venues;
 
         let dashboardContent;
+        let res = null;
 
-        const res = Object.values(venues)
-
-        console.log(res)
+        if(venues!=null) {
+          res = Object.values(venues)
+        }
 
         if(this.props.auth.user.role!=="Superusuario"){
             dashboardContent = <p className="center-align">Acceso denegado</p>;

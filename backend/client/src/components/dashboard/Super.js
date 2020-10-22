@@ -134,13 +134,13 @@ class Super extends Component {
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
                                                                     <Typography variant="h5" style={{display: 'inline-block'}}>Este mes: </Typography> 
-                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"48%", position:"relative"}}>
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"49%", position:"relative"}}>
                                                                         {activos_mes != null ? activos_mes.length : 0}
                                                                     </Typography>
                                                                 </Grid>
                                                                 <Grid item>
                                                                     <Typography variant="h5" style={{display: 'inline-block'}}>Esta semana: </Typography> 
-                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"36%", position:"relative"}}>
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"38%", position:"relative"}}>
                                                                         {activos_semana != null ? activos_semana.length : 0}
                                                                     </Typography>
                                                                 </Grid>
@@ -161,13 +161,13 @@ class Super extends Component {
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
                                                                     <Typography variant="h5" style={{display: 'inline-block'}}>Este mes: </Typography> 
-                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"48%", position:"relative"}}>
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"49%", position:"relative"}}>
                                                                         {tareas_mes != null ? tareas_mes.length : 0}
                                                                     </Typography>
                                                                 </Grid>
                                                                 <Grid item>
                                                                     <Typography variant="h5" style={{display: 'inline-block'}}>Esta semana: </Typography> 
-                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"36%", position:"relative"}}>
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"38%", position:"relative"}}>
                                                                         {tareas_semana != null ? tareas_semana.length : 0}
                                                                     </Typography>
                                                                 </Grid>
@@ -188,13 +188,13 @@ class Super extends Component {
                                                             <Grid container direction="column" justify="space-evenly" spacing={3} style={{height:"100%"}}>
                                                                 <Grid item>
                                                                     <Typography variant="h5" style={{display: 'inline-block'}}>Este mes: </Typography> 
-                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"48%", position:"relative"}}>
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"49%", position:"relative"}}>
                                                                         {usuarios_mes != null ? usuarios_mes.length : 0}
                                                                     </Typography>
                                                                 </Grid>
                                                                 <Grid item>
                                                                     <Typography variant="h5" style={{display: 'inline-block'}}>Esta semana: </Typography> 
-                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"36%", position:"relative"}}>
+                                                                    <Typography variant="h2" color="secondary" style={{display: 'inline-block', left:"38%", position:"relative"}}>
                                                                         {usuarios_semana != null ? usuarios_semana.length : 0}
                                                                     </Typography>
                                                                 </Grid>

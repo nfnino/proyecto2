@@ -67,15 +67,28 @@ class DashRoutines extends Component {
 
         return (
           <div style={{fullWidth:true}}>
+            <Grid container spacing={1}>
+            <Grid item xs={12}>
+            <Card style={{marginTop:-20}}>
+              <Button 
+                variant="outlined" 
+                fullWidth={true}
+                style={{height: 170,backgroundSize: "cover", color: "#F59C00", backgroundImage:"url(/fachdia.jpg)", fontSize:48, fontWeight:"bolder"}} 
+              > 
+                RUTINAS
+              </Button>
+            </Card>
+            </Grid>
+            <Grid item xs={12}>
             <Card variant="elevation">
               <CardContent>
               <Grid container direction="columns" alignItems="flex-end" justify="center">
-                <Grid item >
+                <Grid item>
                   <Card className={classes.root} variant="outlined">
                     <CardContent align="center">
-                      <br/>
+                      {/* <br/>
                       <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>RUTINAS</Typography>
-                      <Divider></Divider>
+                      <Divider></Divider> */}
                       <br/>
                       <Grid container justify="center" spacing={2}>
                         <Grid item xs={4} className={classes.pos}>
@@ -121,6 +134,8 @@ class DashRoutines extends Component {
               </Grid>
               </CardContent>
             </Card>
+            </Grid>
+            </Grid>
           </div>
         )
     }

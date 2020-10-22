@@ -1,14 +1,16 @@
 var nodemailer = require('nodemailer');
 
-var transporter = nodemailer.createTransport({
-    service: 'gmail',
+let transporter = nodemailer.createTransport({
+    host: "smtp.gmail.com",
+    port: 587,
+    secure: false, // true for 465, false for other ports
     auth: {
-      user: 'envio.automatico.cmms@gmail.com',
-      pass: 'Ln7Col20Sp-8'
-    }
-});
+      user: "envio.automatico.cmms@gmail.com", 
+      pass: "Ln7Col20Sp-8", 
+    },
+  });
 
-var mailOptions = {
+let mailOptions = {
     from: 'envio.automatico.cmms@gmail.com',
     to: '',
     subject: 'Materiales requeridos',

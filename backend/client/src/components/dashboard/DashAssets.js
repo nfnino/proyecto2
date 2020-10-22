@@ -8,8 +8,7 @@ import SearchIcon from '@material-ui/icons/Search';
 import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { withStyles } from '@material-ui/core/styles';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import { Card, CardContent } from '@material-ui/core';
 import Typography from '@material-ui/core/Typography';
 
 import { getAssets, addAsset, nameAssets } from "../../actions/assetActions";
@@ -27,10 +26,13 @@ const useStyles = theme => ({
     transform: 'scale(0.8)',
   },
   input: {
-    fontSize: 15
+    fontSize: 15,
   },
   pos: {
     marginBottom: 12,
+  },
+  media: {
+    height: 140,
   },
   paper: {
     //background: "#E9EAE8"
@@ -184,11 +186,22 @@ class DashAssets extends Component {
           }
 
         return (
-          <Grid container spacing={2}>
+          <Grid container spacing={1}>
+            <Grid item xs={12}>
+              <Card style={{marginTop:-20}}>
+                <Button 
+                  variant="outlined" 
+                  fullWidth={true}
+                  style={{height: 170,backgroundSize: "cover", color: "#00A9E0", backgroundImage:"url(/002b.jpg)", fontSize:48, fontWeight:"bolder"}} 
+                > 
+                  ACTIVOS
+                </Button>
+              </Card>
+            </Grid>
             <Grid item xs={12}>
               <Grid container justify="center" spacing={2}>
                 <Grid item xs={12}>
-                  <Card variant="elevated" className={classes.paper}>
+                  <Card variant="elevation" className={classes.paper}>
                     <CardContent>
                       {this.state.search ? dashboardContent : busqueda}
                       <br/>

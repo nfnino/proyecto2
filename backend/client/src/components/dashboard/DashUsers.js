@@ -5,7 +5,7 @@ import { connect } from "react-redux";
 import { getUsers } from "../../actions/userActions";
 
 import Users from "./Users";
-import { Button } from "@material-ui/core";
+import { Button, Card, CardMedia } from "@material-ui/core";
 
 class DashUsers extends Component {
   
@@ -18,9 +18,11 @@ class DashUsers extends Component {
 
         let dashboardContent;
 
-        console.log(this.props)
+        let res = null;
 
-        const res = Object.values(users)
+        if(users!==null) {
+          res = Object.values(users)
+        }
 
         if(this.props.auth.user.role!=="Superusuario"){
           dashboardContent = <p className="center-align">Acceso denegado</p>;
@@ -39,7 +41,6 @@ class DashUsers extends Component {
 
         return (
             <div className="container" style={{width:"900px"}}>
-              <Button variant="text" color="primary" href="/dashboard"> &lt;&lt; Regresar</Button>
                 {dashboardContent}
             </div>
         )
