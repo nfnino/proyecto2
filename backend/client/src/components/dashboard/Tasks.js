@@ -28,7 +28,8 @@ class Tasks extends Component {
                 {title: 'Supervisor', field: 'supervisor'},
                 {title: 'Ejecutor', field: 'ejecutor'},
                 {title: 'Fecha Inicio', field: 'fecha_in'},
-                {title: 'Fecha Fin', field: 'fecha_fi'}
+                {title: 'Fecha Fin', field: 'fecha_fi'},
+                {title: 'Fecha Fin Real', field: 'fecha_fin_real'},
             ],
             data: props.tasks.tasks.data,
             setOpen: false
@@ -46,13 +47,6 @@ class Tasks extends Component {
 
     onUpdateClick = id => {
         const { history } = this.props;
-        /*if(this.props.auth.user.role === "Jefe de área"){
-            history.push(`/updateTask/${id}`);
-        } 
-        else {
-            this.handleClickOpen()
-            history.push("/tasks")
-        } */
         history.push(`/updateTask/${id}`);
     }
 
@@ -94,13 +88,14 @@ class Tasks extends Component {
         const tasks = res.data;
         const taskItems = [];
 
-        function createData(id, activo, tipo, supervisor, ejecutor, fecha_in, fecha_fi) {
+        function createData(id, activo, tipo, supervisor, ejecutor, fecha_in, fecha_fi, fecha_fin_real) {
             let array = {"activo": activo,
                         "tipo": tipo, 
                         "supervisor": supervisor, 
                         "ejecutor": ejecutor,
                         "fecha_in": fecha_in, 
                         "fecha_fi": fecha_fi,
+                        "fecha_fin_real": fecha_fin_real,
                         "id": id
                     }
 
@@ -114,9 +109,36 @@ class Tasks extends Component {
         }
 
         tasks.forEach(element => {
-            createData(element._id, element.activo, element.tipo_mant, element.supervisor, element.ejecutor_interno,
-                    element.fecha_inicial_tent, element.fecha_final_tent)
+            let d_in = new Date(element.fecha_inicial_tent)
+            let d_fi = new Date(element.fecha_final_tent)
+            let d_real = "";
+            let d3 ="Sin finalizar";
+            
+            let d1_mins = d_in.getMinutes()+""
+            if (d1_mins.length < 2) {
+                d1_mins = "0"+d1_mins
+            } 
+            let d2_mins = d_fi.getMinutes()+""
+            if (d2_mins.length < 2) {
+                d2_mins = "0"+d2_mins
+            } 
+            let d1 = d_in.toLocaleDateString() + " - " + d_in.getHours() + ":" + d1_mins;
+            let d2 = d_fi.toLocaleDateString() + " - " + d_fi.getHours() + ":" + d2_mins;
+            if (element.fecha_final_real!="") {
+                d_real = new Date(element.fecha_final_real)
+                let d3_mins = d_real.getMinutes()+""
+                if (d3_mins.length < 2) {
+                    d3_mins = "0"+d3_mins
+                } 
+                d3 = d_real.toLocaleDateString() + " - " + d_real.getHours() + ":" + d3_mins;
+            }
+
+            createData(element._id, element.activo, element.tipo_mant, element.supervisor,
+                    element.ejecutor_interno, d1, d2, d3
+            )
         });
+
+        taskItems.reverse();
 
         return (
             <div>
@@ -179,46 +201,6 @@ class Tasks extends Component {
                     </Grid>
                 </Grid>
             </div>
-            /* <div>
-                <div className="row center-align">
-                    <div className="col s12">
-                        <h5>
-                            <b>Actividades</b>
-                        </h5>
-                        <p className="grey-text text-darken-1">
-                            Agregar o modificar actividades de mantenimiento
-                        </p>
-                        </div>
-                </div>
-                <div className="row">
-                    <div className="col s12">
-                    <table>
-                        <tbody>
-                            <tr>
-                                <th>Activo</th>
-                                <th>Tipo mant.</th>
-                                <th>Descripción</th>
-                                <th>Inicio</th>
-                                <th>Final</th>
-                                <th>Supervisor</th>
-                                <th>Estado</th>
-                                <th>Acciones</th>
-                            </tr>
-                            <tr>
-                                <th></th>
-                                <th></th>
-                                <th><input type="text" placeholder="Buscar por palabra clave" onChange={(e)=>this.searchSpace(e)}/></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                                <th></th>
-                            </tr>
-                                {taskItems}
-                        </tbody>
-                    </table>
-                    </div>
-                </div>
-            </div> */
         );
     }
 }

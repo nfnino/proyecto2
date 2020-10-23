@@ -56,6 +56,8 @@ class Parkings extends Component {
             });
             }
         }
+        
+        routineItems.reverse();
 
         return (
             <Grid container spacing={1}>

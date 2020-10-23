@@ -67,6 +67,8 @@ class Fachadas extends Component {
             }
         }
 
+        routineItems.reverse();
+
         return (
             <Grid container spacing={1}>
             <Grid item xs={12}>

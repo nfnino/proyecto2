@@ -64,6 +64,8 @@ class Pantallas extends Component {
             });
             }
         }
+        
+        routineItems.reverse();
 
         return (
             <Grid container spacing={1}>

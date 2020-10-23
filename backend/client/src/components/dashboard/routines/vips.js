@@ -57,6 +57,8 @@ class vips extends Component {
             routineItems.push(array)
         }
         
+        routineItems.reverse();
+
         if(vips!=null) {
             if(vips.length > 0) {
             vips.forEach(element => {
