@@ -46,7 +46,9 @@ class AssetAudit extends Component {
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
                                 <DataGrid 
-                                rows={rows} 
+                                rows={rows}
+                                hideFooterSelectedRowCount={true}
+                                hideFooterRowCount={true}
                                 columns={[
                                     { field: 'id', hide: true},
                                     { field: 'asset', headerName: 'Activo', headerClassName: 'cell', width: 310},

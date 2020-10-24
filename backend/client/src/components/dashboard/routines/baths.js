@@ -43,7 +43,10 @@ class Baths extends Component {
         const res = this.props.baths.baths;
         console.log(this.props)
         console.log(res)
-        const baths = res.data;
+        let baths = []
+        if(res!=null) {
+            baths = res.data;
+        }
         console.log(baths)
 
         const routineItems = [];
@@ -90,7 +93,7 @@ class Baths extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Baños"
                                 columns={this.state.columns}
                                 data={routineItems}
                                 options={{
@@ -101,6 +104,18 @@ class Baths extends Component {
                                     },
                                     rowStyle: {
                                         fontSize: 16,
+                                    }
+                                }}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
                                     }
                                 }}
                                 actions={[

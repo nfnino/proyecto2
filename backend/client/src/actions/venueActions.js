@@ -2,18 +2,21 @@ import axios from "axios";
 import {
     GET_ERRORS,
     GET_VENUES,
-    DELETE_VENUE
+    DELETE_VENUE,
+    VENUES_LOADING
 } from "./types";
 
 export const getVenues = () => dispatch => {
+    dispatch(setVenuesLoading());
     axios
-    .get("api/venues/venues")
-    .then(res =>
+    .get("/api/venues/venues")
+    .then(res => {
+        console.log(res.data)
         dispatch({
             type: GET_VENUES,
             payload: res.data
         })
-    )
+    })
     .catch(err =>
         dispatch({
             type: GET_VENUES,
@@ -26,7 +29,7 @@ export const deleteVenue = (venueData) => dispatch => {
     if (window.confirm("Confirmar para eliminar el recinto")) {
         const id = venueData.id
         axios
-        .delete(`api/venues/venues/${id}`)
+        .delete(`api/venues/delete/${id}`)
         .then(res =>
         dispatch({
           type: DELETE_VENUE,
@@ -48,3 +51,9 @@ export const addVenue = (venueData, history) => dispatch => {
         })
       );
   };
+
+export const setVenuesLoading = () => {
+  return {
+      type: VENUES_LOADING
+  };
+};

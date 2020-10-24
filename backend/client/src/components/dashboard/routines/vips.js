@@ -42,9 +42,11 @@ class vips extends Component {
     render() {
         console.log(this.props)
         const res = this.props.vips.vips;
-        console.log(res)
-        const vips = res.data;
-        console.log(vips)
+        let vips = [];
+
+        if(res!=null) {
+            vips = res.data;
+        }
 
         const routineItems = [];
         
@@ -56,8 +58,6 @@ class vips extends Component {
                     }
             routineItems.push(array)
         }
-        
-        routineItems.reverse();
 
         if(vips!=null) {
             if(vips.length > 0) {
@@ -66,6 +66,8 @@ class vips extends Component {
             });
             }
         }
+
+        routineItems.reverse();
 
         return (
             <Grid container spacing={1}>
@@ -90,9 +92,21 @@ class vips extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Suites VIP"
                                 columns={this.state.columns}
                                 data={routineItems}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
+                                    }
+                                }}
                                 options={{
                                     exportButton:true,
                                     headerStyle: {

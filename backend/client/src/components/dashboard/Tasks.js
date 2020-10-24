@@ -166,6 +166,18 @@ class Tasks extends Component {
                         title="Actividades"
                         columns={this.state.columns}
                         data={taskItems}
+                        localization={{
+                            header: {
+                                actions: 'Acciones'
+                            },
+                            body: {
+                                emptyDataSourceMessage: 'No hay registros para mostrar',
+                                filterRow: 'Filtrar'
+                            },
+                            pagination: {
+                                labelRowsSelect: 'filas'
+                            }
+                        }}
                         options={{
                             exportButton:true,
                             headerStyle: {

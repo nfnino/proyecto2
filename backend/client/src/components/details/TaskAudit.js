@@ -40,6 +40,8 @@ class TaskAudit extends Component {
                             <Paper className={classes.paper}>
                                 <DataGrid 
                                 rows={rows} 
+                                hideFooterSelectedRowCount={true}
+                                hideFooterRowCount={true}
                                 columns={[
                                     { field: 'id', hide: true},
                                     { field: 'asset', headerName: 'Activo', headerClassName: 'cell', width: 250},

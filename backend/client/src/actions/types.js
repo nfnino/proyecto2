@@ -68,3 +68,4 @@ export const USER_AUDITS_LOADING = "USER_AUDITS_LOADING";
 
 export const GET_VENUES = "GET_VENUES";
 export const DELETE_VENUE = "DELETE_VENUE";
+export const VENUES_LOADING = "VENUES_LOADING";

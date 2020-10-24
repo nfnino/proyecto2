@@ -68,7 +68,7 @@ return (
               <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
-              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Iniciar nueva rutinade silletería :</Typography>
+              <Typography variant="h4" style={{color:"#F59C00"}} gutterBottom>Iniciar nueva rutina de silletería :</Typography>
           </CardContent>
           <br/>
           <Button className={classes.pos} onClick={this.onSubmit} variant="contained" style={{backgroundColor:"#F59C00"}} size="large">

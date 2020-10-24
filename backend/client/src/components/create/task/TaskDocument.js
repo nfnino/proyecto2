@@ -80,9 +80,9 @@ class TaskDocument extends Component {
         const { values, fileChange } = this.props;
         
         return (
-            <Grid container>
+            <Grid container justify="center" alignItems="center">
                 <Grid item xs={12}>
-                    <Card>
+                    <Card style={{maxWidth: "800px"}}>
                         <CardContent align="center">
                             <Typography variant="h4" color="primary" align="center" gutterBottom>Documento orden de compra </Typography>
                             <Typography variant="h5" color="primary"> Solo para trabajo externo:</Typography>
@@ -99,8 +99,14 @@ class TaskDocument extends Component {
                                     </div>}
                                 </Grid>
                             </Grid>
-                            <Button variant="contained" onClick={this.back} color="secondary">Anterior</Button>
-                            <Button variant="contained" onClick={this.continue} color="primary">Siguiente</Button>
+                            <Grid container justify="center">
+                                <Grid item xs={3}>
+                                    <Button variant="contained" onClick={this.back} color="secondary">Anterior</Button>
+                                </Grid>
+                                <Grid item xs={3}>
+                                    <Button variant="contained" onClick={this.continue} color="primary">Siguiente</Button>  
+                                </Grid>
+                            </Grid>
                         </CardContent>
                     </Card>
                 </Grid>

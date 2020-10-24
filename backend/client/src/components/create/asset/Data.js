@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import { withStyles } from '@material-ui/core/styles';
 
 import { getAssets } from "../../../actions/assetActions";
+import { getVenues } from "../../../actions/venueActions";
 
 import { TextField, Typography, Grid, Divider } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
@@ -43,6 +44,7 @@ class Data extends Component {
 
   componentDidMount() {
     this.props.getAssets();
+    this.props.getVenues();
   }
 
     continue = (e) => {
@@ -53,16 +55,14 @@ class Data extends Component {
 render() {
     const { classes } = this.props;
     const { assets } = this.props.assets;
+    const { venues } = this.props.venues;
     const { errors } = this.props;
 
     const { values, handleChange, listChange, dateChange } = this.props;
 
     let options_activos = []
 
-    let options_rec = [
-      {value: "Movistar Arena Colombia", label: "Movistar Arena Colombia"},
-      {value: "Movistar Arena Chile", label: "Movistar Arena Chile"}
-    ]
+    let options_rec = []
 
     let options_area = [
       {value: "Operaciones", label: "Operaciones"},
@@ -96,7 +96,7 @@ render() {
       {value: "Voz", label: "Voz"},
       {value: "Datos y telecomunicaciones", label: "Datos y telecomunicaciones"}]
 
-    if( assets.length !== 0) {
+    if( assets!=null && assets.length !== 0) {
       let activos = Object.values(assets.data)
       let todos = activos.map(asset => ({
         value: asset.nombre,
@@ -104,6 +104,17 @@ render() {
       }))
       for(let i=0;i<todos.length;i++){
         options_activos.push(todos[i]);
+      }
+    }
+
+    if( venues!=null && venues.length !== 0) {
+      let recintos = Object.values(venues.data)
+      let ventodos = recintos.map(venue => ({
+        value: venue.name,
+        label: venue.name
+      }))
+      for(let j=0;j<ventodos.length;j++) {
+        options_rec.push(ventodos[j]);
       }
     }
 
@@ -358,15 +369,17 @@ return (
 
 Data.propTypes = {
     errors: PropTypes.object.isRequired,
-    assets: PropTypes.object.isRequired
+    assets: PropTypes.object.isRequired,
+    venues: PropTypes.object.isRequired
 };
 
 const mapStateToProps = state => ({
+    venues: state.venues,
     assets: state.assets,
     errors: state.errors
 });
 
 export default withStyles(useStyles)(connect(
     mapStateToProps,
-    { getAssets }
+    { getAssets, getVenues }
 )(Data));

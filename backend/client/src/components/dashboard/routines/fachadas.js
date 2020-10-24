@@ -92,9 +92,21 @@ class Fachadas extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Fachada"
                                 columns={this.state.columns}
                                 data={routineItems}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
+                                    }
+                                }}
                                 options={{
                                     exportButton:true,
                                     headerStyle: {

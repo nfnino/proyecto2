@@ -78,7 +78,7 @@ class AssetDetails extends Component {
 
         let tareas = [];
 
-        if (tasks.data!=null) {
+        if (tasks!=null && tasks.data!=null) {
             const help = Object.values(tasks.data)
             for (let i=0;i<help.length;i++) {
                 const aux = help[i];

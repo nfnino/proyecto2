@@ -110,6 +110,7 @@ class Profile extends Component {
                             <Card className={classes.root} variant="elevation">
                                 <CardContent>
                                     <Typography classname={classes.title} component="h5" variant="h5" color="primary" gutterBottom>Cambiar Contraseña:</Typography>
+                                    <Typography variant="subtitle2" color="#00FFFF" gutterBottom>*La contraseña debe ser mínimo de 8 caracteres y debe contener al menos un número, una mayúscula y un símbolo*</Typography>
                                     <br/>
                                     <form className={classes.root} noValidate autoComplete="off">
                                         <Grid container spacing={1}>

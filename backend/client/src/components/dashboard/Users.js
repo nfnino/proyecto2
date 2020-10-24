@@ -92,6 +92,18 @@ class Users extends Component {
                             icons={tableIcons}
                             columns={this.state.columns}
                             data={userItems}
+                            localization={{
+                                header: {
+                                    actions: 'Acciones'
+                                },
+                                body: {
+                                    emptyDataSourceMessage: 'No hay registros para mostrar',
+                                    filterRow: 'Filtrar'
+                                },
+                                pagination: {
+                                    labelRowsSelect: 'filas'
+                                }
+                            }}
                             options={{
                                 exportButton:true,
                                 headerStyle: {

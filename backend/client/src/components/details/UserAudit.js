@@ -40,6 +40,8 @@ class UserAudit extends Component {
                             <Paper className={classes.paper}>
                                 <DataGrid 
                                 rows={rows} 
+                                hideFooterSelectedRowCount={true}
+                                hideFooterRowCount={true}
                                 columns={[
                                     { field: 'id', hide: true},
                                     { field: 'user', headerName: 'Usuario', headerClassName: 'cell', width: 310},

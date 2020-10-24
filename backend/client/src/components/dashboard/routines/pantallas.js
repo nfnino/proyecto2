@@ -43,7 +43,10 @@ class Pantallas extends Component {
         const res = this.props.pantallas.pantallas;
         console.log(this.props)
         console.log(res)
-        const pantallas = res.data;
+        let pantallas = []
+        if(res!=null) {
+            pantallas = res.data;
+        }
         console.log(pantallas)
 
         const routineItems = [];
@@ -90,9 +93,21 @@ class Pantallas extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Pantalla"
                                 columns={this.state.columns}
                                 data={routineItems}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
+                                    }
+                                }}
                                 options={{
                                     exportButton:true,
                                     headerStyle: {

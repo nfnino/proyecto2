@@ -36,7 +36,10 @@ class Parkings extends Component {
         const res = this.props.parkings.parkings;
         console.log(this.props)
         console.log(res)
-        const parkings = res.data;
+        let parkings = []
+        if(res!=null) {
+            parkings = res.data;
+        }
         console.log(parkings)
 
         const routineItems = [];
@@ -82,9 +85,21 @@ class Parkings extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Parking y CCTV"
                                 columns={this.state.columns}
                                 data={routineItems}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
+                                    }
+                                }}
                                 options={{
                                     exportButton:true,
                                     headerStyle: {

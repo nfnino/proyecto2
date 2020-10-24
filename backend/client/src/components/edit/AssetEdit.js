@@ -10,6 +10,8 @@ import {
 } from '@material-ui/pickers';
 import MomentUtils from '@date-io/moment';
 
+import { getVenues } from "../../actions/venueActions";
+
 import { withStyles } from '@material-ui/core/styles';
 
 const useStyles = theme => ({
@@ -41,8 +43,13 @@ class AssetEdit extends Component {
           dias_frec_mant_preventivo: ownProps.asset.dias_frec_mant_preventivo,
           estado: ownProps.asset.estado,
           observacion: ownProps.asset.observacion,
+          area: ownProps.asset.area,
           errors: {}
         };
+    }
+
+    componentDidMount() {
+      this.props.getVenues();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -58,6 +65,7 @@ class AssetEdit extends Component {
     }
   
     listChange = input => (e, obj) => {
+      if(obj!=null && obj.value!=null)
       this.setState({[input]: obj.value});
     }
 
@@ -83,6 +91,7 @@ class AssetEdit extends Component {
       dias_frec_mant_preventivo: this.state.dias_frec_mant_preventivo,
       estado: this.state.estado,
       observacion: this.state.observacion,
+      area: this.state.area,
       user_id: this.props.auth.user.id,
       user_name: this.props.auth.user.name,
       };
@@ -92,10 +101,11 @@ class AssetEdit extends Component {
     render() {
         const { errors } = this.state;
         const { classes } = this.props;
+        const { venues } = this.props.venues;
+        console.log("props",this.props)
+        console.log("venues",venues)
 
-        let options_rec = [
-            {value: "Movistar Arena Colombia", label: "Movistar Arena Colombia"}
-        ]
+        let options_rec = []
 
         let options_area = [
           {value: "Operaciones", label: "Operaciones"},
@@ -129,6 +139,17 @@ class AssetEdit extends Component {
           {value: "Voz", label: "Voz"},
           {value: "Datos y telecomunicaciones", label: "Datos y telecomunicaciones"}
         ]
+
+        if( venues!= null && venues.length !== 0) {
+          let recintos = Object.values(venues.data)
+          let ventodos = recintos.map(venue => ({
+            value: venue.name,
+            label: venue.name
+          }))
+          for(let j=0;j<ventodos.length;j++) {
+            options_rec.push(ventodos[j]);
+          }
+        }
     
 
     return (
@@ -274,16 +295,6 @@ class AssetEdit extends Component {
                   </MuiPickersUtilsProvider> 
                   <span className="red-text">{errors.fecha_fin_garantia}</span>
                 </Grid>
-                {/* <Grid item xs={12} sm={6}>
-                  <div className="custom-file mb-4">
-                    <input type="file" className="custom-file-input" multiple id="customFile" 
-                    name="imagenes" accept=".png, .jpeg, .jpg" 
-                    onChange={this.uploadScreenshotFile} />{/*className="multiple-upload"}
-                    <label className="custom-file-label" htmlFor="customFile" >
-                      {this.state.imagenes.length===0 ? "Cargar imágenes" : this.state.imagenes.length + " archivos cargados"}
-                    </label>
-                  </div>
-                </Grid> */}
                 <Grid item xs={12} sm={6}>
                   <TextField
                     id="dias_frec_mant_preventivo"
@@ -330,18 +341,20 @@ AssetEdit.propTypes = {
     updateAsset: PropTypes.func.isRequired,
     errors: PropTypes.object.isRequired,
     auth: PropTypes.object.isRequired,
+    venues: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state, ownProps) => {
   console.log(ownProps)
   let id = ownProps.match.params.id;
   return {
+    venues: state.venues,
     auth: state.auth,
-      asset: state.assets.assets.data.find(asset => asset._id === id)
+    asset: state.assets.assets.data.find(asset => asset._id === id)
   }
 };
 
 export default withStyles(useStyles)(connect(
     mapStateToProps,
-    { updateAsset }
+    { updateAsset, getVenues }
 )(AssetEdit));

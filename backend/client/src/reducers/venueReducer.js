@@ -1,6 +1,7 @@
 import {
     GET_VENUES,
-    DELETE_VENUE
+    DELETE_VENUE,
+    VENUES_LOADING
 } from "../actions/types";
 
 const initialState = {
@@ -21,6 +22,11 @@ export default function(state = initialState, action) {
                 ...state, 
                 venues: action.payload,
                 venuesLoading: false
+            }
+        case VENUES_LOADING:
+            return {
+                ...state, 
+                venuesLoading: true
             }
         default:
             return state;

@@ -43,7 +43,10 @@ class Locales extends Component {
         const res = this.props.locals.locals;
         console.log(this.props)
         console.log(res)
-        const locals = res.data;
+        let locals = []
+        if(res!=null) {
+            locals = res.data;
+        }
         console.log(locals)
 
         const routineItems = [];
@@ -90,9 +93,21 @@ class Locales extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Locales"
                                 columns={this.state.columns}
                                 data={routineItems}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
+                                    }
+                                }}
                                 options={{
                                     exportButton:true,
                                     headerStyle: {

@@ -6,10 +6,6 @@ const LocalSchema = new Schema({
         type: String,
         required: true
     },
-    ubicacion: {
-        type: String,
-        required: false,
-    },
     puertas: {
         type: Number,
         required: true

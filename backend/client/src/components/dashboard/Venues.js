@@ -8,17 +8,19 @@ import { Typography } from "@material-ui/core";
 class Venues extends Component {
 
     onDeleteClick = id => {
-        const { venues } = this.props;
         const venueData = {
-        id: id,
-        venues: venues
+        id: id
         };
         this.props.deleteVenue(venueData);
     };
 
     render() {
         const res = this.props.venues.venues;
-        const venues = res.data;
+        let venues = [];
+
+        if(res!=null && res.data!=null) {
+            venues = res.data;
+        }
 
         console.log(res)
 

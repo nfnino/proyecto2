@@ -43,7 +43,10 @@ class Silleterias extends Component {
         const res = this.props.silleterias.silleterias;
         console.log(this.props)
         console.log(res)
-        const silleterias = res.data;
+        let silleterias = []
+        if(res!=null) {
+            silleterias = res.data;
+        }
         console.log(silleterias)
 
         const routineItems = [];
@@ -90,9 +93,21 @@ class Silleterias extends Component {
                         <Grid container>
                             <Grid item xs={12}>
                                 <MaterialTable
-                                title=" Rutinas"
+                                title="Silleterías"
                                 columns={this.state.columns}
                                 data={routineItems}
+                                localization={{
+                                    header: {
+                                        actions: 'Acciones'
+                                    },
+                                    body: {
+                                        emptyDataSourceMessage: 'No hay registros para mostrar',
+                                        filterRow: 'Filtrar'
+                                    },
+                                    pagination: {
+                                        labelRowsSelect: 'filas'
+                                    }
+                                }}
                                 options={{
                                     exportButton:true,
                                     headerStyle: {

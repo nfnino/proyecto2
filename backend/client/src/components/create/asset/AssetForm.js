@@ -91,8 +91,7 @@ class AssetForm extends Component {
   }
 
   listChange = input => (e, obj) => {
-    console.log("[IN] : ",input)
-    console.log("[VAL] : ", obj.value)
+    if(obj != null && obj.value != null)
     this.setState({[input]: obj.value});
   }
 
@@ -113,75 +112,8 @@ class AssetForm extends Component {
     this.setState({manual: e.target.files[0]});
     this.setState({manualname: e.target.files[0].name})
   }
-
-  /* onChange = e => {
-    this.setState({ [e.target.id]: e.target.value });
-  };
-
-  catChange = (event, obj) => {
-    if(obj) {
-      this.setState({ categoria: obj.value})
-    }
-  }
-
-  recChange = (event, obj) => {
-    if(obj) {
-      this.setState({ recinto: obj.value})
-    }
-  }
-
-  areaChange = (event, obj) => {
-    console.log("noice! smort!")
-    if(obj) {
-      this.setState({ area: obj.value})
-    }
-  }
-
-  handleDateChange = (date) => {
-    this.setState({fecha_compra: date})
-  };
-
-  handleDateChange2 = (date) => {
-    this.setState({fecha_fin_garantia: date})
-  }; */
-
- /*  uploadScreenshotFile = (event) => {
-    let ims = []
-    for(let size=0; size < event.target.files.length; size++){
-      console.log('Selected file:', event.target.files[size]);
-      console.log(event.target.files[size])
-      let file = event.target.files[size];
-      console.log("uploading screenshot file...");
-      // Do necessary request to upload here.......
-      ims.push(file)
-    }
-    console.log(ims)
-    this.setState({imagenes: ims})
-  } */
-
-/* onSubmit = e => {
-  e.preventDefault();
-  const newAsset = {
-    recinto: this.state.recinto,
-    ubicacion: this.state.ubicacion,
-    categoria: this.state.categoria,
-    nombre: this.state.nombre,
-    fecha_compra: this.state.fecha_compra,
-    valor: this.state.valor,
-    dias_garantia: this.state.dias_garantia,
-    fecha_fin_garantia: this.state.fecha_fin_garantia,
-    manual: this.state.manual,
-    dias_frec_mant_preventivo: this.state.dias_frec_mant_preventivo,
-    estado: this.state.estado,
-    area: this.state.area,
-    observacion: this.state.observacion,
-    }; 
-  this.props.addAsset(newAsset, this.props.history); 
-}; */
   
 render() {
-    //const { classes } = this.props;
-    //const { errors } = this.state;
 
     const { step } = this.state;
     const {recinto, ubicacion, categoria, nombre, fecha_compra, valor, dias_garantia, fecha_fin_garantia,

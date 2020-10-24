@@ -34,45 +34,6 @@ const validateAssetInput = require("../../validation/assetValidator");
 const Asset = require("../../models/Asset");
 const AssetAudit = require("../../models/Audit/AssetAudit");
 
-/* router.put('/newAsset/:id', async (req, res, next) => {
-  console.log("-------------entra a routes")
-  const id = req.params.id;
-  console.log("files: ",req.files)
-  console.log("isnull: ",req.files === null)
-  if(req.files === null){
-    return res.status(400).json({ msg: 'No se cargó ninguna imagen' })
-  }
-  const file = req.files.file;
-  const manual = req.files.manual;
-
-  file.mv(`../public/uploads/${file.name}`, err => {
-    if(err) {
-      console.log("file err: ",err);
-      return res.status(500).send(err);
-    }
-  })
-  manual.mv(`../public/uploads/documents/${manual.name}`, err => {
-    if(err) {
-      console.log("manu err: ",err);
-      return res.status(500).send(err);
-    }
-  })
-  try {
-    const update = {
-      imagen : `/uploads/${file.name}`,
-      manual : `/uploads/documents/${manual.name}`
-    }
-    console.log("update: ",update)
-    let asset = await Asset.findByIdAndUpdate(id, update)
-    res.status(200).json({
-      data: asset,
-      message: "Ha actualizado el activo"
-    })
-  } catch (error) {
-    next(error)
-  }
-}) */
-
 router.get("/assets", async (req,res) => {
     const assets = await Asset.find({});
     res.status(200).json({
@@ -184,7 +145,6 @@ router.post("/newAsset", async (req, res) => {
 
 router.put("/updateAsset/:id", async (req, res, next) => {
   const id = req.params.id
-  console.log(id)
   const update = req.body
   const auditinfo = {user_id: req.body.user_id, user_name: req.body.user_name};
   let helper=null;

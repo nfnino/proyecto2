@@ -38,4 +38,16 @@ router.post("/newVenue", async (req, res) => {
         })
     })
 
+router.delete("/delete/:id", async (req, res) => {
+    const id = req.params.id;
+    console.log(id)
+    try {
+        Venue.findByIdAndDelete(id)
+        .then(venue => res.json(venue))
+    } catch(e) {
+        console.log("Error")
+        return res.status(400).json({ error: "No se logró borrar el recinto" });
+    }
+})
+
 module.exports = router;

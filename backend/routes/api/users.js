@@ -25,10 +25,12 @@ router.post("/register", (req, res) => {
       if (user) {
         return res.status(400).json({ email: "Email already exists" });
       } else {
+        const c = req.body.email+""
+        const correo = c.toLowerCase();
         const newUser = new User({
           name: req.body.name,
           documento: req.body.documento,
-          email: req.body.email,
+          email: correo,
           password: req.body.password,
           role: req.body.role,
           area: req.body.area,
@@ -62,7 +64,8 @@ router.post("/login", (req, res) => {
     if (!isValid) {
       return res.status(400).json(errors);
     }
-    const email = req.body.email;
+    const c = req.body.email+"";
+    const email = c.toLowerCase();
     const password = req.body.password;
   // Find user by email
     User.findOne({ email }).then(user => {

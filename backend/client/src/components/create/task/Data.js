@@ -203,8 +203,7 @@ return (
   <div>
     <Card container className={classes.root} variant="outlined">
           <Link to="/tasks" className="btn-flat waves-effect">
-              <i className="material-icons left">keyboard_backspace</i> Back to
-              tasks
+              <i className="material-icons left">keyboard_backspace</i> Regresar
           </Link>
           <CardContent align="center">
               <Typography variant="h4" gutterBottom>Nueva tarea :</Typography>

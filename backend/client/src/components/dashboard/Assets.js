@@ -47,16 +47,6 @@ class Assets extends Component {
         history.push(`/assets/${id}`);
     }
 
-    /* onImageClick = id => {
-        const { history } = this.props;
-        if(this.props.auth.user.role === "Contador") {
-            history.push(`/assetImage/${id}`);
-        } else {
-            this.handleClickOpen()
-            history.push("/assets")
-        }
-    } */
-
     onDeleteClick = id => {
         const { history } = this.props;
         const elRol = this.props.auth.user.role;
@@ -134,6 +124,18 @@ class Assets extends Component {
                     title="Activos"
                     columns={this.state.columns}
                     data={assetItems}
+                    localization={{
+                        header: {
+                            actions: 'Acciones'
+                        },
+                        body: {
+                            emptyDataSourceMessage: 'No hay registros para mostrar',
+                            filterRow: 'Filtrar'
+                        },
+                        pagination: {
+                            labelRowsSelect: 'filas'
+                        }
+                    }}
                     options={{
                         exportButton:true,
                         headerStyle: {
