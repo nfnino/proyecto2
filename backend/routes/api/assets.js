@@ -95,7 +95,7 @@ router.post("/newAsset", async (req, res) => {
           area: req.body.area,
           activo_reemp: req.body.activo_reemp}
 
-        let nom = nuevo.nombre.replace(/\s+/g, '_');
+        let nom = nuevo.nombre.replace(/[-\s+]/g, '_');
         nom = nom.replace(/[áéíóúÁÉÍÓÚ]+/g,'o')
         nom = nom.replace(/[ñÑ]+/g,'n')
 
