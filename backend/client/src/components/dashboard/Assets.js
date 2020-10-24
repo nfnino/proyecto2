@@ -138,13 +138,15 @@ class Assets extends Component {
                     }}
                     options={{
                         exportButton:true,
+                        search: false,
                         headerStyle: {
                             color: '#00A9E0',
                             fontSize: 16
                         },
                         rowStyle: {
                             fontSize: 16,
-                          }
+                        },
+                        filtering: true
                     }}
                     actions={[
                         {

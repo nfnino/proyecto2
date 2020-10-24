@@ -155,7 +155,7 @@ render() {
 //------------------------------ Activos dropdown ---------------------------------------
 let options = []
 
-if( assets.length !== 0) {
+if( assets != null && assets.length !== 0) {
 
   let activos = Object.values(assets.data)
 

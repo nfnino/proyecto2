@@ -6,10 +6,9 @@ import { connect } from "react-redux";
 import { getUsers } from "../../../actions/userActions";
 import { addLocal } from "../../../actions/routines/localActions";
 
-import { TextField, Typography, Grid, Button } from "@material-ui/core";
+import { Typography, Grid, Button } from "@material-ui/core";
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
-import Autocomplete from '@material-ui/lab/Autocomplete';
 
 import { withStyles } from '@material-ui/core/styles';
 

@@ -25,6 +25,7 @@ class Tasks extends Component {
             columns: [
                 {title: 'Activo', field: 'activo'},
                 {title: 'Tipo', field: 'tipo'},
+                {title: 'Responsable', field:'responsable'},
                 {title: 'Supervisor', field: 'supervisor'},
                 {title: 'Ejecutor', field: 'ejecutor'},
                 {title: 'Fecha Inicio', field: 'fecha_in'},
@@ -88,9 +89,10 @@ class Tasks extends Component {
         const tasks = res.data;
         const taskItems = [];
 
-        function createData(id, activo, tipo, supervisor, ejecutor, fecha_in, fecha_fi, fecha_fin_real) {
+        function createData(id, activo, tipo, responsable, supervisor, ejecutor, fecha_in, fecha_fi, fecha_fin_real) {
             let array = {"activo": activo,
                         "tipo": tipo, 
+                        "responsable": responsable,
                         "supervisor": supervisor, 
                         "ejecutor": ejecutor,
                         "fecha_in": fecha_in, 
@@ -133,8 +135,8 @@ class Tasks extends Component {
                 d3 = d_real.toLocaleDateString() + " - " + d_real.getHours() + ":" + d3_mins;
             }
 
-            createData(element._id, element.activo, element.tipo_mant, element.supervisor,
-                    element.ejecutor_interno, d1, d2, d3
+            createData(element._id, element.activo, element.tipo_mant, element.responsable, 
+                       element.supervisor, element.ejecutor_interno, d1, d2, d3
             )
         });
 
@@ -162,7 +164,7 @@ class Tasks extends Component {
                 </Dialog>
                 <Grid container alignItems="center" direction="column" spacing={2}>
                     <Grid item xs={12}>
-                        <MaterialTable
+                        <MaterialTable 
                         title="Actividades"
                         columns={this.state.columns}
                         data={taskItems}
@@ -186,7 +188,10 @@ class Tasks extends Component {
                             },
                             rowStyle: {
                                 fontSize: 16,
-                            }
+                            },
+                            overflowY: 'scroll',
+                            search: false,
+                            filtering: true
                         }}
                         actions={[
                         {

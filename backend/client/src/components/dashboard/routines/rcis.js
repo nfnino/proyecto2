@@ -116,7 +116,9 @@ class rcis extends Component {
                                     },
                                     rowStyle: {
                                         fontSize: 16,
-                                    }
+                                    },
+                                    search: false,
+                                    filtering: true
                                 }}
                                 actions={[
                                     {

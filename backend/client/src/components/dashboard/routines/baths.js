@@ -104,7 +104,9 @@ class Baths extends Component {
                                     },
                                     rowStyle: {
                                         fontSize: 16,
-                                    }
+                                    },
+                                    search: false,
+                                    filtering: true
                                 }}
                                 localization={{
                                     header: {
